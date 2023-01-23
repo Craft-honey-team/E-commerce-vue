@@ -7,8 +7,8 @@ module.exports = {
   important: true,
   theme: {
   	
-    extend: {
-    
+    extend: { 
+         
     	transitionProperty: {
     	
     		'height': 'height'
