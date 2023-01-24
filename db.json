@@ -1,191 +1,57 @@
 {
-  "questions": [
-    {
-      "id": 1,
-      "question": "Какой псевдокласс сработает при установке курсора в текстовое поле?",
-      "variants": [
-        ":visited",
-        ":focus",
-        ":not(:disabled)",
-        ":active",
-        ":hover"
-      ]
-    },
-    {
-      "id": 2,
-      "question": "Что в CSS определяет свойство \"font-style\"?",
-      "variants": [
-        "Толщину шрифта",
-        "Размер шрифта",
-        "Начертание шрифта",
-        "Шрифт текста"
-      ]
-    },
-    {
-      "id": 3,
-      "question": "С помощью какого свойства можно скрыть элемент, но сохранить место, которое он занимает?",
-      "variants": [
-        "visibility",
-        "display",
-        "hide",
-        "none"
-      ]
-    },
-    {
-      "id": 4,
-      "question": "Какое свойство используется для отображения рисунка в виде рамки вокруг элемента?",
-      "variants": [
-        "border-style",
-        "border-back",
-        "border-background",
-        "border-image"
-      ]
-    },
-    {
-      "id": 5,
-      "question": "Укажите селектор псевдокласса:",
-      "variants": [
-        ":active",
-        ".active",
-        "active",
-        "*"
-      ]
-    },
-    {
-      "id": 6,
-      "question": "Если задавать значения padding и margin процентами, то это будут проценты относительно",
-      "variants": [
-        "ширины body",
-        "высоты body",
-        "ширины родителя",
-        "высоты родителя"
-      ]
-    },
-    {
-      "id": 7,
-      "question": "Если задать height в процентах, то они будут рассчитаны относительно",
-      "variants": [
-        "ширины body",
-        "высоты body",
-        "высоты родительского блока",
-        "ширины родительского блока"
-      ]
-    },
-    {
-      "id": 8,
-      "question": "С помощью какого свойства можно применять визуальные эффекты к содержимому за элементом?",
-      "variants": [
-        "filter",
-        "back-filter",
-        "backdrop-filter",
-        "background-filter"
-      ]
-    },
-    {
-      "id": 9,
-      "question": "Какой тег определяет блок сбоку от контента для размещения рубрик, ссылок на архив, меток и другой информации?",
-      "variants": [
-        "<main>",
-        "<header>",
-        "<aside>",
-        "<main>"
-      ]
-    },
-    {
-      "id": 10,
-      "question": "Какой единицы измерения нет в CSS?",
-      "variants": [
-        "rem",
-        "px",
-        "cm",
-        "em",
-        "Все перечисленные существуют"
-      ]
-    },
-    {
-      "id": 11,
-      "question": "В чем отличие между локальной и глобальной переменной?",
-      "variants": [
-        "отличий нет",
-        "локальные видны повсюду, глобальные только в функциях",
-        "глобальные можно переопределять, локальные нельзя",
-        "локальные можно переопределять, глобальные нельзя",
-        "глобальные видны повсюду, локальные только в функциях"
-      ]
-    },
-    {
-      "id": 12,
-      "question": "Какая переменная записана неверно?",
-      "variants": [
-        "var num = 'STRING';",
-        "var isDone = 0;",
-        "var b = false;",
-        "var number = 12,5;"
-      ]
-    },
-    {
-      "id": 13,
-      "question": "Как объявить функцию в JavaScript?",
-      "variants": [
-        "function:MyFunction()",
-        "function MyFunction()",
-        "function = MyFunction()",
-        "function = New MyFunction()"
-      ]
-    }
-  ],
-  "answers": [
-    {
-      "id": 1,
-      "answer": ":focus"
-    },
-    {
-      "id": 2,
-      "answer": "Начертание шрифта"
-    },
-    {
-      "id": 3,
-      "answer": "visibility"
-    },
-    {
-      "id": 4,
-      "answer": "border-image"
-    },
-    {
-      "id": 5,
-      "answer": ":active"
-    },
-    {
-      "id": 6,
-      "answer": "ширины родителя"
-    },
-    {
-      "id": 7,
-      "answer": "высоты родительского блока"
-    },
-    {
-      "id": 8,
-      "answer": "backdrop-filter"
-    },
-    {
-      "id": 9,
-      "answer": "<aside>"
-    },
-    {
-      "id": 10,
-      "answer": "Все перечисленные существуют"
-    },
-    {
-      "id": 11,
-      "answer": "глобальные видны повсюду, локальные только в функциях"
-    },
-    {
-      "id": 12,
-      "answer": "var number = 12,5;"
-    },
-    {
-      "id": 13,
-      "answer": "function MyFunction()"
-    }
-  ]
+  "products": [
+  		
+  		{
+  			"id": 1,
+  			"name": "med1",
+  			"image": "https://tea.ua/upload/blog/1221/2112/honey/2.png"
+  		},
+  		{
+  			"id": 2,
+  			"name": "med2",
+  			"image": "https://tea.ua/upload/blog/1221/2112/honey/2.png"
+  		},
+  		
+  		{
+  			"id": 3,
+  			"name": "med3",
+  			"image": "https://tea.ua/upload/blog/1221/2112/honey/2.png"
+  		},
+  		{
+  			"id": 4,
+  			"name": "med4",
+  			"image": "https://tea.ua/upload/blog/1221/2112/honey/2.png"
+  		},
+  		{
+  			"id": 5,
+  			"name": "med5",
+  			"image": "https://tea.ua/upload/blog/1221/2112/honey/2.png"
+  		},
+  		{
+  			"id": 6,
+  			"name": "med6",
+  			"image": "https://tea.ua/upload/blog/1221/2112/honey/2.png"
+  		},
+  		{
+  			"id": 7,
+  			"name": "med7",
+  			"image": "https://tea.ua/upload/blog/1221/2112/honey/2.png"
+  		},
+  		{
+  			"id": 8,
+  			"name": "med8",
+  			"image": "https://tea.ua/upload/blog/1221/2112/honey/2.png"
+  		},
+  		{
+  			"id": 9,
+  			"name": "med9",
+  			"image": "https://tea.ua/upload/blog/1221/2112/honey/2.png"
+  		},
+  		{
+  			"id": 10,
+  			"name": "med10",
+  			"image": "https://tea.ua/upload/blog/1221/2112/honey/2.png"
+  		}
+  		
+    ]
 }
