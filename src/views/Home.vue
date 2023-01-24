@@ -14,7 +14,7 @@
           <button class="bg-gray-800 text-white w-40 h-12 rounded-md mt-28 ">Контакты</button>
         </div>
 
-      </div>
+      </div>1
     </div>
   </div>
 
