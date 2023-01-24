@@ -1,5 +1,5 @@
 <template>
-sdgs
+home
 </template>
 
 <script>
