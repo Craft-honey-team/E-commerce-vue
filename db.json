@@ -53,5 +53,23 @@
   			"image": "https://tea.ua/upload/blog/1221/2112/honey/2.png"
   		}
   		
+    ],
+    "users": [
+    
+    	{
+    	
+    		"id": 1,
+    		"email": "user1@gmail.com",
+    		"password": "123"
+    	
+    	},
+    	{
+    	
+    		"id": 2,
+    		"email": "anotheruser@gmail.com",
+    		"password": "321"
+    	
+    	}
+    
     ]
 }
