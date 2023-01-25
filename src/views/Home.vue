@@ -10,7 +10,7 @@
         <img class=" w-96 h-96" src="/src/assets/Ellipse 9.svg" />
         <div class="grid grid-cols-2    ">
           <button class="bg-gray-800 w-40 text-white h-12 rounded-md">ааxsа</button>
-          <button class="bg-gray-800 text-white w-40 h-12 rounded-md ">Контакты</button>
+          <Contacts  buttonName="Контакты"/>
         </div></div>
     
         
@@ -24,6 +24,13 @@
 </template>
 
 <script>
+import Contacts from '../components/Contacts.vue'
+export default {
+   components: {Contacts},
+
+   
+   
+}
 
 
 </script>
