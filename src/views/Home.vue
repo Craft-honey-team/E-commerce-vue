@@ -1,5 +1,13 @@
 <template>
-  <div class="justify-center flex ">
+<Layout>
+<div @mousemove = "check" class = "absolute left-0 right-0 top-0 bottom-0 overflow-hidden">
+  <img :style = "{'transform': `translate(${xPos/10}px, ${yPos/10}px)` }" class = "max-w-none w-[120%] h-[56%] absolute left-[-10%] top-[-10%] -z-10" src="../assets/paralax1.png" />
+  <img :style = "{'transform': `translate(${xPos/13}px, ${yPos/13}px)` }" class = "max-w-none w-[120%] h-[50%] absolute left-[-10%] top-0 -z-10" src="../assets/paralax2.png" />
+  <img :style = "{'transform': `translate(${xPos/24}px, ${yPos/24}px)` }" class = "max-w-none w-[30%] absolute left-[90px] bottom-[20px] z-5" src="../assets/paralax3a.png" />
+  <img :style = "{'transform': `translate(${xPos/24}px, ${yPos/24}px)` }" class = "max-w-none w-[40%] absolute left-[38%] bottom-[-60px] -z-5" src="../assets/paralax3b.png" />
+  <img :style = "{'transform': `translate(${xPos/18}px, ${yPos/20}px)` }" class = "max-w-none w-[120%] h-[70%] absolute left-[-10%] bottom-[-4%] -z-10" src="../assets/paralax5.png" />
+  <!--
+  <div class="justify-center flex">
     <div class="bg-amber-500 mt-20  w-10/12 h-4/5">
       <div class="rounded-full justify-center flex">
         <div class="grid grid-col-2 gap-[10px]">
@@ -18,12 +26,45 @@
       </div>
     </div>
   </div>
-
-
+  -->
+</div>
+</Layout>
 
 </template>
 
 <script>
+import Layout from '@/layouts/Layout.vue'
 
+export default {
+
+	data() {
+	
+		return {
+		
+			xPos: 0,
+			yPos: 0
+		
+		}
+	
+	},
+
+	components: {
+	
+		Layout
+	
+	},
+	
+	methods: {
+	
+		check(event) {
+		
+			this.xPos = (event.clientX - window.innerWidth / 2);
+     		this.yPos = (event.clientY - window.innerHeight / 2);
+		
+		}
+	
+	}
+
+}
 
 </script>
