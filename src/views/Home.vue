@@ -14,7 +14,7 @@
         <div class="grid grid-col-2 gap-[10px]">
           <div class=" grid grid-cols-2  ">
           <button class="bg-gray-800 w-40 text-white h-12 rounded-md">Каталог</button>
-          <router-link to="/about" class=" bg-gray-800 w-40 text-white h-12 rounded-md">о нас</router-link>
+          <router-link to="/about" class="flex items-center justify-center bg-gray-800 w-40 text-white h-12 rounded-md">О нас</router-link>
         </div>
         <div class="grid grid-cols-2    ">
           <button class="bg-gray-800 w-40 text-white h-12 rounded-md">ааxsа</button>
