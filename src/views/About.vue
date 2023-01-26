@@ -3,7 +3,7 @@
 <Layout>
   <div class="justify-center items-center flex">
     <div class=" w-full absolute h-full top-0 bottom-0 -z-10 bg-[url('bg-about.jpg')] bg-cover"></div>
-    <div class=" bg-yellow-200 p-[15px] border opacity-70 w-[49%] text-[17px] h-[100%] leading-[190%]">
+    <div class=" bg-yellow-300 p-[15px] border w-[49%] text-[17px] h-[100%] leading-[190%]">
       <strong class="justify-center items-center flex mb-[13px] text-[40px]">О нас</strong>
       <p> <strong> Мы рады приветствовать вас на нашем семейном производстве экологически чистых продуктов Craft Honey!
         </strong> <br>

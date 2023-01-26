@@ -1,11 +1,12 @@
 <template>
-
+<div class = "relative mx-[20px]">
 	<Layout>
 
+		<p class = "text-[40px]">Каталог</p>
     	<ProductList />        
     
     </Layout>
-    
+</div>
 </template>
 
 
