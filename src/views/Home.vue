@@ -17,10 +17,9 @@
         </div>
         <div class="grid grid-cols-2    ">
           <button class="bg-gray-800 w-40 text-white h-12 rounded-md">ааxsа</button>
-          <button class="bg-gray-800 text-white w-40 h-12 rounded-md ">Контакты</button>
-        </div></div>
-    
-        
+          <Contacts  buttonName="Контакты"/>
+        </div>
+        </div>
        
       </div>
     </div>
@@ -33,6 +32,7 @@
 
 <script>
 import Layout from '@/layouts/Layout.vue'
+import Contacts from '@/components/Contacts.vue'
 
 export default {
 
@@ -49,7 +49,8 @@ export default {
 
 	components: {
 	
-		Layout
+		Layout,
+		Contacts
 	
 	},
 	
