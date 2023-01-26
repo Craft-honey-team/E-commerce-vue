@@ -1,4 +1,5 @@
 <template>
+
 <Layout>
 <div @mousemove = "check" class = "absolute left-0 right-0 top-0 bottom-0 overflow-hidden">
   <img :style = "{'transform': `translate(${xPos/10}px, ${yPos/10}px)` }" class = "select-none max-w-none w-[120%] h-[56%] absolute left-[-10%] top-[-10%] -z-10" src="../assets/paralax1.png" />
@@ -13,7 +14,7 @@
         <div class="grid grid-col-2 gap-[10px]">
           <div class=" grid grid-cols-2  ">
           <button class="bg-gray-800 w-40 text-white h-12 rounded-md">Каталог</button>
-          <button class="bg-gray-800 w-40 text-white h-12 rounded-md">о нас</button>
+          <router-link to="/about" class=" bg-gray-800 w-40 text-white h-12 rounded-md">о нас</router-link>
         </div>
         <div class="grid grid-cols-2    ">
           <button class="bg-gray-800 w-40 text-white h-12 rounded-md">ааxsа</button>
@@ -27,6 +28,7 @@
  
 </div>
 </Layout>
+
 
 </template>
 

@@ -13,15 +13,10 @@ const router = createRouter({
       component: Home
     },
     {
-      path: '/Layout',
-      name: 'Layout',
-      component: Layout
-    },
-    {
-      path: '/Contacts',
-      name: 'Contacts',
-      component: Contacts
-    },
+      path: '/about',
+      name: 'About',
+      component: () => import('../views/About.vue')
+    }
   ]
 })
 
