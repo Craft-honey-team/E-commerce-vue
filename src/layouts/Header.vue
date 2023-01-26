@@ -14,13 +14,13 @@
       <div class="mr-[30px] mt-[3px] flex ">
          <p>Личный кабинет</p>
          <p>
-            <img class="ml-[30px] mr-[100px] mt-[3px]" src="icons/basket.svg" alt="">
+            <img class="ml-[30px] mr-[100px] mt-[3px]" src="@/assets/basket.svg" alt="">
          </p>
          <p>
-            <img class="ml-[30px] mb-[10px]" src="icons/facebook.svg" alt="">
+            <img class="ml-[30px] mb-[10px]" src="@/assets/facebook.svg" alt="">
          </p>
          <p>
-            <img class="ml-[10px] mb-[5px]" src="icons/insta.svg" alt="">
+            <img class="ml-[10px] mb-[5px]" src="@/assets/insta.svg" alt="">
          </p>
 
 
