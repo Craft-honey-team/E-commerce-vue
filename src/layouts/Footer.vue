@@ -1,5 +1,5 @@
 <template>
-   <footer class="w-full absolute bottom-3">
+   <footer class="w-full mb-3 fixed bottom-0">
       <div class="flex justify-between">
          <div class="ml-[30px]">
             Logo

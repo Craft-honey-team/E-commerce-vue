@@ -1,8 +1,10 @@
 <template>
-   <header class="mt-[20px] flex justify-between ">
-      <div class="flex justify-around ">
+   <header class="flex justify-between items-center">
+      <div class="flex justify-around items-center">
          <div class="ml-[30px]">
-            Logo
+         	<router-link to="/">
+            <img class = "w-20" src = "../assets/med4.png"/>
+            </router-link>
          </div>
          <div >
             <input class="ml-[30px] border-2 border-red-500 rounded-[12px]" type="text" placeholder="Поиск...">

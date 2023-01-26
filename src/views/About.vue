@@ -1,4 +1,6 @@
 <template>
+
+<Layout>
   <div class="justify-center items-center flex">
     <div class=" w-full absolute h-full top-0 bottom-0 -z-10 bg-[url('bg-about.jpg')] bg-cover"></div>
     <div class=" bg-yellow-200 p-[15px] border opacity-70 w-[49%] text-[17px] h-[100%] leading-[190%]">
@@ -20,5 +22,22 @@
       </p>
     </div>
   </div>
+  
+</Layout>
 
 </template>
+
+<script>
+import Layout from '@/layouts/Layout.vue'
+
+export default {
+
+	components: {
+	
+		Layout
+	
+	}
+
+}
+
+</script>

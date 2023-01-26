@@ -2,9 +2,9 @@
 
    <button @click="showContacts" class="bg-gray-800 text-white w-40 h-12 rounded-md ">{{ buttonName }}</button>
 
-   <div @click="closeModal"  v-if="contact" class="absolute   inset-0 flex justify-center bg-black bg-opacity-80"></div>
+   <div @click="closeModal"  v-if="contact" class="absolute inset-0 flex justify-center bg-black bg-opacity-80"></div>
 
-      <div v-if="contact"  class="bg-white absolute z-10 left-[36%] top-[50px] rounded-[10px] w-[100%] max-w-sm max-auto ">
+      <div v-if="contact"  class="bg-white absolute top-[20%] z-10 rounded-[10px] w-full max-w-sm">
          <div class="p-2  text-right">
             <button @click="closeModal" class="w-10 h-10 p-2 focus:outline-none text-[29px]"> <strong>X</strong> </button>
          </div>
