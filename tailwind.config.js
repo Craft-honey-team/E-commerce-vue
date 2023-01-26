@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+
+const plugin = require('tailwindcss/plugin')
 module.exports = {
   content: [
     "./index.html",
@@ -23,5 +25,15 @@ module.exports = {
     
     },
   },
-  plugins: [],
+  plugins: [
+  
+  	plugin(function({ addUtilities }) {
+      addUtilities({
+        '.drag-none': {
+          'user-drag': 'nonez',
+        },
+      })
+    })
+  
+  ],
 }
