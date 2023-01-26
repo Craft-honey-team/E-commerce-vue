@@ -1,11 +1,11 @@
 <template>
-   <footer class="bg-white w-full absolute bottom-0 z-[1] px-20">
+   <footer class="w-full absolute bottom-0 z-[1] px-20">
       <div class="flex justify-between items-center my-[10px]">
          <div class="ml-[30px]">
-            <img class = "w-20" src = "../assets/med5.png"/>
+            <img class = "w-20" src = "@/assets/med2.png"/>
          </div>
          <div class="mr-[30px]">
-            <button>Обратная связь</button>
+            <button><span class = "text-[20px] underline">Обратная связь</span><img class = "inline pl-4" src = "@/assets/call.png"></button>
          </div>
 
       </div>

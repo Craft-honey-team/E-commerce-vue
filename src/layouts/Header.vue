@@ -1,27 +1,25 @@
 <template>
-   <header class="bg-white flex justify-between items-center px-20 py-2">
-      <div class="flex justify-around items-center">
+   <header class="grid grid-cols-4 items-center px-20 py-2 relative z-[1] max-[800px]:grid-cols-3">
+    
          <div class="ml-[30px]">
-         	<router-link to="/">
-            <img class = "w-20" src = "../assets/med5.png"/>
+         	<router-link class = "w-fit" to="/">
+            <img class = "w-20" src = "../assets/med2.png"/>
             </router-link>
          </div>
-         <div >
-            <input class="ml-[30px] border-2 h-[40px] rounded-[4px] px-4" type="text" placeholder="Поиск...">
+         <div class = "">
+            <input class="border-2 w-[90%] h-[40px] rounded-[4px] px-4" type="text" placeholder="Поиск...">
          </div>
-      </div>
 
-      <div class="mr-[30px] mt-[3px] flex ">
-         <p>Личный кабинет</p>
-         <p>
-            <img class="ml-[30px] mr-[100px] mt-[3px] max-[800px]:hidden" src="@/assets/basket.svg" alt="">
-         </p>
-         <p>
-            <img class="ml-[30px] mb-[10px] max-[800px]:hidden" src="@/assets/facebook.svg" alt="">
-         </p>
-         <p>
-            <img class="ml-[10px] mb-[5px] max-[800px]:hidden" src="@/assets/insta.svg" alt="">
-         </p>
+    
+      <span class = "flex text-center justify-end"><img class = "mr-2" src = "@/assets/account_circle.png">Личный кабинет</span>
+   
+      <div class = "flex justify-end">
+            <img class="max-[800px]:hidden mr-4" src="@/assets/basket.svg" alt="">
+      
+            <img class="max-[800px]:hidden mr-4" src="@/assets/facebook.svg" alt="">
+       
+            <img class="max-[800px]:hidden mr-4" src="@/assets/insta.svg" alt="">
+      
 
 
       </div>
