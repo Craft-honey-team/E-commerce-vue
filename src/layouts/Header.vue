@@ -10,7 +10,7 @@
       </div>
 
       <div class="mr-[30px] mt-[3px] flex ">
-         <p>Личный кабинет</p>
+      <Login buttonName="LOGIN"/>
          <p>
             <img class="ml-[30px] mr-[100px] mt-[3px]" src="icons/basket.svg" alt="">
          </p>
@@ -28,5 +28,12 @@
 </template>
 
 <script>
+import Login from '@/components/Login.vue'
+export default {
+   components: {
+      Login
+   }
+
+}
    
 </script>
