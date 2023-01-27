@@ -1,5 +1,5 @@
 <template>
-   <footer class="bg-white w-full absolute bottom-0 z-[1] px-20">
+   <footer class="bg-white w-full relative bottom-0 z-[1] px-20">
       <div class="flex justify-between items-center my-[10px]">
          <div class="ml-[30px]">
             <img class = "w-20" src = "@/assets/med2.png"/>

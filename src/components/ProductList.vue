@@ -1,16 +1,16 @@
 <template>
-    <div class = "grid grid-cols-4">
-    <div v-for="(item) in DATA">
-        <div class=" mb-10 ml-10 mr-10 border-solid border-slate-400 border-[3px]">
-            <img :src="item.image">
-            <h1 class="text-3xl">{{ item.name }}</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa repellen
-              provident id! Excepturi.</p>
-              <button class=" ml-[175px] w-[120px] h-[25px] rounded-[12px] text-black bg-slate-300 ">Купить</button>
-        </div>
+    <div class="grid grid-cols-4">
+        <div v-for="(item) in DATA">
+            <div class=" mb-10 ml-10 mr-10 border-solid border-slate-400 border-[3px]">
+                <img :src="item.image">
+                <h1 class="text-3xl">{{ item.name }}</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa repellen
+                    provident id! Excepturi.</p>
+                <button class=" ml-[175px] w-[120px] h-[25px] rounded-[12px] text-black bg-slate-300 ">Купить</button>
+            </div>
 
+        </div>
     </div>
-</div>
 </template>
 
 <script>
