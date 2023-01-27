@@ -1,6 +1,6 @@
 <template>
 <Layout>
-<div @mousemove = "check" class = "absolute left-0 right-0 top-0 bottom-0 overflow-hidden">
+<div @mousemove = "check" class = "-z-10 absolute left-0 right-0 top-0 bottom-0 overflow-hidden">
   <img :style = "{'transform': `translate(${xPos/10}px, ${yPos/10}px)` }" class = "max-w-none w-[120%] h-[56%] absolute left-[-10%] top-[-10%] -z-10" src="../assets/paralax1.png" />
   <img :style = "{'transform': `translate(${xPos/13}px, ${yPos/13}px)` }" class = "max-w-none w-[120%] h-[50%] absolute left-[-10%] top-0 -z-10" src="../assets/paralax2.png" />
   <img :style = "{'transform': `translate(${xPos/24}px, ${yPos/24}px)` }" class = "max-w-none w-[30%] absolute left-[90px] bottom-[20px] z-5" src="../assets/paralax3a.png" />
