@@ -1,8 +1,11 @@
 <template>
 <div class = "relative mx-[20px]">
 	<Layout>
-
-		<p class = "text-[40px]">Каталог</p>
+          <div class="px-[2.5%]">
+            <div><p class = "text-[40px]">Каталог</p></div>
+            
+          </div>
+		
     	<ProductList />        
     
     </Layout>
