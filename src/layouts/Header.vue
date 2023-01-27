@@ -1,5 +1,5 @@
 <template>
-   <header class="grid grid-cols-4 items-center px-20 py-2 relative z-[1] max-[800px]:grid-cols-3">
+   <header class="bg-white grid grid-cols-4 items-center px-20 py-2 relative z-[1] max-[800px]:grid-cols-3">
     
          <div class="ml-[30px]">
          	<router-link class = "w-fit" to="/">
