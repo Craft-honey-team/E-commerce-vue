@@ -1,7 +1,7 @@
 <template>
 
 
-<div @touchmove = "touch" @mousemove = "check" class = "grid grid-rows-[10%_auto_10%] h-screen px-[100px]">
+<div @touchmove = "touch" @mousemove = "check" class = "grid grid-rows-[auto_80%_10%] h-[100vh] px-[100px]">
 
 <Layout>
   <div class = "relative overflow-hidden -mx-[100px]">
