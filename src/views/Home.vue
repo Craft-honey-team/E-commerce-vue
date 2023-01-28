@@ -70,8 +70,8 @@ export default {
 		},
 		touch(event) {
 		
-			this.xPos = (event.touches[0].clientX - window.innerWidth * 2);
-     		this.yPos = (event.touches[0].clientY - window.innerHeight * 2);
+			this.xPos = (event.touches[0].clientX - window.innerWidth / 2);
+     		this.yPos = (event.touches[0].clientY - window.innerHeight / 2);
 		
 		}
 	
