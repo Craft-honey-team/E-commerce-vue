@@ -1,5 +1,5 @@
 <template>
-   <header class="bg-white grid grid-cols-[50%_auto] relative z-[1]">
+   <header class="bg-white grid grid-cols-[50%_auto] my-4">
     
     	<div class = "grid grid-cols-[auto_50%] items-center">
     	
@@ -8,8 +8,14 @@
 		        <img class = "w-[70px]" src = "../assets/med2.png"/>
 		        </router-link>
 		     </div>
-		     <div class = "">
+		     <div v-if = "$route.name == 'Home'">
 		        <input class="bg-[url('@/assets/search.png')] bg-no-repeat bg-[left_16px_top_9px] indent-[40px] border-2 w-[100%] h-[40px] rounded-[4px] px-4" type="text" placeholder="Поиск по сайту">
+		     </div>
+		     <div v-if = "$route.name != 'Home'">
+		     	<router-link to = "/Products">Каталог</router-link>
+		     	<router-link to = "/about">О нас</router-link>
+		     	<router-link to = "/about">Блог</router-link>
+				<button @click = "store.modal = true">Контакты</button>
 		     </div>
 		     
     	</div>
@@ -43,5 +49,28 @@
 </template>
 
 <script>
+
+import Contacts from '@/components/Contacts.vue'
+import { useStore } from '@/stores/test'
+   
+export default {
+
+	data() {
+	
+		return {
+		
+			store: useStore()
+		
+		}
+	
+	},
+
+	components: {
+	
+		Contacts
+	
+	}
+
+}
    
 </script>

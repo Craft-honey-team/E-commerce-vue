@@ -1,8 +1,12 @@
 <template>
-<div class = "relative mx-[20px]">
-	<Layout>
 
-		<p class = "text-[40px]">Каталог</p>
+<Contacts buttonName = "Контакты"/>
+
+<div class = "px-[100px] grid grid-rows-[max-content_max-content_auto_max-content]">
+	<Layout>
+	
+        <div class = "pt-[20px] mt-[20px] mb-[40px] border-t-[3px] border-black"><p class = "text-[50px]">Каталог</p></div>
+		
     	<ProductList />        
     
     </Layout>
@@ -13,11 +17,13 @@
 <script>
 import ProductList from '@/components/ProductList.vue'
 import Layout from '@/layouts/Layout.vue'
+import Contacts from '@/components/Contacts.vue'
 export default {
     
     components: {
             ProductList,
-            Layout
+            Layout,
+            Contacts
     }
     
 

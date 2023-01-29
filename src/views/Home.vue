@@ -1,7 +1,8 @@
 <template>
 
+<Contacts buttonName="Контакты"/>
 
-<div @touchmove = "touch" @mousemove = "check" class = "grid grid-rows-[90px_auto_40px] absolute inset-0 px-[100px]">
+<div @touchmove = "touch" @mousemove = "check" class = "grid grid-rows-[max-content_auto_max-content] absolute inset-0 px-[100px]">
 
 <Layout>
   <div class = "relative overflow-hidden -mx-[100px]">
@@ -22,7 +23,7 @@
       <div class="rounded-full justify-center flex max-[800px]:pt-[10px]">
       	  <div class="grid grid-cols-2 gap-[20vw] max-[800px]:grid-cols-1 max-[800px]:gap-[10px]">
           	<button class="relative z-10 text-black bg-yellow-500 w-40 text-white h-12 rounded-md">Блог</button>
-          	<Contacts buttonName="Контакты"/>
+          	<button @click = "store.modal = true" class="relative z-10 text-black bg-yellow-500 w-40 text-white h-12 rounded-md">Контакты</button>
           </div>
       </div>
     </div>
@@ -39,6 +40,7 @@
 <script>
 import Layout from '@/layouts/Layout.vue'
 import Contacts from '@/components/Contacts.vue'
+import { useStore } from '@/stores/test'
 
 export default {
 
@@ -47,7 +49,8 @@ export default {
 		return {
 		
 			xPos: 0,
-			yPos: 0
+			yPos: 0,
+			store: useStore()
 		
 		}
 	
