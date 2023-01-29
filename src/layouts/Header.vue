@@ -5,7 +5,7 @@
     	
 		     <div>
 		     	<router-link class = "inline-block" to="/">
-		        <img class = "w-20" src = "../assets/med2.png"/>
+		        <img class = "w-[70px]" src = "../assets/med2.png"/>
 		        </router-link>
 		     </div>
 		     <div class = "">

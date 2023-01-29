@@ -21,7 +21,7 @@
       </div>
       <div class="rounded-full justify-center flex max-[800px]:pt-[10px]">
       	  <div class="grid grid-cols-2 gap-[20vw] max-[800px]:grid-cols-1 max-[800px]:gap-[10px]">
-          	<button class="relative z-10 text-black bg-yellow-500 w-40 text-white h-12 rounded-md">ааxsа</button>
+          	<button class="relative z-10 text-black bg-yellow-500 w-40 text-white h-12 rounded-md">Блог</button>
           	<Contacts buttonName="Контакты"/>
           </div>
       </div>
