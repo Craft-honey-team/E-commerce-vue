@@ -1,14 +1,14 @@
 <template>
 
 
-<div @touchmove = "touch" @mousemove = "check" class = "grid grid-rows-[auto_80%_10%] h-[100vh] px-[100px]">
+<div @touchmove = "touch" @mousemove = "check" class = "grid grid-rows-[90px_auto_40px] absolute inset-0 px-[100px]">
 
 <Layout>
   <div class = "relative overflow-hidden -mx-[100px]">
   <img :style = "{'transform': `translate(${xPos/10}px, ${yPos/10}px)` }" class = "select-none max-w-none w-[120%] h-[56%] absolute left-[-10%] top-[-10%] -z-10" src="../assets/paralax1.png" />
   <img :style = "{'transform': `translate(${xPos/13}px, ${yPos/13}px)` }" class = "select-none max-w-none w-[120%] h-[50%] absolute left-[-10%] top-0 -z-10" src="../assets/paralax2.png" />
   <img :style = "{'transform': `translate(${xPos/24}px, ${yPos/24}px)` }" class = "select-none max-w-none w-[30%] h-[56%] absolute left-[4%] bottom-[40px] z-[-9] max-[800px]:w-[40%]" src="../assets/paralax3a.png" />
-  <img :style = "{'transform': `translate(${xPos/24}px, ${yPos/24}px)` }" class = "select-none max-w-none w-[36%] h-[66%] absolute left-[40%] bottom-[-40px] z-[-9] max-[800px]:w-[50%]" src="../assets/paralax3b.png" />
+  <img :style = "{'transform': `translate(${xPos/24}px, ${yPos/24}px)` }" class = "select-none max-w-none w-[32%] h-[66%] absolute left-[40%] bottom-[-30px] z-[-9] max-[800px]:w-[50%]" src="../assets/paralax3b.png" />
   <img :style = "{'transform': `translate(${xPos/18}px, ${yPos/20}px)` }" class = "select-none max-w-none w-[120%] h-[70%] absolute left-[-10%] bottom-[-4%] -z-10 max-[800px]:w-[140%]" src="../assets/paralax9.png" />
  
   <div class="h-full justify-center flex items-center">
