@@ -11,17 +11,16 @@
                     </div>
                     <img class="rounded-[10px]" :src="item.image">
                     
-                    <div class="grid grid-cols-2">
-                        <p class = "text-[20px] self-center">Lorem ipsum dolor.</p>
+                    <div class="grid grid-cols-2 text-[20px]">
+                        <p class = "self-center">Lorem ipsum dolor.</p>
                         <div class = "grid grid-cols-1 justify-self-end">
-                        	<span class = "text-[20px]">1000c</span>
-                        	<button class="text-[20px] text-[#FF9900] ">Купить</button>
+                        	<span>1000c</span>
+                        	<button class="text-[#FF9900] ">Купить</button>
                         </div>
                     </div>
                 </div>
 
             </div>
-
         </div>
     </div>
 </template>

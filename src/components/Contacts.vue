@@ -1,5 +1,6 @@
 <template>
 
+
 	<div @click="store.modal = false"  v-if="store.modal" class="absolute z-[11] inset-0 flex justify-center bg-black bg-opacity-80"></div>   
 	<div v-if="store.modal" class = "absolute inset-0 flex justify-center items-center">
 	   <div class="bg-white z-[11] w-full w-[40%] rounded-[10px]">
@@ -18,8 +19,8 @@
 		        <button class="border-black border-2 border-solid rounded-[5px] mb-5 px-2">Отправить сообщение</button>
 		     </div>
 
-	   </div>
-	</div>
+      </div>
+   </div>
 
 </template>
 
