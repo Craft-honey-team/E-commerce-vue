@@ -2,10 +2,10 @@
 
 <Contacts buttonName="Контакты"/>
 
-<div @touchmove = "touch" @mousemove = "check" class = "absolute inset-0 overflow-hidden">
+<div @touchmove = "touch" @mousemove = "check">
 
 
-<Layout class = "absolute inset-0 overflow-hidden">
+<Layout>
   <div class = "relative overflow-hidden -mx-[100px]">
   <img :style = "{'transform': `translate(${xPos/10}px, ${yPos/10}px)` }" class = "select-none max-w-none w-[120%] h-[56%] absolute left-[-10%] top-[-10%] -z-10" src="../assets/paralax1.png" />
   <img :style = "{'transform': `translate(${xPos/13}px, ${yPos/13}px)` }" class = "select-none max-w-none w-[120%] h-[50%] absolute left-[-10%] top-0 -z-10" src="../assets/paralax2.png" />
