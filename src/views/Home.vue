@@ -2,7 +2,7 @@
 
 <Contacts buttonName="Контакты"/>
 
-<div @touchmove = "touch" @mousemove = "check">
+<div @touchmove = "touch" @mousemove = "check" class = "absolute inset-0 overflow-hidden px-[5%] min-h-screen grid grid-rows-[max-content_auto_max-content] max-[800px]:px-[2%]">
 
 
 <Layout>

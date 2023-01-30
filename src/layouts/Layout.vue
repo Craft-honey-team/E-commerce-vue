@@ -1,10 +1,10 @@
 <template>
 
-<div :class = "{'absolute inset-0 overflow-hidden': $route.name == 'Home'}" class = "px-[5%] min-h-screen grid grid-rows-[max-content_auto_max-content] max-[800px]:px-[2%]">
+
 <Header />
 <slot />
 <Footer />
-</div>
+
 
 </template>
 
