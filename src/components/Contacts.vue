@@ -1,8 +1,9 @@
 <template>
 
 
-	<div @click="store.modal = false"  v-if="store.modal" class="absolute z-[11] inset-0 flex justify-center bg-black bg-opacity-80"></div>   
-	<div v-if="store.modal" class = "absolute inset-0 flex justify-center items-center">
+	
+	<div v-if="store.modal" class = "fixed inset-0 flex justify-center items-center">
+	<div @click="store.modal = false"  v-if="store.modal" class="fixed z-[1] inset-0 flex justify-center bg-black bg-opacity-80"></div>   
 	   <div class="bg-white z-[11] w-full w-[40%] rounded-[10px]">
 	   
 		     <div class="p-2  text-right">
