@@ -13,7 +13,7 @@
          <div class="flex overflow-hidden  ">
             <div class="mr-[]">
                <div class="">
-                  <h2 class="text-5xl mb-[20px]"><strong>Контакты</strong></h2>
+                  <h2 class="text-5xl mb-[20px] font-roboto"><strong>Контакты</strong></h2>
                </div>
                <p class="text-3xl mb-[5px] font-semibold font-roboto ">Адрес:</p>
                <p class="text-2xl font-roboto">770033, Кыргызстан</p>
