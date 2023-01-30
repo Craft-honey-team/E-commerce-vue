@@ -14,13 +14,13 @@
     <div>
       <div class="rounded-full justify-center flex pt-[10vh]">
           <div class=" grid grid-cols-2  gap-[40vw] max-[800px]:grid-cols-1 max-[800px]:gap-[10px]">
-          	<router-link to="/Products" class="relative z-10 text-black flex items-center justify-center bg-yellow-500 w-40 text-white h-12 rounded-md">Каталог</router-link>
-          	<router-link to="/about" class="relative z-10 text-black flex items-center justify-center bg-yellow-500 w-40 text-white h-12 rounded-md">О нас</router-link>
+          	<router-link to="/Products" class="relative z-10  flex items-center justify-center bg-yellow-500 w-40 text-white h-12 rounded-md">Каталог</router-link>
+          	<router-link to="/about" class="relative z-10  flex items-center justify-center bg-yellow-500 w-40 text-white h-12 rounded-md">О нас</router-link>
           </div>
       </div>
       <div class="rounded-full justify-center flex pt-40 max-[800px]:pt-[10px]">
       	  <div class="grid grid-cols-2 gap-[20vw] max-[800px]:grid-cols-1 max-[800px]:gap-[10px]">
-          	<button class="relative z-10 text-black bg-yellow-500 w-40 text-white h-12 rounded-md">ааxsа</button>
+          	<router-link to="/Blog" class="relative z-10  flex items-center justify-center bg-yellow-500 w-40 text-white h-12 rounded-md">Блог</router-link>
           	<Contacts buttonName="Контакты"/>
           </div>
       </div>
