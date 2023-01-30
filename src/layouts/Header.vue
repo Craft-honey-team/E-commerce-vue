@@ -1,11 +1,11 @@
 <template>
-   <header class="bg-white grid grid-cols-[50%_auto] my-4">
+   <header class="bg-white grid grid-cols-[50%_auto] my-[1vh]">
     
     	<div class = "grid grid-cols-[auto_50%] items-center">
     	
-		     <div>
+		     <div class = "flex">
 		     	<router-link class = "inline-block" to="/">
-		        <img class = "w-[70px]" src = "../assets/med2.png"/>
+		        <img class = "self-center w-[60px]" src = "../assets/med2.png"/>
 		        </router-link>
 		     </div>
 		     <div v-if = "$route.name == 'Home'">

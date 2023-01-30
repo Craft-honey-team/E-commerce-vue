@@ -2,7 +2,7 @@
 
 <Contacts buttonName = "Контакты"/>
 
-<div class = "px-[100px] grid grid-rows-[max-content_max-content_auto_max-content]">
+<div class = "px-[100px] grid grid-rows-[max-content_max-content_auto_max-content] min-h-screen">
 	<Layout>
 	
         <div class = "pt-[20px] mt-[20px] mb-[40px] border-t-[3px] border-black"><p class = "text-[50px]">Каталог</p></div>
