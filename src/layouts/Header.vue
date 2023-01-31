@@ -1,4 +1,5 @@
 <template>
+
    <header class="bg-white grid grid-cols-[50%_auto] my-[1vh] max-[800px]:grid-cols-1">
     
     	<div class = "grid grid-cols-[auto_50%] items-center max-[400px]:grid-cols-[54%_auto]">
@@ -45,12 +46,14 @@
 			  		</div>
 
 
+
 			  </div>
 		</div>
    </header>
 </template>
 
 <script>
+
 
 import Contacts from '@/components/Contacts.vue'
 import { useStore } from '@/stores/test'
