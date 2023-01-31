@@ -28,7 +28,29 @@
 <script>
 export default {
     data: () => ({
-        DATA: null
+        DATA: [
+  		
+  		{
+  			"id": 1,
+  			"name": "med1",
+  			"image": "https://tea.ua/upload/blog/1221/2112/honey/2.png"
+  		},
+  		{
+  			"id": 2,
+  			"name": "med2",
+  			"image": "https://tea.ua/upload/blog/1221/2112/honey/2.png"
+  		},
+  		
+  		{
+  			"id": 3,
+  			"name": "med3",
+  			"image": "https://tea.ua/upload/blog/1221/2112/honey/2.png"
+  		},
+  		{
+  			"id": 4,
+  			"name": "med4",
+  			"image": "https://tea.ua/upload/blog/1221/2112/honey/2.png"
+  		}]
     }),
     methods: {
         async getdata() {
@@ -39,7 +61,7 @@ export default {
         },
     },
     mounted() {
-        this.getdata()
+        //this.getdata()
     }
 }
 </script>
