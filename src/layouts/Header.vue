@@ -46,14 +46,12 @@
 			  		</div>
 
 
-
 			  </div>
 		</div>
    </header>
 </template>
 
 <script>
-
 
 import Contacts from '@/components/Contacts.vue'
 import { useStore } from '@/stores/test'
