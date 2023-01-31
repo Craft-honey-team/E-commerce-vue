@@ -16,6 +16,7 @@
   <div class="h-full justify-center flex items-center">
     <div class = "grid gap-[10vh] [&_*]:text-white">
       <div class="rounded-full justify-center flex">
+
           <div class=" grid grid-cols-2 gap-[40vw] max-[800px]:grid-cols-1 max-[800px]:gap-[10px]">
           	<router-link to="/Products" class="relative z-10 flex items-center justify-center bg-yellow-500 w-40 h-12 rounded-md">Каталог</router-link>
           	<router-link to="/about" class="relative z-10 flex items-center justify-center bg-yellow-500 w-40 h-12 rounded-md">О нас</router-link>

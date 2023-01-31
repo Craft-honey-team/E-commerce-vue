@@ -1,6 +1,6 @@
 <template>
 
-<div :class = "$route.name == 'Home' ? 'absolute inset-0 overflow-hidden' : 'min-h-screen'" class = "px-[5%] grid grid-rows-[min-content_auto_min-content] max-[800px]:px-[2%]">
+<div :class = "$route.name == 'Home' ? 'absolute inset-0 overflow-hidden' : 'min-h-screen'" class = "px-[5%] grid grid-rows-[min-content_auto_min-content] max-w-screen max-[800px]:px-[2%]">
 <Header />
 <slot />
 <Footer />
