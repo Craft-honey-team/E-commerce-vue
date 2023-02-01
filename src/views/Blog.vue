@@ -9,8 +9,8 @@
         </div>
 
     <div class=" ">
-        <div class="flex justify-around mb-[10%]">
-            <div class="w-[40%]">
+        <div class="flex justify-around mb-[10%]  max-[950px]:flex-col-reverse">
+            <div class="w-[40%] max-[950px]:w-[100%] max-[950px]:py-[100px]">
                 <h2 class="text-[30px]">Интересные факты про мед</h2>
                 <p class="text-[20px]"> Мед — очень полезный продукт питания. Настоящий мед делают только пчелы.
                     Благодаря большому
@@ -26,14 +26,14 @@
                     Для изготовления литра меда пчелы собирают 2,5 литра нектара.
                     Испанцы добавляют мед к искусственному питанию детей, болеющих желтухой или болезнями крови.</p>
             </div>
-            <div>
-                <img src="/src/assets/Rectangle2.png">
+            <div class="max-[1000px]:w-[400px] max-[950px]:w-[100%]">
+                <img class="max-[950px]:w-[100%] max-[570px]:h-[300px]" src="/src/assets/Rectangle2.png">
             </div>
         </div>
 
 
-        <div class="flex justify-around">
-            <div class="w-[40%]">
+        <div class="flex justify-around max-[950px]:flex-col-reverse">
+            <div class="w-[40%] max-[950px]:w-[100%] max-[950px]:py-[100px]">
                 <h2 class="text-[35px]">Цветочный мед</h2>
                 <p class="text-[20px]"> Сложность цветочного медав том, что привести его к какой-то одной характеристике
                     по внешнему
@@ -56,8 +56,8 @@
                     приятный
                     травяной привкус.</p>
             </div>
-            <div>
-                <img src="/src/assets/Rectangle3.png">
+            <div class="max-[1000px]:w-[400px] max-[950px]:w-[100%]">
+                <img class="max-[950px]:w-[100%] max-[570px]:h-[300px]" src="/src/assets/Rectangle3.png">
             </div>
         </div>
     </div>
