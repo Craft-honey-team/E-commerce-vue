@@ -13,7 +13,7 @@
         <div
           class="rounded-xl w-440 h-650 bg-gradient-to-r p-[3px] from-[#4beb5b] via-[#f1d836cc] to-[#fcb229] mb-10 ml-10 mr-10"
         >
-          <div class="bg-white rounded-xl p-2">
+          <div class="bg-white rounded-xl p-3">
             <img class="w-[100%] rounded-[5px]" :src="item.image" />
             <div class="mb-[7%] flex justify-between text-[25px]">
               <h1>{{ item.name }}</h1>
