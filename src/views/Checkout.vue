@@ -7,24 +7,24 @@
       <hr class="w-[900px] bg-gray-700 h-[2px]">
     </div>
     
-    <div class="grid grid-cols-4">
+    <div class="grid grid-cols-4 max-[1100px]:grid-cols-2">
       
-      <div v-for="item in DATA">
+      <div   v-for="item in DATA" >
         <div
-          class="rounded-xl w-440 h-650 bg-gradient-to-r p-[3px] from-[#4beb5b] via-[#f1d836cc] to-[#fcb229] mb-10 ml-10 mr-10"
+          class="rounded-xl w-440 h-650 bg-gradient-to-r p-[3px] from-[#4beb5b] via-[#f1d836cc] to-[#fcb229] mb-10 ml-10 mr-10  "
         >
-          <div class="bg-white rounded-xl p-3">
+          <div class="bg-white rounded-xl p-3  ">
             <img class="w-[100%] rounded-[5px]" :src="item.image" />
-            <div class="mb-[7%] flex justify-between text-[25px]">
+            <div class="flex-wrap mb-[7%] flex justify-between text-[25px]">
               <h1>{{ item.name }}</h1>
               <span>1000c</span>
             </div>
-            <div class="flex justify-between">
+            <div class="">
               <p>Lorem ipsum dolor.</p>
               <button class="w-[35%] h-[25px] rounded-[12px] text-[#FF9900]">
                 Купить
               </button>
-              <button class="w-[35%] h-[25px]  rounded-[12px] text-[#FF9900]">
+              <button class="w-[35%] h-[25px] ml-[10px]  rounded-[12px] text-[#FF9900]">
                 Убрать  
               </button>
             </div>
