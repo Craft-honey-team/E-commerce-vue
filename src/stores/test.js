@@ -3,6 +3,7 @@ import { defineStore } from 'pinia'
 
 export const useStore = defineStore('store', {
   state: () => ({
-  	modal: false
+  	modal: false,
+  	feedback: false
   }),
 })

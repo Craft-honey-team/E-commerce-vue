@@ -1,11 +1,12 @@
 <template>
-   <button @click="showFeedback" class="bg-gray-800 text-white w-40 h-12 rounded-md ">{{ buttonName }}</button>
-   <div @click="closeModal" v-if="feedback" class="absolute z-5 inset-0  bg-black bg-opacity-80"></div>
+   
+   <div v-if="store.feedback" class = "fixed z-[12] inset-0 flex justify-center items-center">
+   <div @click="store.feedback = false" class="absolute z-5 inset-0  bg-black bg-opacity-80"></div>
 
-   <div v-if="feedback"
-      class="bg-gray-100 px-[60px] absolute z-10 top-[8%] left-[20%] rounded-[10px] w-[1020px] h-[640px]">
+   <div
+      class="bg-gray-100 px-[60px] absolute z-10 rounded-[10px] w-[1020px] h-[640px]">
       <div class="p-2  text-right">
-         <button @click="closeModal" class="w-10 h-10 p-2 mr-[-40px] focus:outline-none text-[29px]">
+         <button @click="store.feedback = false" class="w-10 h-10 p-2 mr-[-40px] focus:outline-none text-[29px]">
             <strong>X</strong> </button>
       </div>
       <div class="flex flex-col items-center ">
@@ -31,20 +32,24 @@
 
       </div>
    </div>
+   </div>
 
 </template>
 
 <script>
+import { useStore } from '@/stores/test'
+
 export default {
    props: {
-      buttonName: String
+      buttonName: String,
    },
    data: () => {
       return {
          feedback: false,
          inputValueName: '',
          inputValueMail: '',
-         inputValuePhone: ''
+         inputValuePhone: '',
+         store: useStore()
       }
    },
    methods: {
@@ -64,7 +69,7 @@ export default {
       }
 
    
-   },
+   }
 
 }
 

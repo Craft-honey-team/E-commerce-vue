@@ -3,7 +3,7 @@
     <div class=" grid grid-cols-4 gap-[40px]">
         <div v-for="(item) in DATA">
             <div
-                class="rounded-[14px] w-440 h-650  bg-gradient-to-bl p-[3px] from-[#FB9D01] to-[#66FC01]">
+                class="rounded-[14px] w-440 h-650 bg-gradient-to-bl p-[3px] from-[#FB9D01] to-[#66FC01]">
                 <div class="bg-white rounded-[12px] p-2 ">
                     <div class="text-[25px]">
                         <h1>{{ item.name }}</h1>

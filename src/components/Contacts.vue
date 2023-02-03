@@ -1,10 +1,6 @@
 <template>
    <div>
-      
-
-
-
-	
+      	
 	<div v-if="store.modal" class = "fixed z-[12] inset-0 flex justify-center items-center">
 	<div @click="store.modal = false"  v-if="store.modal" class="fixed z-[11] inset-0 flex justify-center bg-black bg-opacity-80"></div>   
 	   <div class="bg-white z-[11] w-full w-[70%] rounded-[10px]">
@@ -12,7 +8,7 @@
 		     <div class="p-2  text-right">
 		        <button @click="store.modal = false" class="w-10 h-10 p-2 focus:outline-none text-[29px]"> <strong>X</strong> </button>
 		     </div>
-		     <div class="grid grid-cols-2 overflow-hidden gap-[50px] mb-[40px]">
+		     <div class="grid grid-cols-2 overflow-hidden gap-[50px]">
             <div class="mr-[] justify-self-center">
                <div class="">
                   <h2 class="text-5xl mb-[20px] font-roboto"><strong>Контакты</strong></h2>
