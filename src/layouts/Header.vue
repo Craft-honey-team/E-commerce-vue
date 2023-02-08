@@ -18,7 +18,7 @@
 		     	<router-link to = "/Products">Каталог</router-link>
 		     	<router-link to = "/about">О нас</router-link>
 		     	<router-link to = "/Blog">Блог</router-link>
-				<button @click = "store.modal = true">Контакты</button>
+				<button @click = "store.modal = true, store.comp = 'Contacts', store.bg = 'bg-white'">Контакты</button>
 		     </div>
 		     
     	</div>
@@ -27,7 +27,8 @@
     	      <div class = "justify-self-end">
     	      		<div class = "flex">
 			  			<img class = "mr-4 justify-self-end self-center inline" src = "@/assets/account_circle.svg">
-			  			<span class = "justify-self-start">Личный кабинет</span>
+			  			<button @click = "store.modal = true, store.comp = 'Login', store.bg = 'bg-bee'" class = "mr-4">Вход</button>
+			  			<button @click = "store.modal = true, store.comp = 'Register', store.bg = 'bg-bee'">Регистрация</button>
 			  		</div>
 			  </div>
 		   
