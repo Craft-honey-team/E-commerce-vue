@@ -28,7 +28,6 @@
     	      		<div class = "flex">
 			  			<img class = "mr-4 justify-self-end self-center inline" src = "@/assets/account_circle.svg">
 			  			<button @click = "store.modal = true, store.comp = 'Login', store.bg = 'bg-bee'" class = "mr-4">Вход</button>
-			  			<button @click = "store.modal = true, store.comp = 'Register', store.bg = 'bg-bee'">Регистрация</button>
 			  		</div>
 			  </div>
 		   

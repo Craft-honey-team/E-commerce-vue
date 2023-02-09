@@ -10,7 +10,7 @@
             			<strong>X</strong> 
             		</button>
      			 </div>
-				<component v-bind:is="store.comp"/>
+				<component class = "mx-20 mb-10" :is="store.comp"/>
 				
 			</div>
 

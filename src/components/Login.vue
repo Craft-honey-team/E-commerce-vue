@@ -1,9 +1,11 @@
 <template>
-        <div class="mx-20" >
+        <div class="grid grid-cols-2" >
 
             <div class=" flex flex-col ">
                 <div class="mb-[20px] text-[30px] h-[45px] flex justify-center ">
-                  <h1>Вход</h1>  
+                  <span class = "bg-gray-300 rounded-[10px] px-2 text-black">Вход</span>
+                  <span class = "mx-2">|</span>
+                  <button @click = "store.comp = 'Register'" class = "bg-blue-500 rounded-[10px] px-2 text-white">Регистрация</button>  
                 </div>
                 
                 <button class="mb-[20px] border-2 flex items-center justify-center  rounded-[3px] border-none bg-[#E3EDFE] text-black h-[40px]"> <img src="/src/assets/Vector.svg"> Вход через Google
@@ -23,6 +25,7 @@
 </template>
 
 <script>
+import { useStore } from '@/stores/test'
 export default {
     props: {
         buttonName: String
@@ -32,7 +35,8 @@ export default {
         return {
             But: false,
             userName: "",
-            password: null
+            password: null,
+            store: useStore()
         }
     },
     methods: {

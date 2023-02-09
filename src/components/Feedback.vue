@@ -1,6 +1,6 @@
 <template>
    
-      <div class="grid grid-rows-[min-content] gap-[20px] mx-[60px] mb-[60px] justify-self-center [&_input]:h-[60px]">
+      <div class="grid grid-rows-[min-content] gap-[20px] mb-[60px] justify-self-center [&_input]:h-[60px]">
          <h2 class="text-3xl text-center mb-[40px] font-roboto">Свяжитесь с нами</h2>
          <input v-model="inputValueName" class="border-solid border-2 rounded-[4px] border-gray-400 text-center"
             type="text" placeholder="Ваше Имя">
