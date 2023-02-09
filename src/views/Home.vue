@@ -1,6 +1,5 @@
 <template>
 
-<Contacts buttonName="Контакты"/>
 
 <div @touchmove = "touch" @mousemove = "check">
 
@@ -27,7 +26,7 @@
       <div class="rounded-full justify-center flex max-[800px]:pt-[10px]">
       	  <div class="grid grid-cols-2 gap-[20vw] max-[800px]:grid-cols-1 max-[800px]:gap-[10px]">
           	<router-link to="/Blog" class="relative z-10  flex items-center justify-center bg-yellow-500 w-40 h-12 rounded-md">Блог</router-link>
-          	<button @click = "store.modal = true" class="relative z-10 bg-yellow-500 w-40 h-12 rounded-md">Контакты</button>
+          	<button @click = "store.modal = true, store.comp = 'Contacts', store.bg = 'bg-white'" class="relative z-10 bg-yellow-500 w-40 h-12 rounded-md">Контакты</button>
           </div>
       </div>
     </div>
@@ -42,8 +41,6 @@
 </template>
 
 <script>
-import Layout from '@/layouts/Layout.vue'
-import Contacts from '@/components/Contacts.vue'
 import { useStore } from '@/stores/test'
 
 export default {
@@ -57,13 +54,6 @@ export default {
 			store: useStore()
 			
 		}
-
-	},
-
-	components: {
-
-		Layout,
-		Contacts
 
 	},
 

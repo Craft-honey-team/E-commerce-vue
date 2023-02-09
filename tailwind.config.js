@@ -21,6 +21,12 @@ module.exports = {
     	
     		'128': '32rem',
     	
+    	},
+    	
+    	backgroundImage: {
+    	
+    		'bee': "url('@/assets/Be.png')",
+    	
     	}
     
     },

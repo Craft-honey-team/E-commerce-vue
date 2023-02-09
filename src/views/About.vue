@@ -1,7 +1,5 @@
 <template>
 
-<Contacts/>
-
   <Layout>
     <div>
       <h1 class="mb-[30px] mt-[20px] text-[40px]"> <strong>О нас</strong> </h1>
@@ -54,16 +52,5 @@
 </template>
 
 <script>
-import Layout from '@/layouts/Layout.vue'
-
-export default {
-
-  components: {
-
-    Layout
-
-  }
-
-}
 
 </script>

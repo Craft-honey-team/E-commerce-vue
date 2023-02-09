@@ -1,15 +1,15 @@
 <template>
 
-<Contacts/>
-    <layout>
-        <div class="flex justify-center">
-              <div class="w-[87.5%]">
-        <h1 class="text-[45px]">Блог</h1>
-    </div>  
+
+    <Layout>
+        <div class="">
+        
+       		<h1 class="text-[45px]">Блог</h1>
+  
         </div>
 
     <div class=" ">
-        <div class="flex justify-around mb-[10%]">
+        <div class="flex justify-between mb-[10%]">
             <div class="w-[40%]">
                 <h2 class="text-[30px]">Интересные факты про мед</h2>
                 <p class="text-[20px]"> Мед — очень полезный продукт питания. Настоящий мед делают только пчелы.
@@ -32,7 +32,7 @@
         </div>
 
 
-        <div class="flex justify-around">
+        <div class="flex justify-between">
             <div class="w-[40%]">
                 <h2 class="text-[35px]">Цветочный мед</h2>
                 <p class="text-[20px]"> Сложность цветочного медав том, что привести его к какой-то одной характеристике
@@ -61,18 +61,8 @@
             </div>
         </div>
     </div>
-</layout>
+</Layout>
 </template>
 <script>
-import Layout from '@/layouts/Layout.vue'
 
-export default {
-
-	components: {
-	
-		Layout
-	
-	}
-
-}
 </script>
