@@ -13,7 +13,7 @@
 		     <div v-if = "$route.name == 'Home'" class = "max-[800px]:grid max-[800px]:grid-cols-[80%_auto]">
 		        <input class="bg-[url('@/assets/search.svg')] bg-no-repeat bg-[left_16px_top_9px] indent-[40px] border-2 w-[100%] h-[40px] rounded-[4px] px-4" type="text" placeholder="Поиск">
 		        <img class = "justify-self-center self-center min-[801px]:hidden" src = "../assets/menu.svg">
-		     </div>
+		     </div>	
 		     <div v-if = "$route.name != 'Home'" class = "[&>*]:mr-[40px]">
 		     	<router-link to = "/Products">Каталог</router-link>
 		     	<router-link to = "/about">О нас</router-link>
