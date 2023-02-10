@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import { useStore } from '@/stores/test'
 import { initializeApp } from 'firebase/app'
+import { getAuth } from 'firebase/auth'
 import Layout from '@/layouts/Layout.vue'
 
 import App from './App.vue'
