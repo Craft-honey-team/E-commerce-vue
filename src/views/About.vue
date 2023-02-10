@@ -3,16 +3,19 @@
   <Layout>
     <div>
       <h1 class="mb-[30px] mt-[20px] text-[40px]"> <strong>О нас</strong> </h1>
-      <div class="justify-center flex ">
+      <div class="justify-center flex  ">
 
         <img class="mb-[40px] w-[100%]" src="../assets/Rectangle17.png" alt="">
       </div>
       <div class=" text-justify ">
         <div class="text-[20px] mb-[40px]">
-          <article class="indent-[60px] [&>*]:mb-[23px]">
+          <article
+            class="indent-[60px] [&>*]:mb-[23px] max-[1024px]:text-[17px] max-[550px]:indent-[15px] max-[550px]:text-[15px] max-[440px]:text-[15px]">
             <p class=""> Мы рады приветствовать Вас на нашем семейном производстве экологически чистых
-              продуктов <span class="indent-[0px] text-center font-bold text-[20px]  mb-[7px] ">Craft Honey!</span> </p>
-            
+              продуктов <span
+                class="indent-[0px] text-center font-bold text-[20px]  mb-[7px] max-[1024px]:text-[17px] max-[550px]:text-[15px] max-[400px]:text-[15px]">Craft
+                Honey!</span> </p>
+
             <p>
               Наше небольшое семейное производство берет свое начало в далеком 1996 году, а началось все с того, что наш
               папа
@@ -46,7 +49,7 @@
     </div>
 
   </Layout>
-  
+
 
 
 </template>
