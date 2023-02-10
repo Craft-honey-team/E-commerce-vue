@@ -3,7 +3,6 @@
 
 <div @touchmove = "touch" @mousemove = "check">
 
-
 <Layout>
 
 
@@ -35,8 +34,6 @@
  </Layout>
 
 </div>
-
-
 
 </template>
 

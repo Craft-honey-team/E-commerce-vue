@@ -34,7 +34,9 @@
 			  <div class = "grid grid-cols-2 max-[1200px]:flex max-[1200px]:justify-end">
 			  		
 			  		<div class = "justify-self-end self-center">
-				    	<img class="max-[1200px]:mr-[20px] max-[800px]:hidden" src="@/assets/shopping_cart.svg" alt="">
+				    	<router-link to = "/Checkout"> 
+				    		<img class="max-[1200px]:mr-[20px] max-[800px]:hidden" src="@/assets/shopping_cart.svg" alt="">
+				    	</router-link>
 			  		</div>
 			  		
 			  		<div class = "justify-self-end">
