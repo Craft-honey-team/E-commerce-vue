@@ -10,7 +10,6 @@
             			<strong>X</strong> 
             		</button>
      			 </div>
-
 				<component class = "mx-20 mb-10" :is="store.comp"/>
 				
 			</div>
