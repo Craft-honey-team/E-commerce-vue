@@ -1,45 +1,55 @@
 <template>
 
-	<div class="grid grid-cols-2 overflow-hidden gap-[20px]">
-		<div class="mr-[] justify-self-center">
-			<div class="">
-				<h2 class="text-5xl mb-[20px] font-roboto"><strong>Контакты</strong></h2>
+	<div class="grid min-[1100px]:grid-cols-[auto_auto] min-[1100px]:gap-[120px] max-[1100px]:grid-rows-2 overflow-scroll">
+		<div class="">
+			<h2 class="text-5xl mb-[20px] font-roboto"><strong>Контакты</strong></h2>
+			<div class = "grid max-[1100px]:grid-cols-2">
+				<div>
+					<p class="text-3xl mb-[5px] font-semibold font-roboto ">Адрес:</p>
+					<p class="text-2xl font-roboto">770033, Кыргызстан</p>
+					<p class="text-2xl mb-[20px] font-roboto">ул.Киевская 77</p>
+				</div>
+				<div>
+					<p class="text-3xl mb-[5px]  font-roboto font-semibold ">Телефон:</p>
+					<p class="text-2xl mb-[20px] font-roboto">+996779454233</p>
+				</div>
+				<div>
+					<p class="text-3xl mb-[5px]  font-roboto font-semibold ">Соц. сети:</p>
+					<div class="flex items-center mb-[6px]">
+						<img class="relative right-[2px] mr-[10px] font-roboto" src="@/assets/Telegram.svg" alt="">
+						<p class="text-2xl font-roboto">+996779454233</p>
+					</div>
+					<div class="flex items-center mb-[10px]">
+						<img class="mr-[15px] font-roboto" src="@/assets/WhatsApp.svg" alt="">
+						<p class="text-2xl">+79146089174</p>
+					</div>
+					<div class="flex items-center mb-[10px]">
+						<img class="mr-[15px] font-roboto" src="@/assets/Instagram.svg" alt="">
+						<p class="text-2xl font-roboto">crafthoney.kg</p>
+					</div>
+				</div>
+				<div>
+					<p class="text-3xl mb-[5px]  font-roboto font-semibold">E-mail:</p>
+					<p class="text-2xl font-roboto">crafthoneykg@gmail.com</p>
+				</div>
 			</div>
-			<p class="text-3xl mb-[5px] font-semibold font-roboto ">Адрес:</p>
-			<p class="text-2xl font-roboto">770033, Кыргызстан</p>
-			<p class="text-2xl mb-[20px] font-roboto">ул.Киевская 77</p>
-			<p class="text-3xl mb-[5px]  font-roboto font-semibold ">Телефон:</p>
-			<p class="text-2xl mb-[20px] font-roboto">+996779454233</p>
-			<p class="text-3xl mb-[5px]  font-roboto font-semibold ">Соц. сети:</p>
-			<div class="flex items-center"><img class="mr-[5px] mb-[10px] font-roboto" src="@/assets/Telegram.svg" alt="">
-				<p class="text-2xl mt-[-5px] font-roboto">+996779454233</p>
-			</div>
-			<div class="flex items-center"><img class="mr-[9px] mb-[10px] font-roboto" src="@/assets/WhatsApp.svg" alt="">
-				<p class="text-2xl mt-[-5px]">+79146089174</p>
-			</div>
-			<div class="flex items-center"><img class="mr-[12px] mb-[10px] font-roboto" src="@/assets/Instagram.svg"
-					alt="">
-				<p class="text-2xl mb-[20px] mt-[5px]font-roboto">crafthoney.kg</p>
-			</div>
-			<p class="text-3xl mb-[5px]  font-roboto font-semibold">E-mail:</p>
-			<p class="text-2xl font-roboto">crafthoneykg@gmail.com</p>
 
 		</div>
-		<div class="items-center w-fit justify-self-center">
-			<input class="border-solid border-2 rounded-[4px] border-gray-400 mb-[20px] w-[490px] h-[52px] text-center"
+		<div class="grid gap-[30px]">
+			<input class="border-solid border-2 rounded-[4px] border-gray-400 w-[490px] text-center"
 				type="text" placeholder="Ваше Имя">
 			<div class="flex">
 				<input
-					class="border-solid border-2 rounded-[4px] border-gray-400 mb-[20px] mr-[20px] w-[235px] h-[52px] px-[10px]"
+					class="border-solid border-2 rounded-[4px] border-gray-400 mr-[20px] w-[235px] px-[10px]"
 					type="text" placeholder="Email">
-				<input class="border-solid border-2 rounded-[4px] border-gray-400 mb-[20px] w-[235px] h-[52px] px-[10px]"
+				<input class="border-solid border-2 rounded-[4px] border-gray-400 w-[235px] px-[10px]"
 					type="text" placeholder="Телефон">
 			</div>
 			<textarea
-				class="border-solid border-2 rounded-[4px] border-gray-400 mb-[20px] w-[492px] h-[139px] px-[10px] py-[10px] "
+				class="border-solid border-2 rounded-[4px] border-gray-400 w-[492px] px-[10px] py-[10px] "
 				placeholder="Сообщение" name="" id="" cols="30" rows="10"></textarea>
 			<button
-				class="border-none bg-green-500 text-white rounded-[5px] mb-5 px-2 w-[184px] h-[35px]">Отправить</button>
+				class="border-none bg-[#EAAD02] justify-self-center text-white rounded-[5px] px-2 w-[184px]">Отправить</button>
 		</div>
 	</div>
 
