@@ -1,19 +1,18 @@
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
-import { useStore } from '@/stores/test'
-import { initializeApp } from 'firebase/app'
-import { getAuth } from 'firebase/auth'
-import Layout from '@/layouts/Layout.vue'
+import { createApp } from "vue";
+import { createPinia } from "pinia";
+import { useStore } from "@/stores/test";
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import Layout from "@/layouts/Layout.vue";
 
-import App from './App.vue'
-import router from './router'
+import App from "./App.vue";
+import router from "./router";
 
-import './assets/main.css'
+import "./assets/main.css";
 
-const app = createApp(App)
+const app = createApp(App);
 const pinia = createPinia();
 const firebaseConfig = {
-
   apiKey: "AIzaSyBTSEZwHNPgKNuBJggnTFcdjmC9RR4R7NA",
 
   authDomain: "craft-honey.firebaseapp.com",
@@ -24,17 +23,16 @@ const firebaseConfig = {
 
   messagingSenderId: "601806986687",
 
-  appId: "1:601806986687:web:d7b903e0736c4d4d35550a"
-
+  appId: "1:601806986687:web:d7b903e0736c4d4d35550a",
 };
 
-app.component('Layout', Layout)
+app.component("Layout", Layout);
 
-app.use(pinia)
-app.use(router)
+app.use(pinia);
+app.use(router);
 
 initializeApp(firebaseConfig);
 
-const auth = getAuth()
+const auth = getAuth();
 
-app.mount('#app')
+app.mount("#app");
