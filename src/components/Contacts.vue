@@ -55,7 +55,8 @@
 			<button
 				class="border-none bg-[#EAAD02] justify-self-center text-white rounded-[5px] px-2 w-[184px]">Отправить</button>
 		</div>
-	</div>
+	 	</div>
+
 
 </template>
 
@@ -64,23 +65,23 @@
 import { useStore } from '@/stores/test'
 
 export default {
-	props: {
-		buttonName: String
-	},
-	data: () => {
-		return {
-			contact: false,
-			store: useStore()
-		}
-	},
-	methods: {
-		showContacts() {
-			this.contact = true
-		},
-		closeModal() {
-			this.contact = false
-		}
-	},
+   props: {
+      buttonName: String
+   },
+   data: () => {
+      return {
+         contact: false,
+         store: useStore()
+      }
+   },
+   methods: {
+      showContacts() {
+         this.contact = true
+      },
+      closeModal() {
+         this.contact = false
+      }
+   },
 }
 
 </script>
