@@ -8,7 +8,7 @@
                   <button @click = "store.comp = 'Register'" class = "bg-[#EAAD02] rounded-[10px] px-2 text-white">Регистрация</button>  
                 </div>
                 
-                <button class="mb-[20px] border-2 flex items-center justify-center  rounded-[3px] border-none bg-gray-100 text-black h-[40px]">
+                <button @click = "signInWithGoogle" class="mb-[20px] border-2 flex items-center justify-center  rounded-[3px] border-none bg-gray-100 text-black h-[40px]">
                 	<img src="/src/assets/Vector.svg"><p class="ml-2">Вход через Google</p>
                 </button>
                 <input v-model="userName" class="border-2 mb-[20px] rounded-[3px] h-[45px] border-gray-400 " type="email"
@@ -27,6 +27,8 @@
 
 <script>
 import { useStore } from '@/stores/test'
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+
 export default {
     props: {
         buttonName: String
@@ -41,6 +43,30 @@ export default {
         }
     },
     methods: {
+    	async signInWithGoogle() {
+    	
+    		const auth = getAuth();
+			signInWithPopup(auth, provider)
+			  .then((result) => {
+				// This gives you a Google Access Token. You can use it to access the Google API.
+				const credential = GoogleAuthProvider.credentialFromResult(result);
+				const token = credential.accessToken;
+				// The signed-in user info.
+				const user = result.user;
+				// IdP data available using getAdditionalUserInfo(result)
+				// ...
+			  }).catch((error) => {
+				// Handle Errors here.
+				const errorCode = error.code;
+				const errorMessage = error.message;
+				// The email of the user's account used.
+				const email = error.customData.email;
+				// The AuthCredential type that was used.
+				const credential = GoogleAuthProvider.credentialFromError(error);
+				// ...
+			  });
+						
+    	},
         async users() {
             const response = await fetch(`http://localhost:3000/users`)
             const data = await response.json()

@@ -1,9 +1,13 @@
 <template>
 
-	<div class="grid min-[1100px]:grid-cols-[auto_auto] min-[1100px]:gap-[120px] max-[1100px]:grid-rows-2 overflow-scroll">
+	<div class="grid min-[1100px]:gap-[120px] overflow-scroll [&_*]:font-roboto">
 		<div class="">
-			<h2 class="text-5xl mb-[20px] font-roboto"><strong>Контакты</strong></h2>
-			<div class = "grid max-[1100px]:grid-cols-2">
+			<div class="grid grid-cols-[max-content_auto_max-content] mb-[20px] text-[40px] h-[60px]">
+				<span class = "bg-gray-200 font-bold font-roboto rounded-[10px] px-2 text-black">Контакты</span>  
+				<span class = "justify-self-center">|</span>
+				<button @click = "store.comp = 'Login'" class = "bg-[#EAAD02] rounded-[10px] px-2 text-white">Обратная связь</button>
+        	</div>
+			<div class = "grid grid-cols-2">
 				<div>
 					<p class="text-3xl mb-[5px] font-semibold font-roboto ">Адрес:</p>
 					<p class="text-2xl font-roboto">770033, Кыргызстан</p>
@@ -35,7 +39,7 @@
 			</div>
 
 		</div>
-		<div class="grid gap-[30px]">
+		<div class="grid gap-[30px] hidden">
 			<input class="border-solid border-2 rounded-[4px] border-gray-400 w-[490px] text-center"
 				type="text" placeholder="Ваше Имя">
 			<div class="flex">
