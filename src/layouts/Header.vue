@@ -13,7 +13,7 @@
 				<input
 					class="bg-[url('@/assets/search.svg')] bg-no-repeat bg-[left_16px_top_9px] indent-[40px] border-2 w-[100%] h-[40px] rounded-[4px] px-4"
 					type="text" placeholder="Поиск">
-				<img class="justify-self-center self-center min-[801px]:hidden" src="../assets/menu.svg">
+				<img @click="burgerMenu = true" class="justify-self-center self-center min-[801px]:hidden" src="../assets/menu.svg">
 			</div>
 			<div v-if="$route.name != 'Home'" class="[&>*]:mr-[40px]">
 				<router-link to="/Products">Каталог</router-link>
@@ -49,24 +49,27 @@
 
 			</div>
 		</div>
-		<div class="right-0 absolute h-screen bg-[#DAE2E2]">
+		<div class="right-[0px] top-0 overflow-hidden transition-all duration-500 ease-in-out z-50 absolute h-screen bg-[#DAE2E2]" :class="burgerMenu ? 'w-[330px]' : 'w-[0px]'">
 			<div class=" ">
 				<div class="flex flex-col justify-center [&>*]:px-[10px]">
+					<button @click="burgerMenu = false" class=" focus:outline-none mr-2 mt-2 text-[22px] text-right">
+            			<strong>X</strong> 
+            		</button>
 					<router-link to="/Products"
-						class="flex items-center w-full h-[46px] font-inter font-[200] text-[22px] border-b-[2px]  border-black text-[#999999]">Каталог</router-link>
+						class="flex items-center w-full h-[46px] font-inter font-[200] text-[22px] border-b-[1px]  border-black text-[#999999]">Каталог</router-link>
 					<router-link to="/about"
-						class="flex items-center w-full h-[46px] border-b-[2px]  border-black font-inter font-[300] text-[22px] text-[#999999]">О
+						class="flex items-center w-full h-[46px] border-b-[1px]  border-black font-inter font-[300] text-[22px] text-[#999999]">О
 						нас</router-link>
 					<router-link to="/Blog"
-						class="flex items-center w-full h-[46px] font-inter font-[200] text-[22px] border-b-[2px]  border-black text-[#999999]">Блог</router-link>
-					<button @click="store.modal = true, store.comp = 'Contacts'"
-						class="w-full h-[46px] text-left font-inter font-[200] text-[22px] border-b-[2px]  border-black text-[#999999]">Контакты</button>
+						class="flex items-center w-full h-[46px] font-inter font-[200] text-[22px] border-b-[1px]  border-black text-[#999999]">Блог</router-link>
+					<button @click="store.modal = true,burgerMenu = false, store.comp = 'Contacts', store.bg = 'bg-white'"
+						class="w-full h-[46px] text-left font-inter font-[200] text-[22px] border-b-[1px]  border-black text-[#999999]">Контакты</button>
 				</div>
-				<div class="flex flex-col items-center  border-b-[2px] border-[#BCB9B9] ">
-					<button @click="store.bg = 'bg-bee', store.modal = true, store.comp = 'Register'"
+				<div class="flex flex-col items-center  border-b-[1px] border-[#BCB9B9] ">
+					<button @click="store.bg = 'bg-bee', store.modal = true,burgerMenu = false, store.comp = 'Register'"
 						class="w-[218px] h-[47px] mt-[20px] flex justify-center items-center font-ubuntu font-[400] text-[16px] text-[#FFF9F9]"><img
 							class="w-[24px] h-24[px] mr-[10px] " src="src/assets/Register_1.svg" alt="">Регистрация</button>
-					<button @click="store.modal = true, store.bg = 'bg-bee', store.comp = 'Login'"
+					<button @click="store.modal = true,burgerMenu = false, store.bg = 'bg-bee', store.comp = 'Login'"
 						class="border-[2px] border-solid border-black rounded-[8px]  w-[218px] h-[47px] mt-[5px] mb-[20px] flex justify-center items-center font-ubuntu font-[400] text-[16px] text-[##000000]"><img
 							class="w-[24px] h-[24px] mr-[10px]" src="src/assets/Enter_1.svg" alt="">Вход</button>
 				</div>
@@ -101,7 +104,7 @@ export default {
 	data() {
 
 		return {
-
+			burgerMenu: false,
 			store: useStore()
 
 		}
