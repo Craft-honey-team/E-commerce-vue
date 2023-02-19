@@ -11,18 +11,20 @@
 
             <button @click="loginGoogle"
                 class="border-2 flex items-center justify-center rounded-[3px] border-none bg-gray-100 text-black h-[45px] hover:text-amber-700"><img
-                    class="mr-[8px]" src="/src/assets/Vector.svg">Вход через Google
+                    class="mr-[8px]" src="@/assets/Vector.svg">Вход через Google
             </button>
             <!--w-[343px]-->
             <input v-model="email"
-                class="bg-[url('src/assets/mail(1).svg')] bg-no-repeat bg-[left_16px_top_12px] indent-[40px] px-[8px] border-2 rounded-[3px] h-[45px] border-gray-400 font-roboto "
+                class="bg-[url('@/assets/mail(1).svg')] bg-no-repeat bg-[left_16px_top_12px] indent-[40px] px-[8px] border-2 rounded-[3px] h-[45px] border-gray-400 font-roboto "
                 type="email" placeholder="Введите Email" />
             <div class="relative">
                 <input v-model="password"
-                    class="bg-[url('src/assets/lock.svg')] bg-no-repeat bg-[left_16px_top_9px] indent-[40px] w-full px-[8px] flex items-center font-roboto border-2 rounded-[3px] h-[45px] border-gray-400"
+                    class="bg-[url('@/assets/lock.svg')] bg-no-repeat bg-[left_16px_top_9px] indent-[40px] w-full px-[8px] flex items-center font-roboto border-2 rounded-[3px] h-[45px] border-gray-400"
                     required v-bind:type="showPassword ? 'text' : 'password'" placeholder="Введите пароль" />
-                <button @click="eyechange" class="buttonPass absolute right-[30px] top-0 bottom-0"><img :src="eyepass"
-                        alt=""></button>
+		<button @click="eyechange" class="buttonPass absolute right-[30px] top-0 bottom-0">
+			<img v-show = "showPassword" src = "@/assets/visibility_on.svg" alt="">
+			<img v-show = "!showPassword" src = "@/assets/visibility_off.svg" alt="">	
+		</button>
 
             </div>
             <router-link to="/"
@@ -53,13 +55,13 @@ export default {
     data() {
 
         return {
-            email: '',
-            password: '',
-            eyepass: "src/assets/visibility_off.svg",
-            store: useStore(),
-            showPassword: false
+				email: '',
+				password: '', 
+				store: useStore(),
+				showPassword: false,
         }
     },
+
     methods: {
         loginGoogle() {
 
@@ -104,11 +106,6 @@ export default {
         },
         eyechange() {
             this.showPassword = !this.showPassword
-            if (this.eyepass == "src/assets/visibility_off.svg") {
-                this.eyepass = "src/assets/visibility_ON.svg"
-            } else {
-                this.eyepass = "src/assets/visibility_off.svg"
-            }
         },
 
     }

@@ -14,28 +14,36 @@
         <img class="mr-[8px]" src="@/assets/Googlelogo.svg"> Вход через Google
       </button>
       <input v-model="name"
-        class="bg-[url('src/assets/person.svg')] bg-no-repeat bg-[left_16px_top_12px] indent-[40px] px-[8px] font-roboto border-2 rounded-[3px] h-[45px] border-gray-400 "
+        class="bg-[url('@/assets/person.svg')] bg-no-repeat bg-[left_16px_top_12px] indent-[40px] px-[8px] font-roboto border-2 rounded-[3px] h-[45px] border-gray-400 "
         type="text" placeholder="Имя пользователя">
       <input v-model="email"
-        class="bg-[url('src/assets/mail(1).svg')] bg-no-repeat bg-[left_16px_top_12px] indent-[40px] px-[8px] font-roboto border-2 rounded-[3px] h-[45px] border-gray-400 "
+        class="bg-[url('@/assets/mail(1).svg')] bg-no-repeat bg-[left_16px_top_12px] indent-[40px] px-[8px] font-roboto border-2 rounded-[3px] h-[45px] border-gray-400 "
         type="email" placeholder="Введите Email" />
 
       <div class="relative">
         <input v-model="password" @focus="passwordMinLength = true"
-          class="bg-[url('src/assets/lock.svg')] bg-no-repeat bg-[left_16px_top_9px] indent-[40px] px-[8px] w-full font-roboto border-2 rounded-[3px] h-[45px] border-gray-400"
+          class="bg-[url('@/assets/lock.svg')] bg-no-repeat bg-[left_16px_top_9px] indent-[40px] px-[8px] w-full font-roboto border-2 rounded-[3px] h-[45px] border-gray-400"
           required v-bind:type="showPassword ? 'text' : 'password'" placeholder="Пароль" />
 
-        <button @click="eyechange" class="buttonPass absolute right-[30px] top-0 bottom-0"><img :src="eyepass"
-            alt=""></button>
+        <button @click="eyechange" class="buttonPass absolute right-[30px] top-0 bottom-0">
+
+			<img v-show = "showPassword" src = "@/assets/visibility_on.svg" alt="">
+			<img v-show = "!showPassword" src = "@/assets/visibility_off.svg" alt="">		
+
+		</button>
 
       </div>
 
       <div class="relative">
         <input v-model="password2"
-          class="bg-[url('src/assets/lock.svg')] bg-no-repeat bg-[left_16px_top_9px] indent-[40px] w-full px-[8px] flex items-center font-roboto border-2 rounded-[3px] h-[45px] border-gray-400"
+          class="bg-[url('@/assets/lock.svg')] bg-no-repeat bg-[left_16px_top_9px] indent-[40px] w-full px-[8px] flex items-center font-roboto border-2 rounded-[3px] h-[45px] border-gray-400"
           required v-bind:type="showPassword ? 'text' : 'password'" placeholder="Подвердите пароль" />
-        <button @click="showPassword = !showPassword" class="buttonPass absolute right-[30px] top-0 bottom-0"><img
-            :src="eyepass" alt=""></button>
+        <button @click="showPassword = !showPassword" class="buttonPass absolute right-[30px] top-0 bottom-0">
+
+			<img v-show = "showPassword" src = "@/assets/visibility_on.svg" alt="">
+			<img v-show = "!showPassword" src = "@/assets/visibility_off.svg" alt="">
+
+		</button>
 
       </div>
       <div v-if="password2 != password" class="text-red-500 font-roboto">Пароли не совпадают</div>

@@ -1,7 +1,12 @@
 <template>
-   
-      <div class="grid grid-rows-[min-content] gap-[20px] mb-[60px] justify-self-center [&_input]:h-[60px]">
-         <h2 class="text-3xl text-center mb-[40px] font-roboto">Свяжитесь с нами</h2>
+	
+      <div class="grid grid-flow-row gap-[20px] mb-[60px] [&_input]:h-[60px]">
+	<div class="grid grid-cols-[max-content_auto_max-content] text-[40px] h-[60px]">
+		<button @click = "store.comp = 'Contacts'" class = "bg-[#EAAD02] rounded-[10px] px-2 text-white">Контакты</button>
+		<span class = "justify-self-center">|</span>
+		<span class = "bg-gray-200 font-bold font-roboto rounded-[10px] px-2 text-black">Обратная связь</span>  
+	</div>
+         <h2 class="text-3xl justify-self-center font-roboto">Свяжитесь с нами</h2>
          <input v-model="inputValueName" class="border-solid border-2 rounded-[4px] border-gray-400 text-center"
             type="text" placeholder="Ваше Имя">
          <div class="grid grid-cols-2 gap-[20px]">
@@ -14,13 +19,13 @@
 
          <textarea
             class="border-solid border-2 rounded-[4px] border-gray-400 h-[139px] px-[10px] py-[10px] "
-            placeholder="Сообщение" name="" id="" cols="30" rows="10"></textarea>
+            placeholder="Сообщение" name="" id=""></textarea>
   
          <div class="grid grid-cols-2 gap-[20px] [&>*]:h-[50px]">
             <button
-               class="border-none bg-[#25D366] text-white rounded-[5px]">Отправить</button>
+               class="bg-[#EAAD02] text-white rounded-[5px]">Отправить</button>
             <button @click="clearInput"
-               class="border-none bg-[#02020233] text-black rounded-[5px]">Сбросить</button>
+               class="bg-[#02020233] rounded-[5px]">Сбросить</button>
          </div>
 
       </div>
