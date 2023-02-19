@@ -79,8 +79,5 @@ export default {
             console.log(this.DATA);
         },
     },
-    mounted() {
-        //this.getdata()
-    }
 }
 </script>
