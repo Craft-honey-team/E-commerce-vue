@@ -1,7 +1,7 @@
 <template>
 
 <LayoutModal/>
-<div :class = "$route.name == 'Home' ? 'absolute inset-0 overflow-hidden' : 'min-h-screen'" class = "px-[40px] grid grid-rows-[min-content_auto_min-content] max-w-screen max-[800px]:px-[20px]">
+<div :class = "$route.name == 'Home' ? 'absolute inset-0' : 'min-h-screen'" class = "overflow-hidden px-[40px] grid grid-rows-[min-content_auto_min-content] max-w-screen max-[800px]:px-[20px]">
 <Header />
 <slot />
 </div>

@@ -9,7 +9,7 @@
         </div>
 
     <div class=" ">
-        <div class="flex justify-around mb-[10%]  max-[950px]:flex-col-reverse">
+        <div class="flex justify-between mb-[10%]  max-[950px]:flex-col-reverse">
             <div class="w-[40%] max-[950px]:w-[100%] max-[950px]:py-[100px]">
                 <h2 class="text-[30px]">Интересные факты про мед</h2>
                 <p class="text-[20px]"> Мед — очень полезный продукт питания. Настоящий мед делают только пчелы.
@@ -32,7 +32,7 @@
         </div>
 
 
-        <div class="flex justify-around max-[950px]:flex-col-reverse">
+        <div class="flex justify-between max-[950px]:flex-col-reverse">
             <div class="w-[40%] max-[950px]:w-[100%] max-[950px]:py-[100px]">
                 <h2 class="text-[35px]">Цветочный мед</h2>
                 <p class="text-[20px]"> Сложность цветочного медав том, что привести его к какой-то одной характеристике

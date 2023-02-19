@@ -1,14 +1,14 @@
 <template>
-    <div class="flex justify-center">
-       <div class="w-[92%] ">
-        <h2 class="text-[49px] mt-0">Розничная</h2>
+	<div class = "flex justify-center">
+    <div class="border-b-black border-b-[3px] w-fit">
+        <h2 class="text-[40px] mt-0">Розничная</h2>
     </div> 
-    </div>
+	</div>
     
     <div class="max-[1000px]:gap-[60px] max-[1000px]:grid-cols-2
     max-[370px]:gap-[40px] 
     max-[500px]:gap-[40px] max-[500px]:grid-cols-1
-     grid grid-cols-3 gap-[40px]">
+     grid grid-cols-3">
         <div class="justify-self-center " v-for="(item) in DATA">
 
             <div class="bg-white rounded-[12px] p-2 w-80">
@@ -29,16 +29,15 @@
 
         </div>
     </div>
-    <div class="flex justify-center">
-        <div class=" border-b-black border-b-[3px] w-[91%]">
-            <h2 class="text-[40px]">Оптовая</h2>
-        </div>
-    </div>
-
+	<div class = "flex justify-center">
+	<div class="border-b-black border-b-[3px] w-fit">
+		<h2 class="text-[40px]">Оптовая</h2>
+	</div>
+	</div>
     <div class="max-[1000px]:gap-[60px] max-[1000px]:grid-cols-2
     max-[370px]:gap-[40px] 
     max-[500px]:gap-[40px] max-[500px]:grid-cols-1
-     grid grid-cols-3 gap-[40px] mt-[15px]">
+     grid grid-cols-3">
         <div class="justify-self-center" v-for="(item) in DATA">
             <div class="bg-white rounded-[12px] p-2 w-80">
                 <div class="text-[25px]">
