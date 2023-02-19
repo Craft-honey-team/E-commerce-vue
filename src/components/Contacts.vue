@@ -1,6 +1,6 @@
 <template>
 
-	<div class="grid min-[1100px]:gap-[120px] overflow-scroll [&_*]:font-roboto">
+	<div class="grid overflow-scroll [&_*]:font-roboto">
 		<div class="grid grid-cols-[max-content_auto_max-content] mb-[20px] text-[40px] h-[60px]">
 			<span class = "bg-gray-200 font-bold font-roboto rounded-[10px] px-2 text-black">Контакты</span>  
 			<span class = "justify-self-center">|</span>
