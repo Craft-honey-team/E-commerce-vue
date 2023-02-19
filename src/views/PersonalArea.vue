@@ -29,13 +29,7 @@
              </div>
              <div class="w-[15%] h-[40px] flex justify-around">
                 <div>
-                    <img class="w-[50px] h-[50px]" src="@/assets/appName=Vkont.svg" alt="">
-                </div>
-                <div>
-                    <img class="w-[50px] h-[50px]" src="@/assets/appName=Instagram.svg" alt="">
-                </div>
-                <div>
-                    <img class="w-[50px] h-[50px]" src="@/assets/appName=Facebook.svg" alt="">
+                    <img class="w-[50px] h-[50px]" src="@/assets/Instagram.svg" alt="">
                 </div>
              </div>
         </div>
