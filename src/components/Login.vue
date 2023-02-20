@@ -3,46 +3,49 @@
 
         <div class="grid auto-rows-min gap-[20px]">
             <div class="text-[30px] flex justify-center ">
-                <span class="bg-gray-200 rounded-[10px] px-2 text-black font-roboto">Вход</span>
+                <span class="bg-gray-200 rounded-[10px] px-2 text-black font-roboto">{{ store.langProp[store.lang].entrance
+                }}</span>
                 <span class="mx-2">|</span>
                 <button @click="store.comp = 'Register'"
-                    class="bg-[#EAAD02] rounded-[10px] px-2 text-white font-roboto hover:text-amber-700">Регистрация</button>
+                    class="bg-[#EAAD02] rounded-[10px] px-2 text-white font-roboto hover:text-amber-700">{{
+                        store.langProp[store.lang].registeration }}</button>
             </div>
 
             <button @click="loginGoogle"
                 class="border-2 flex items-center justify-center rounded-[3px] border-none bg-gray-100 text-black h-[45px] hover:text-amber-700"><img
-                    class="mr-[8px]" src="@/assets/Vector.svg">Вход через Google
+                    class="mr-[8px]" src="@/assets/Vector.svg">{{ store.langProp[store.lang].loginWithGoogle }}
             </button>
             <!--w-[343px]-->
             <input v-model="email"
                 class="bg-[url('@/assets/mail(1).svg')] bg-no-repeat bg-[left_16px_top_12px] indent-[40px] px-[8px] border-2 rounded-[3px] h-[45px] border-gray-400 font-roboto "
-                type="email" placeholder="Введите Email" />
+                type="email" :placeholder="store.langProp[store.lang].enterEmail" />
             <div class="relative">
                 <input v-model="password"
                     class="bg-[url('@/assets/lock.svg')] bg-no-repeat bg-[left_16px_top_9px] indent-[40px] w-full px-[8px] flex items-center font-roboto border-2 rounded-[3px] h-[45px] border-gray-400"
-                    required v-bind:type="showPassword ? 'text' : 'password'" placeholder="Введите пароль" />
-		<button @click="eyechange" class="buttonPass absolute right-[30px] top-0 bottom-0">
-			<img v-show = "showPassword" src = "@/assets/visibility_on.svg" alt="">
-			<img v-show = "!showPassword" src = "@/assets/visibility_off.svg" alt="">	
-		</button>
+                    required v-bind:type="showPassword ? 'text' : 'password'"
+                    :placeholder="store.langProp[store.lang].enterPassword" />
+                <button @click="eyechange" class="buttonPass absolute right-[30px] top-0 bottom-0">
+                    <img v-show="showPassword" src="@/assets/visibility_on.svg" alt="">
+                    <img v-show="!showPassword" src="@/assets/visibility_off.svg" alt="">
+                </button>
 
             </div>
             <router-link to="/"
-                class=" text-blue-500 px-[10px] flex justify-end  hover:text-amber-700 hover:underline underline-offset-4 ">Забыли
-                пароль?</router-link>
+                class=" text-blue-500 px-[10px] flex justify-end  hover:text-amber-700 hover:underline underline-offset-4 ">{{
+                    store.langProp[store.lang].forgotYourPassword }}</router-link>
             <button @click="login" :disabled="email.length <= 2 || password.length <= 1"
-                class="bg-[#EAAD02] border-2 border-none rounded-[3px] text-white h-[45px] disabled:opacity-50 ">Войти
+                class="bg-[#EAAD02] border-2 border-none rounded-[3px] text-white h-[45px] disabled:opacity-50 ">{{
+                    store.langProp[store.lang].toComeIn }}
             </button>
-            <p class="text-center">У Вас еще нет аккаунта?<button @click="store.comp = 'Register'"
-                    class="ml-[8px] text-blue-500 underline hover:text-amber-700">Создать</button></p>
+            <p class="text-center">{{ store.langProp[store.lang].dontHaveAnAccountYet }}<button
+                    @click="store.comp = 'Register'" class="ml-[8px] text-blue-500 underline hover:text-amber-700">{{
+                        store.langProp[store.lang].create }}</button></p>
 
         </div>
 
     </div>
 </template>
-<style>
-
-</style>
+<style></style>
 
 <script>
 import { useStore } from '@/stores/test'
@@ -55,10 +58,10 @@ export default {
     data() {
 
         return {
-				email: '',
-				password: '', 
-				store: useStore(),
-				showPassword: false,
+            email: '',
+            password: '',
+            store: useStore(),
+            showPassword: false,
         }
     },
 

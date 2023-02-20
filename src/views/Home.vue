@@ -8,7 +8,7 @@
 
 
   <div class = "relative grid overflow-hidden -mx-[100px] [&>img]:max-w-none [&>img]:select-none">
-  <div class = "absolute w-full h-full bg-black bg-opacity-50"></div>
+  <div class = "absolute w-full h-full bg-gray-500 bg-opacity-10"></div>
   <img :style = "{'transform': `translate(${xPos/10}px, ${yPos/10}px)` }" class = "w-[2200px] absolute left-[-10%] top-[-10%] -z-10" src="../assets/paralax1.png" />
   <img :style = "{'transform': `translate(${xPos/13}px, ${yPos/13}px)` }" class = "w-[2200px] h-[70%] absolute left-[-10%] top-0 -z-10" src="../assets/paralax2.png" />
   <img :style = "{'transform': `translate(${xPos/24}px, ${yPos/24}px)` }" class = "w-[440px] absolute justify-self-center mr-[1120px] bottom-[60px] z-[-9]" src="../assets/paralax3a.png" />
@@ -18,7 +18,7 @@
     <div class = "grid gap-[10vh] [&_*]:text-white">
       <div class="justify-center flex">
           <div class=" grid grid-cols-2 gap-[40vw] max-[800px]:grid-cols-1 max-[800px]:gap-[10px]">
-          	<router-link to="/Products" class="relative z-10 flex items-center justify-center bg-yellow-500 w-40 h-12 rounded-md">{{ store.langProp[store.lang].catalogue }}</router-link>
+          	<router-link to="/Products" class="relative z-10 flex items-center justify-center bg-yellow-500  w-40 h-12 rounded-md">{{ store.langProp[store.lang].catalogue }}</router-link>
           	<router-link to="/about" class="relative z-10 flex items-center justify-center bg-yellow-500 w-40 h-12 rounded-md">{{ store.langProp[store.lang].about }}</router-link>
           </div>
       </div>

@@ -2,19 +2,19 @@
 	
       <div class="grid grid-flow-row gap-[20px] mb-[60px] [&_input]:h-[60px]">
 	<div class="grid grid-cols-[max-content_auto_max-content] text-[40px] h-[60px]">
-		<button @click = "store.comp = 'Contacts'" class = "bg-[#EAAD02] rounded-[10px] px-2 text-white">Контакты</button>
+		<button @click = "store.comp = 'Contacts'" class = "bg-[#EAAD02] rounded-[10px] px-2 text-white">{{	store.langProp[store.lang].contacts }}</button>
 		<span class = "justify-self-center">|</span>
-		<span class = "bg-gray-200 font-bold font-roboto rounded-[10px] px-2 text-black">Обратная связь</span>  
+		<span class = "bg-gray-200 font-bold font-roboto rounded-[10px] px-2 text-black">{{	store.langProp[store.lang].feedback }}</span>  
 	</div>
-         <h2 class="text-3xl justify-self-center font-roboto">Свяжитесь с нами</h2>
+         <h2 class="text-3xl justify-self-center font-roboto">{{	store.langProp[store.lang].contactUs }}</h2>
          <input v-model="inputValueName" class="border-solid border-2 rounded-[4px] border-gray-400 text-center"
-            type="text" placeholder="Ваше Имя">
+            type="text" :placeholder="store.langProp[store.lang].yourName">
          <div class="grid grid-cols-2 gap-[20px]">
             <input v-model="inputValueMail"
                class="border-solid border-2 rounded-[4px] border-gray-400 px-[10px]"
                type="text" placeholder="Email">
             <input v-model="inputValuePhone" class="border-solid border-2 rounded-[4px] border-gray-400 px-[10px]"
-               type="text" placeholder="Телефон">
+               type="text" :placeholder="store.langProp[store.lang].telephone_1">
          </div>
 
          <textarea
@@ -23,9 +23,9 @@
   
          <div class="grid grid-cols-2 gap-[20px] [&>*]:h-[50px]">
             <button
-               class="bg-[#EAAD02] text-white rounded-[5px]">Отправить</button>
+               class="bg-[#EAAD02] text-white rounded-[5px]">{{	store.langProp[store.lang].send }}</button>
             <button @click="clearInput"
-               class="bg-[#02020233] rounded-[5px]">Сбросить</button>
+               class="bg-[#02020233] rounded-[5px]">{{	store.langProp[store.lang].reset }}</button>
          </div>
 
       </div>

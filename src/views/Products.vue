@@ -3,7 +3,7 @@
 	<Layout>
 	
 		<div>
-        	<div class = "pt-[20px] mt-[20px] mb-[40px] border-t-[3px] border-black"><p class = "text-[50px]">Каталог</p></div>
+        	<div class = "pt-[20px] mt-[20px] mb-[40px] border-t-[3px] border-black"><p class = "text-[50px]">{{ store.langProp[store.lang].catalogue }}</p></div>
 		
     		<ProductList />      
     	</div>  
@@ -15,8 +15,13 @@
 
 <script>
 import ProductList from '@/components/ProductList.vue'
+import { useStore } from '@/stores/test'
 export default {
-
+	data () {
+    return {
+    store: useStore()
+    }
+  },
     components: {
             ProductList,
     }

@@ -67,38 +67,44 @@ export default {
             {
                 "id": 1,
                 "name": "med1",
-                "image": new URL("@/assets/Group19.png", import.meta.url)
+                "image": "../src/assets/Group19.png"
             },
             {
                 "id": 2,
                 "name": "med2",
-                "image": new URL("@/assets/Group19.png", import.meta.url)
+                "image": "../src/assets/Group19.png"
             },
 
             {
                 "id": 3,
                 "name": "med3",
-                "image": new URL("@/assets/Group19.png", import.meta.url)
+                "image": "../src/assets/Group19.png"
             },
+            // {
+            // 	"id": 5,
+            // 	"name": "med5",
+            // 	"image": "../src/assets/Group19.png"
+            // },
+            // {
+            // 	"id": 6,
+            // 	"name": "med6",
+            // 	"image": "../src/assets/Group19.png"
+            // },
+
+            // {
+            // 	"id": 7,
+            // 	"name": "med7",
+            // 	"image": "../src/assets/Group19.png"
+            // },
         ],
     }),
     methods: {
         async getdata() {
-            await fetch(`http://35.78.112.119/api/shop/honey/`, {
-				method: 'GET',
-				headers: {
-				
-					'Content-Type': 'application/json'
-
-				},
-				body: JSON.stringify(),
-			})
-				.then((response) => console.log(response.json()))
-				.catch((error) => console.log(error))
+            const response = await fetch(`http://localhost:3000/products`)
+            const data = await response.json()
+            this.DATA = await data
+            console.log(this.DATA);
         },
     },
-	mounted() {
-		this.getdata();
-	}
 }
 </script>
