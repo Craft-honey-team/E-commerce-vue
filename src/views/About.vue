@@ -2,7 +2,7 @@
 
   <Layout>
     <div>
-      <h1 class="mb-[30px] mt-[20px] text-[40px]"> <strong>О нас</strong> </h1>
+      <h1 class="mb-[30px] mt-[20px] text-[40px]"> <strong>{{ store.langProp[store.lang].aboutUs }}</strong> </h1>
       <div class="justify-center flex  ">
 
         <img class="mb-[40px] w-[100%]" src="../assets/Rectangle17.png" alt="">
@@ -11,35 +11,21 @@
         <div class="text-[20px] mb-[40px]">
           <article
             class="indent-[60px] [&>*]:mb-[23px] max-[1024px]:text-[17px] max-[550px]:indent-[15px] max-[550px]:text-[15px] max-[440px]:text-[15px]">
-            <p class=""> Мы рады приветствовать Вас на нашем семейном производстве экологически чистых
-              продуктов <span
-                class="indent-[0px] text-center font-bold text-[20px]  mb-[7px] max-[1024px]:text-[17px] max-[550px]:text-[15px] max-[400px]:text-[15px]">Craft
+            <p class=""> {{ store.langProp[store.lang].aboutUsP1 }}<span
+                class="indent-[0px] text-center font-bold text-[20px]  mb-[7px] ml-3 max-[1024px]:text-[17px] max-[550px]:text-[15px] max-[400px]:text-[15px]">Craft
                 Honey!</span> </p>
 
             <p>
-              Наше небольшое семейное производство берет свое начало в далеком 1996 году, а началось все с того, что наш
-              папа
-              решил завести несколько пчелиных семей и начал постигать основы общения с пчелами, изучать их нрав и
-              поведение.
-              Изначально пчел у нас было не много, всего 16 семей Среднерусской породы, за тем по мере углубления в
-              изучение
-              пчеловодства мы экспериментировали и заводили другие породы пчел:
+              {{ store.langProp[store.lang].aboutUsP2 }}
             </p>
             <p>
-              в 2000 году мы заводили Карпатскую породу пчел, порядка 15 семей, в 2014 перешли на породу Карника и
-              увеличили
-              количество семей уже до 40, а к 2020 году увеличили количество семей этой породы до 235.
-              С 2022 года мы оставили 110 семей пород Бакфаст и Карника.
+              {{ store.langProp[store.lang].aboutUsP3 }}
             </p>
             <p>
-              Экологически чистое место расположение нашей пасеки в высокогорье Джалал-Абадской области обеспечивает
-              высокое
-              качество продукта, чистый горный воздух, обширные луга с разными травами, кристально-чистая вода горных
-              рек
-              ледникового происхождения, все это делает наш мед неповторимым по составу и качеству.
+              {{ store.langProp[store.lang].aboutUsP4 }}
             </p>
             <p>
-              Приобретая нашу продукцию Вы обеспечиваете здоровье и долголетие Вас и Вашей семьи!
+              {{ store.langProp[store.lang].aboutUsP5 }}
 
             </p>
           </article>
@@ -55,5 +41,14 @@
 </template>
 
 <script>
+import { useStore } from '@/stores/test'
+
+export default {
+  data () {
+    return {
+    store: useStore()
+    }
+  },
+}
 
 </script>
