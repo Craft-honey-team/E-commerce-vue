@@ -1,9 +1,9 @@
 <template>
 
 	<div class="grid overflow-scroll [&_*]:font-roboto">
-		<div class="grid grid-cols-[max-content_auto_max-content] mb-[20px] text-[40px] h-[60px]">
-			<span class = "bg-gray-200 font-bold font-roboto rounded-[10px] px-2 text-black">Контакты</span>  
-			<span class = "justify-self-center">|</span>
+		<div class="grid grid-cols-[max-content_auto_max-content] mb-[20px] text-[40px] max-[700px]:grid-cols-1">
+			<span class = "bg-gray-200 font-bold font-roboto rounded-[10px] px-2 text-black text-center">Контакты</span>  
+			<span class = "justify-self-center max-[700px]:hidden">|</span>
 			<button @click = "store.comp = 'Feedback'" class = "bg-[#EAAD02] rounded-[10px] px-2 text-white">Обратная связь</button>
 		</div>
 		<div class = "grid grid-cols-2">

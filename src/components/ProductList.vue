@@ -7,7 +7,7 @@
     
     <div class="max-[1000px]:gap-[60px] max-[1000px]:grid-cols-2
     max-[370px]:gap-[40px] 
-    max-[500px]:gap-[40px] max-[500px]:grid-cols-1
+    max-[650px]:gap-[40px] max-[650px]:grid-cols-1
      grid grid-cols-3">
         <div class="justify-self-center " v-for="(item) in DATA">
 
@@ -36,7 +36,7 @@
 	</div>
     <div class="max-[1000px]:gap-[60px] max-[1000px]:grid-cols-2
     max-[370px]:gap-[40px] 
-    max-[500px]:gap-[40px] max-[500px]:grid-cols-1
+    max-[650px]:gap-[40px] max-[650px]:grid-cols-1
      grid grid-cols-3">
         <div class="justify-self-center" v-for="(item) in DATA">
             <div class="bg-white rounded-[12px] p-2 w-80">
@@ -85,13 +85,13 @@ export default {
     methods: {
         async getdata() {
             await fetch(`http://35.78.112.119/api/shop/honey/`, {
-				method: 'GET',
+				method: 'POST',
 				headers: {
 				
 					'Content-Type': 'application/json'
 
 				},
-				body: JSON.stringify(),
+				body: JSON.stringify({description: 'asd', tare: 0.7, price: 100, title: 'asd', images: null}),
 			})
 				.then((response) => console.log(response.json()))
 				.catch((error) => console.log(error))

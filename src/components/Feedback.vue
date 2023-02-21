@@ -1,10 +1,10 @@
 <template>
 	
       <div class="grid grid-flow-row gap-[20px] mb-[60px] [&_input]:h-[60px]">
-	<div class="grid grid-cols-[max-content_auto_max-content] text-[40px] h-[60px]">
+	<div class="grid grid-cols-[max-content_auto_max-content] text-[40px] max-[700px]:grid-cols-1">
 		<button @click = "store.comp = 'Contacts'" class = "bg-[#EAAD02] rounded-[10px] px-2 text-white">Контакты</button>
-		<span class = "justify-self-center">|</span>
-		<span class = "bg-gray-200 font-bold font-roboto rounded-[10px] px-2 text-black">Обратная связь</span>  
+		<span class = "justify-self-center max-[700px]:hidden">|</span>
+		<span class = "bg-gray-200 font-bold font-roboto rounded-[10px] px-2 text-black text-center">Обратная связь</span>  
 	</div>
          <h2 class="text-3xl justify-self-center font-roboto">Свяжитесь с нами</h2>
          <input v-model="inputValueName" class="border-solid border-2 rounded-[4px] border-gray-400 text-center"
