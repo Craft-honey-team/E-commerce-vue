@@ -26,6 +26,13 @@
 		</div>
 
 		<div class="flex items-center justify-end max-[1050px]:hidden">
+			<!-- <div>
+				<p class="mr-[50px] text-xl">Lang:<select class="ml-[8px] hover:cursor-pointer" name="lang" placeholder="lang" id="">
+					<option @click="store.lang = 'rus'" value="">RUS</option>
+					<option @click="store.lang = 'en'" value="">ENG</option>
+					<option @click="store.lang = 'kyr'" value="">KYR</option>
+				</select></p>
+			</div> -->
 
 			<div class="flex items-center mr-[100px] max-[1300px]:mr-[40px]">
 				<img class="mr-[10px] w-[24px]" src="@/assets/account_circle.svg">
@@ -41,6 +48,13 @@
 			</div>
 
 			<div class="grid grid-flow-col gap-[10px]">
+				<div>
+				<p class="text-xl">Lang:<select class="ml-[8px] hover:cursor-pointer px-1" name="lang" placeholder="lang" id="">
+					<option @click="store.lang = 'rus'" value="">RUS</option>
+					<option @click="store.lang = 'en'" value="">ENG</option>
+					<option @click="store.lang = 'kyr'" value="">KYR</option>
+				</select></p>
+			</div>
 				<a href="https://wa.me/79146089174" target="_blank">
 					<img src="@/assets/WhatsApp.svg" alt="">
 				</a>
@@ -83,7 +97,7 @@
 				</div>
 
 				<div class="my-[20px] px-[10px]">
-					<div class="grid grid-cols-2 gap-[80px]">
+					<div class="grid grid-cols-2 gap-[80px]">						
 						<div class="flex items-center">
 							<p class="font-inter text-[16px] text-black">+996779454233</p>
 						</div>
@@ -123,7 +137,8 @@ export default {
 		return {
 
 			burgerMenu: false,
-			store: useStore()
+			store: useStore(),
+			
 
 		}
 
