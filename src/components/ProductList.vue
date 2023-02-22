@@ -9,19 +9,19 @@
     max-[370px]:gap-[40px] 
     max-[650px]:gap-[40px] max-[650px]:grid-cols-1
      grid grid-cols-3">
-        <div class="justify-self-center " v-for="(item) in DATA">
+        <div class="justify-self-center " v-for="(item, index) in data">
 
             <div class="bg-white rounded-[12px] p-2 w-80">
                 <div class="text-[25px]">
                     <h1>{{ item.name }}</h1>
 
                 </div>
-                <img class="rounded-[5px] h-68" :src="item.image">
+                <img class="rounded-[5px] h-68" src="@/assets/Group19.png">
 
                 <div class="grid grid-cols-2 text-[20px]">
-                    <p class="self-center">Lorem ipsum dolor.</p>
+                    <p class="self-center">{{ item.volume }}л</p>
                     <div class="grid grid-cols-1 justify-self-end">
-                        <span>1000c</span>
+                        <span>{{ item.price }}cом</span>
                         <button class="text-[#FF9900] ">Купить</button>
                     </div>
                 </div>
@@ -38,18 +38,18 @@
     max-[370px]:gap-[40px] 
     max-[650px]:gap-[40px] max-[650px]:grid-cols-1
      grid grid-cols-3">
-        <div class="justify-self-center" v-for="(item) in DATA">
+        <div class="justify-self-center" v-for="(item) in dataOpt">
             <div class="bg-white rounded-[12px] p-2 w-80">
                 <div class="text-[25px]">
                     <h1>{{ item.name }}</h1>
 
                 </div>
-                <img class="rounded-[5px] h-68 " :src="item.image">
+                <img class="rounded-[5px] h-68 " src="@/assets/Group19.png">
 
                 <div class="grid grid-cols-2 text-[20px]">
-                    <p class="self-center">Lorem ipsum dolor.</p>
+                    <p class="self-center">{{ item.volume }}л</p>
                     <div class="grid grid-cols-1 justify-self-end">
-                        <span>1000c</span>
+                        <span>{{ item.price }}сом</span>
                         <button class="text-[#FF9900] ">Купить</button>
                     </div>
                 </div>
@@ -62,45 +62,26 @@
 <script>
 export default {
     data: () => ({
-        DATA: [
-
-            {
-                "id": 1,
-                "name": "med1",
-                "image": "../src/assets/Group19.png"
-            },
-            {
-                "id": 2,
-                "name": "med2",
-                "image": "../src/assets/Group19.png"
-            },
-
-            {
-                "id": 3,
-                "name": "med3",
-                "image": "../src/assets/Group19.png"
-            },
-            // {
-            // 	"id": 5,
-            // 	"name": "med5",
-            // 	"image": "../src/assets/Group19.png"
-            // },
-            // {
-            // 	"id": 6,
-            // 	"name": "med6",
-            // 	"image": "../src/assets/Group19.png"
-            // },
-
-            // {
-            // 	"id": 7,
-            // 	"name": "med7",
-            // 	"image": "../src/assets/Group19.png"
-            // },
-        ],
+		data: {},
+		dataOpt: {}, 
     }),
     methods: {
         async getdata() {
+			try {
+				let res = await fetch('/api/productsList')	
+				this.data = await res.json();
+				res = await fetch('/api/productsListOpt')
+				this.dataOpt = await res.json();
+				console.log(this.dataPort)
+			} catch (error) {
+				console.log(error);
+			}
         },
     },
+	async mounted() {
+
+		await this.getdata();
+
+	}
 }
 </script>
