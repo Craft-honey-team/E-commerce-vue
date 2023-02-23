@@ -49,7 +49,7 @@
 
 <script>
 import { useStore } from '@/stores/test'
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 export default {
     props: {
@@ -87,24 +87,17 @@ export default {
 
         },
         async login() {
-            let obj = {
-                method: 'POST',
-                header: {
-                    'Contetnt-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    email: this.email,
-                    password: this.password,
-                    returnSecureToken: true,
-                }),
-            }
-
-            const response = await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${import.meta.env.VITE_FIREBASE_API_KEY}`, obj);
-
-            if (response?.ok) {
-                const res = response.json();
-                this.store.modal = false;
-            }
+            const auth = getAuth();
+			signInWithEmailAndPassword(auth, this.email, this.password)
+			  .then((userCredential) => {
+				const user = userCredential.user;
+				console.log(user)
+				this.store.modal = false;
+			  })
+			  .catch((error) => {
+				const errorCode = error.code;
+				const errorMessage = error.message;
+			  });
 
         },
         eyechange() {

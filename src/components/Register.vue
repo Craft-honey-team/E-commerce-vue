@@ -68,7 +68,7 @@
 
 <script>
 import { useStore } from '@/stores/test'
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 export default {
   data() {
@@ -109,28 +109,16 @@ export default {
         });
     },
     async register() {
-      let obj = {
-        method: 'POST',
-        header: {
-          'Contetnt-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          email: this.email,
-          password: this.password,
-          returnSecureToken: true,
-        }),
-      }
-      if (this.password2 == this.password) {
-
-        const response = await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${import.meta.env.VITE_FIREBASE_API_KEY}`, obj);
-
-
-        if (response?.ok) {
-          const res = response.json();
-          this.store.comp = 'Login';
-
-        }
-      }
+      const auth = getAuth();
+		createUserWithEmailAndPassword(auth, this.email, this.password)
+		  .then((userCredential) => {
+			const user = userCredential.user;
+			this.store.comp = 'Login';
+		  })
+		  .catch((error) => {
+			const errorCode = error.code;
+			const errorMessage = error.message;
+		  });
     },
     eyechange() {
       this.showPassword = !this.showPassword
