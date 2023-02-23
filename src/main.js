@@ -1,6 +1,5 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import { useStore } from '@/stores/test'
 import { initializeApp } from 'firebase/app'
 import { getAuth } from 'firebase/auth'
 import { GoogleAuthProvider } from 'firebase/auth'

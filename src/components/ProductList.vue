@@ -69,6 +69,7 @@ export default {
         async getdata() {
 			try {
 				let res = await fetch('/api/productsList')	
+				console.log(res);
 				this.data = await res.json();
 				res = await fetch('/api/productsListOpt')
 				this.dataOpt = await res.json();

@@ -1,16 +1,16 @@
 <template>
 	<header class="bg-white flex justify-between my-[10px] max-[800px]:grid-cols-1">
 
-		<div class="grid grid-flow-col gap-[100px] items-center max-[1300px]:gap-[40px] max-[400px]:grid-cols-[54%_auto]">
+		<div class="grid grid-flow-col gap-[40px] items-center">
 
 			<div>
-				<router-link class="flex max-w-fit" to="/">
+				<router-link class="flex max-w-fit" :to="$route.matched[0].path + '/home'">
 					<img class="self-center w-[60px] inline" src="../assets/drawing.svg" />
 					<img class="ml-[10px] self-center w-[120px] inline" src="../assets/CraftHoney.svg" />
 				</router-link>
 			</div>
 
-			<div v-if="$route.name != 'Home'" class="text-xl [&>a]:mr-[30px] max-[1050px]:hidden">
+			<div v-if="$route.name != 'Home'" class="text-xl [&>a]:mr-[30px] max-[1200px]:hidden">
 				<router-link to="/Products">{{ store.langProp[store.lang].catalogue }}</router-link>
 				<router-link to="/about">{{ store.langProp[store.lang].about }}</router-link>
 				<router-link to="/Blog">{{ store.langProp[store.lang].blog }}</router-link>
@@ -20,12 +20,12 @@
 
 		</div>
 
-		<div class="grid min-[1051px]:hidden">
+		<div class="grid min-[1201px]:hidden">
 			<img @click="burgerMenu = true" class="justify-self-center self-center hover:cursor-pointer"
 				src="../assets/menu.svg">
 		</div>
 
-		<div class="flex items-center justify-end max-[1050px]:hidden">
+		<div class="grid grid-flow-col gap-[40px] items-center max-[1200px]:hidden">
 			<!-- <div>
 				<p class="mr-[50px] text-xl">Lang:<select class="ml-[8px] hover:cursor-pointer" name="lang" placeholder="lang" id="">
 					<option @click="store.lang = 'rus'" value="">RUS</option>
@@ -34,27 +34,29 @@
 				</select></p>
 			</div> -->
 
-			<div class="flex items-center mr-[100px] max-[1300px]:mr-[40px]">
+			<div class="flex items-center">
 				<img class="mr-[10px] w-[24px]" src="@/assets/account_circle.svg">
 				<button class="text-xl text-center"
 					@click="store.modal = true, store.comp = 'Login', store.bg = 'bg-bee'">{{
 						store.langProp[store.lang].entrance }}</button>
 			</div>
 
-			<div class="mr-[100px] max-[1300px]:mr-[40px]">
-				<router-link to="/Checkout">
+			<div class="">
+				<router-link to="/ru/Checkout">
 					<img class="w-[22px] max-[800px]:hidden" src="@/assets/shopping_cart.svg" alt="">
 				</router-link>
 			</div>
-
-			<div class="grid grid-flow-col gap-[10px]">
-				<div>
-				<p class="text-xl">Lang:<select class="ml-[8px] hover:cursor-pointer px-1" name="lang" placeholder="lang" id="">
-					<option @click="store.lang = 'rus'" value="">RUS</option>
-					<option @click="store.lang = 'en'" value="">ENG</option>
-					<option @click="store.lang = 'kyr'" value="">KYR</option>
-				</select></p>
+			<div>
+				<p class="text-xl">{{ store.langProp[store.lang].lang }}: 
+					<select class="ml-[8px] hover:cursor-pointer px-1" name="lang" id="">
+						<option selected disabled hidden>{{ store.lang }}</option>
+						<option @click="store.lang = 'rus'" value="">RUS</option>
+						<option @click="store.lang = 'en'" value="">ENG</option>
+						<option @click="store.lang = 'kyr'" value="">KYR</option>
+					</select>
+				</p>
 			</div>
+			<div class="grid grid-flow-col gap-[10px]">
 				<a href="https://wa.me/79146089174" target="_blank">
 					<img src="@/assets/WhatsApp.svg" alt="">
 				</a>
@@ -148,6 +150,12 @@ export default {
 
 		Contacts
 
+	},
+	
+	mounted() {
+	
+		console.log(this.$route)
+	
 	}
 
 }

@@ -7,10 +7,12 @@ export const useStore = defineStore('store', {
 		modal: false,
 		feedback: false,
 		comp: 'Contacts',
-		lang: 'rus',
+		lang: 'ru',
 		langProp: {
 	
-			 'rus': {
+			 'ru': {
+			 
+			 	'lang': 'Язык',
 				'catalogue': 'Каталог',
 				'about': 'О нас',
 				'blog': 'Блог',
@@ -53,10 +55,10 @@ export const useStore = defineStore('store', {
 				'send': 'Отправить',
 				'reset': 'Сбросить',
 
-				
-
 			},
 			 'en':{
+			 
+			 	'lang': 'Lang',
 				'catalogue': 'Products',
 				'about': 'About us',
 				'blog': 'Blog',
@@ -98,8 +100,11 @@ export const useStore = defineStore('store', {
 				'message': 'Message',
 				'send': 'Send',
 				'reset': 'Reset',
+				
 			},
-			 'kyr':{
+			 'kg':{
+			 
+			 	'lang': 'Тил',
 				'catalogue': 'Каталог',
 				'about': 'Биз жөнүндө',
 				'blog': 'Блог',
