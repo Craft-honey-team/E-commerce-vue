@@ -6,9 +6,9 @@
     </div>
 
     <div class="max-[1000px]:gap-[60px] max-[1000px]:grid-cols-2
-                                                                            max-[370px]:gap-[40px] 
-                                                                            max-[650px]:gap-[40px] max-[650px]:grid-cols-1
-                                                                             grid grid-cols-3">
+                                                                                                max-[370px]:gap-[40px] 
+                                                                                                max-[650px]:gap-[40px] max-[650px]:grid-cols-1
+                                                                                                 grid grid-cols-3">
         <div class="justify-self-center " v-for="(item, index) in data">
 
             <div class="bg-white rounded-[12px] p-2 w-80">
@@ -41,9 +41,9 @@
         </div>
     </div>
     <div class="max-[1000px]:gap-[60px] max-[1000px]:grid-cols-2
-                                                                            max-[370px]:gap-[40px] 
-                                                                            max-[650px]:gap-[40px] max-[650px]:grid-cols-1
-                                                                             grid grid-cols-3">
+                                                                                                max-[370px]:gap-[40px] 
+                                                                                                max-[650px]:gap-[40px] max-[650px]:grid-cols-1
+                                                                                                 grid grid-cols-3">
         <div class="justify-self-center" v-for="(item) in dataOpt">
             <div class="bg-white rounded-[12px] p-2 w-80">
                 <div class="text-[25px]">
@@ -57,12 +57,9 @@
                     <span>{{ item.price }}сом</span>
                     <div class="grid grid-cols-1 justify-self-end">
                         <div class="">
-                            <span class="">
-                                Количество товаров:
-                                <button class="text-[25px]" v-on:click="incrementProductCount(index)">+</button>
-                                {{ item.quantity }}
-                                <button class="text-[30px]" v-on:click="decrementProductCount(index)">-</button>
-                            </span>
+                            <span class="">Количество товаров: <button class="text-[25px]"
+                                    v-on:click="incrementProductCount(index)">+</button> {{ item.quantity }} <button
+                                    class="text-[30px]" v-on:click="decrementProductCount(index)">-</button></span>
                         </div>
                     </div>
                     <button class="text-[#FF9900] ">Купить</button>
@@ -75,38 +72,42 @@
 
 <script>
 export default {
-    data: () => ({
-        data: {},
-        dataOpt: {},
-        data: 0
-
-    }),
-    methods: {
-        async getdata() {
-            try {
-                let res = await fetch('/api/productsList')
-                console.log(res);
-                this.data = await res.json();
-                res = await fetch('/api/productsListOpt')
-                this.dataOpt = await res.json();
-                console.log(this.dataPort)
-            } catch (error) {
-                console.log(error);
-            }
-        },
-        incrementProductCount: function (index) {
-            this.data[index].quantity++
-        },
-        decrementProductCount(index) {
-            if (this.data[index].quantity > 0) {
-                this.data[index].quantity--;
-            }
+    data() {
+    return {
+        data: [],
+        dataOpt: [],
+    };
+},
+methods: {
+    async getdata() {
+        try {
+            let res = await fetch('/api/productsList');
+            this.data = await res.json();
+            this.data.forEach((item) => {
+                item.quantity = 0;
+            });
+            res = await fetch('/api/productsListOpt');
+            this.dataOpt = await res.json();
+            this.dataOpt.forEach((item) => {
+                item.quantity = 0;
+            });
+        } catch (error) {
+            console.log(error);
         }
     },
+    incrementProductCount: function (index) {
+        this.data[index].quantity++;
+    },
+    decrementProductCount(index) {
+        if (this.data[index].quantity > 0) {
+            this.data[index].quantity--;
+        }
+    },
+},
     async mounted() {
-
-        await this.getdata();
-
-    }
+    await this.getdata();
 }
+}
+
+
 </script>
