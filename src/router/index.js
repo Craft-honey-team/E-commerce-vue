@@ -6,13 +6,13 @@ import Home from '@/views/Home.vue'
 let routes = [
     {
       path: "/home",
-      alias: "Home",
+      alias: "home",
       component: Home,
     },
     {
       path: '/about',
       alias: 'About',
-      component: () => import('@/views/About.vue')
+      component: () => import('@/views/About.vue'),
     },
     {
    	  path: '/Products',
@@ -20,13 +20,13 @@ let routes = [
       component: () => import('@/views/Products.vue')
     },
     {
-   	  path: '/Personal',
-      alias: 'Personal',
+   	  path: 'Personal/:id',
+      alias: 'Personal/:id',
       component: () => import('@/views/Personal.vue')
     },
     {
-   	  path: '/PersonalArea',
-      alias: 'PersonalArea',
+   	  path: '/PersonalArea/:id',
+      alias: 'PersonalArea/:id',
       component: () => import('@/views/PersonalArea.vue')
     },
     {
@@ -47,27 +47,29 @@ const router = createRouter({
   	{
   		path: '/',
   		name: 'root',
-  		redirect: to => { return useStore().lang }
+  		redirect: to => { 
+	  		return useStore().lang 
+  		}
   	},
   	{
   		path: '/ru',
   		name: 'ru',
   		redirect: to => { return 'ru/home' },
-  		beforeEnter: (to) => { console.log("repeat"); useStore().lang = 'ru' },
+  		beforeEnter: (to) => { useStore().lang = 'ru'; useStore().process() },
   		children: routes,
   	},
   	{
   		path: '/en',
   		name: 'en',
   		redirect: to => { return 'en/home' },
-  		beforeEnter: (to) => { useStore().lang = 'en' },
+  		beforeEnter: (to) => { useStore().lang = 'en'; useStore().process() },
   		children: routes,
   	},
   	{
   		path: '/kg',
   		name: 'kg',
    		redirect: to => { return 'kg/home' },
-   		beforeEnter: (to) => { useStore().lang = 'kg' },
+   		beforeEnter: (to) => { useStore().lang = 'kg'; useStore().process() },
   		children: routes,
   	},
   ]

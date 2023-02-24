@@ -2,7 +2,7 @@
 
 <LayoutModal/>
 
-<div :class = "$route.name == 'Home' ? 'h-screen min-h-[700px]' : 'min-h-screen'" class = "overflow-x-hidden px-[40px] grid grid-rows-[min-content_auto] max-w-screen max-[800px]:px-[20px]">
+<div class = "h-screen min-h-[700px] overflow-x-hidden px-[40px] grid grid-rows-[min-content_auto] max-w-screen max-[800px]:px-[20px]">
 <Header />
 <slot />
 </div>

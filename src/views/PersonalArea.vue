@@ -1,14 +1,14 @@
 <template>
     <Layout>
         <div>
-            <div class="h-[10%] flex items-end ">
+            <div class="flex items-end ">
                 <router-link class="text-slate-500" to="/Personal">Мои заказы</router-link>/<router-link to="/PersonalArea">Настройки</router-link>
             </div>
             <div
-                class="flex justify-center items-center w-full h-[10%] text-[40px] font-[400] border-b-2 border-black mb-10">
+                class="flex justify-center items-center w-full text-[40px] font-[400] border-b-2 border-black mb-10">
                 <h1>Личный кабинет</h1>
             </div>
-             <div class=" w-[30%] h-[28%] flex justify-between text-[18px]">
+             <div class=" w-[30%] flex justify-between text-[18px]">
                 <div class="text-slate-500 w-[40%]">
                     <p class="py-[5px]">Ваше имя</p>
                     <p class="py-[5px]">Электронная почта</p>

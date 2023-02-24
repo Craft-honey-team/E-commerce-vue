@@ -4,18 +4,18 @@
 		<div class="grid grid-flow-col gap-[40px] items-center">
 
 			<div>
-				<router-link class="flex max-w-fit" :to="$route.matched[0].path + '/home'">
+				<router-link class="flex max-w-fit" :to="'home'">
 					<img class="self-center w-[60px] inline" src="../assets/drawing.svg" />
 					<img class="ml-[10px] self-center w-[120px] inline" src="../assets/CraftHoney.svg" />
 				</router-link>
 			</div>
 
 			<div v-if="$route.name != 'Home'" class="text-xl [&>a]:mr-[30px] max-[1200px]:hidden">
-				<router-link to="/Products">{{ store.langProp[store.lang].catalogue }}</router-link>
-				<router-link to="/about">{{ store.langProp[store.lang].about }}</router-link>
-				<router-link to="/Blog">{{ store.langProp[store.lang].blog }}</router-link>
+				<router-link to="Products">{{ store?.langProp?.catalogue }}</router-link>
+				<router-link to="about">{{ store.langProp.about }}</router-link>
+				<router-link to="Blog">{{ store.langProp.blog }}</router-link>
 				<button @click="store.modal = true, store.comp = 'Contacts', store.bg = 'bg-white'">{{
-					store.langProp[store.lang].contacts }}</button>
+					store.langProp.contacts }}</button>
 			</div>
 
 		</div>
@@ -38,16 +38,16 @@
 				<img class="mr-[10px] w-[24px]" src="@/assets/account_circle.svg">
 				<button class="text-xl text-center"
 					@click="store.modal = true, store.comp = 'Login', store.bg = 'bg-bee'">{{
-						store.langProp[store.lang].entrance }}</button>
+						store.langProp.login }}</button>
 			</div>
 
 			<div class="">
-				<router-link to="/ru/Checkout">
+				<router-link to="Checkout">
 					<img class="w-[22px] max-[800px]:hidden" src="@/assets/shopping_cart.svg" alt="">
 				</router-link>
 			</div>
 			<div>
-				<p class="text-xl">{{ store.langProp[store.lang].lang }}: 
+				<p class="text-xl">{{ store.langProp.lang }}: 
 					<select class="ml-[8px] hover:cursor-pointer px-1" name="lang" id="">
 						<option selected disabled hidden>{{ store.lang }}</option>
 						<option @click="store.lang = 'rus'" value="">RUS</option>
@@ -79,12 +79,12 @@
 						class="self-end w-fit focus:outline-none mr-2 mt-2 text-[22px] text-right">
 						<strong>X</strong>
 					</button>
-					<router-link to="/Products"
+					<router-link to="Products"
 						class="flex items-center w-full h-[46px] font-inter font-[200] text-[22px] border-b-[1px]  border-black text-[#999999]">Каталог</router-link>
-					<router-link to="/about"
+					<router-link to="about"
 						class="flex items-center w-full h-[46px] font-inter font-[200] text-[22px] border-b-[1px]  border-black text-[#999999]">О
 						нас</router-link>
-					<router-link to="/Blog"
+					<router-link to="Blog"
 						class="flex items-center w-full h-[46px] font-inter font-[200] text-[22px] border-b-[1px]  border-black text-[#999999]">Блог</router-link>
 					<button @click="store.modal = true, burgerMenu = false, store.comp = 'Contacts', store.bg = 'bg-white'"
 						class="w-full h-[46px] text-left font-inter font-[200] text-[22px] border-b-[1px]  border-black text-[#999999]">Контакты</button>
@@ -154,7 +154,7 @@ export default {
 	
 	mounted() {
 	
-		console.log(this.$route)
+		console.log(this.$pinia)
 	
 	}
 

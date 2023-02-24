@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import { useStore } from '@/stores/test'
 import { initializeApp } from 'firebase/app'
 import { getAuth } from 'firebase/auth'
 import { GoogleAuthProvider } from 'firebase/auth'
@@ -31,6 +32,8 @@ app.component("Layout", Layout);
 
 app.use(pinia)
 app.use(router)
+
+console.log(useStore().langProp)
 
 initializeApp(firebaseConfig);
 
