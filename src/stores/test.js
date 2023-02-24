@@ -8,6 +8,7 @@ export const useStore = defineStore('store', {
 		feedback: false,
 		comp: 'Contacts',
 		lang: 'ru',
+		isLoggedin: false,
 		langProp: {
 	
 			 'ru': {
@@ -54,6 +55,9 @@ export const useStore = defineStore('store', {
 				'message': 'Сообщение',
 				'send': 'Отправить',
 				'reset': 'Сбросить',
+				'personalArea': 'Личный кабинет',
+				'myOrders': 'Мои заказы',
+				'settings': 'Настройки',
 
 			},
 			 'en':{
@@ -100,6 +104,9 @@ export const useStore = defineStore('store', {
 				'message': 'Message',
 				'send': 'Send',
 				'reset': 'Reset',
+				'personalArea': 'Personal Area',
+				'myOrders': 'My orders',
+				'settings': 'Settings',
 				
 			},
 			 'kg':{
@@ -146,6 +153,9 @@ export const useStore = defineStore('store', {
 				'message': 'Кабар',
 				'send': 'Жөнөтүү',
 				'reset': 'Калыбына келтирүү',
+				'personalArea': 'Жеке бөлмө',
+				'myOrders': 'Менин заказдарым',
+				'settings': 'Орнотуулар',
 								
 			}
 		}

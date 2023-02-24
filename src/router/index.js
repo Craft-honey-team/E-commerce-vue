@@ -20,13 +20,13 @@ let routes = [
       component: () => import('@/views/Products.vue')
     },
     {
-   	  path: '/Personal',
-      alias: 'Personal',
+   	  path: '/Personal/:id',
+      alias: ':id',
       component: () => import('@/views/Personal.vue')
     },
     {
-   	  path: '/PersonalArea',
-      alias: 'PersonalArea',
+   	  path: '/PersonalArea/:id',
+      alias: ':id',
       component: () => import('@/views/PersonalArea.vue')
     },
     {

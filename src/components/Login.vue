@@ -78,6 +78,7 @@ export default {
                     const token = credential.accessToken;
                     const user = result.user;
                     this.store.modal = false;
+                    this.$router.push(`/PersonalArea/${user.uid}`);
                 }).catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
@@ -93,6 +94,7 @@ export default {
 				const user = userCredential.user;
 				console.log(user)
 				this.store.modal = false;
+                this.$router.push(`/PersonalArea/${user.uid}`);
 			  })
 			  .catch((error) => {
 				const errorCode = error.code;

@@ -3,8 +3,7 @@
   <Layout>
     <div>
       <h1 class="mb-[30px] mt-[20px] text-[40px]"> <strong>{{ store.langProp[store.lang].aboutUs }}</strong> </h1>
-      <div class="justify-center flex  ">
-
+      <div class="justify-center flex ">
         <img class="mb-[40px] w-[100%]" src="../assets/Rectangle17.png" alt="">
       </div>
       <div class=" text-justify ">

@@ -50,9 +50,9 @@
 				<p class="text-xl">{{ store.langProp[store.lang].lang }}: 
 					<select class="ml-[8px] hover:cursor-pointer px-1" name="lang" id="">
 						<option selected disabled hidden>{{ store.lang }}</option>
-						<option @click="store.lang = 'rus'" value="">RUS</option>
-						<option @click="store.lang = 'en'" value="">ENG</option>
-						<option @click="store.lang = 'kyr'" value="">KYR</option>
+						<option @click="store.lang = 'ru'" value="">RU</option>
+						<option @click="store.lang = 'en'" value="">EN</option>
+						<option @click="store.lang = 'kg'" value="">KG</option>
 					</select>
 				</p>
 			</div>
