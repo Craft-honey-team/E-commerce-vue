@@ -4,18 +4,17 @@
 		<div class="grid grid-flow-col gap-[40px] items-center">
 
 			<div>
-				<router-link class="flex max-w-fit" :to="'home'">
+				<router-link class="flex max-w-fit" :to="`/${lang}/home`">
 					<img class="self-center w-[60px] inline" src="../assets/drawing.svg" />
 					<img class="ml-[10px] self-center w-[120px] inline" src="../assets/CraftHoney.svg" />
 				</router-link>
 			</div>
 
-			<div v-if="$route.name != 'Home'" class="text-xl [&>a]:mr-[30px] max-[1200px]:hidden">
-				<router-link to="Products">{{ store?.langProp?.catalogue }}</router-link>
-				<router-link to="about">{{ store.langProp.about }}</router-link>
-				<router-link to="Blog">{{ store.langProp.blog }}</router-link>
-				<button @click="store.modal = true, store.comp = 'Contacts', store.bg = 'bg-white'">{{
-					store.langProp.contacts }}</button>
+			<div v-if="$route.path != `/${lang}/home`" class="text-xl [&>a]:mr-[30px] max-[1200px]:hidden">
+				<router-link :to="`/${lang}/Products`">{{ store?.langProp?.catalogue }}</router-link>
+				<router-link :to="`/${lang}/About`">{{ store.langProp.about }}</router-link>
+				<router-link :to="`/${lang}/Blog`">{{ store.langProp.blog }}</router-link>
+				<button @click="store.modal = true, store.comp = 'Contacts', store.bg = 'bg-white'">{{ store.langProp.contacts }}</button>
 			</div>
 
 		</div>
@@ -26,19 +25,19 @@
 		</div>
 
 		<div class="grid grid-flow-col gap-[40px] items-center max-[1200px]:hidden">
-			<!-- <div>
-				<p class="mr-[50px] text-xl">Lang:<select class="ml-[8px] hover:cursor-pointer" name="lang" placeholder="lang" id="">
-					<option @click="store.lang = 'rus'" value="">RUS</option>
-					<option @click="store.lang = 'en'" value="">ENG</option>
-					<option @click="store.lang = 'kyr'" value="">KYR</option>
-				</select></p>
-			</div> -->
 
-			<div class="flex items-center">
+			<div v-if="!store.loggedIn" class="flex items-center">
 				<img class="mr-[10px] w-[24px]" src="@/assets/account_circle.svg">
 				<button class="text-xl text-center"
 					@click="store.modal = true, store.comp = 'Login', store.bg = 'bg-bee'">{{
 						store.langProp.login }}</button>
+			</div>
+
+			<div v-if="store.loggedIn && !$route.path.includes('personalArea')" class="flex items-center">
+				<img class="mr-[10px] w-[24px]" src="@/assets/account_circle.svg">
+				<router-link class="text-xl text-center" :to='`personalArea/${store.uid}`'>
+					{{ store.langProp.profile }}
+				</router-link>
 			</div>
 
 			<div class="">
@@ -49,10 +48,10 @@
 			<div>
 				<p class="text-xl">{{ store.langProp.lang }}: 
 					<select class="ml-[8px] hover:cursor-pointer px-1" name="lang" id="">
-						<option selected disabled hidden>{{ store.lang }}</option>
-						<option @click="store.lang = 'rus'" value="">RUS</option>
-						<option @click="store.lang = 'en'" value="">ENG</option>
-						<option @click="store.lang = 'kyr'" value="">KYR</option>
+						<option selected disabled hidden>{{ store.lang.toUpperCase() }}</option>
+						<option @click="store.lang = 'ru', $router.push(`/ru/${$route.path.slice(4, $route.path.length)}`)" value="">RU</option>
+						<option @click="store.lang = 'en', $router.push(`/en/${$route.path.slice(4, $route.path.length)}`)" value="">EN</option>
+						<option @click="store.lang = 'kg', $router.push(`/kg/${$route.path.slice(4, $route.path.length)}`)" value="">KG</option>
 					</select>
 				</p>
 			</div>
@@ -73,54 +72,7 @@
 		</div>
 		<div class="right-[0px] top-0 overflow-hidden transition-all duration-500 ease-in-out z-50 absolute h-screen bg-[#DAE2E2]"
 			:class="burgerMenu ? 'w-[330px]' : 'w-[0px]'">
-			<div class=" ">
-				<div class="flex flex-col justify-center [&>*]:px-[10px]">
-					<button @click="burgerMenu = false"
-						class="self-end w-fit focus:outline-none mr-2 mt-2 text-[22px] text-right">
-						<strong>X</strong>
-					</button>
-					<router-link to="Products"
-						class="flex items-center w-full h-[46px] font-inter font-[200] text-[22px] border-b-[1px]  border-black text-[#999999]">Каталог</router-link>
-					<router-link to="about"
-						class="flex items-center w-full h-[46px] font-inter font-[200] text-[22px] border-b-[1px]  border-black text-[#999999]">О
-						нас</router-link>
-					<router-link to="Blog"
-						class="flex items-center w-full h-[46px] font-inter font-[200] text-[22px] border-b-[1px]  border-black text-[#999999]">Блог</router-link>
-					<button @click="store.modal = true, burgerMenu = false, store.comp = 'Contacts', store.bg = 'bg-white'"
-						class="w-full h-[46px] text-left font-inter font-[200] text-[22px] border-b-[1px]  border-black text-[#999999]">Контакты</button>
-				</div>
-				<div class="flex flex-col items-center  border-b-[1px] border-[#BCB9B9] ">
-					<button @click="store.bg = 'bg-bee', store.modal = true, burgerMenu = false, store.comp = 'Register'"
-						class="w-[218px] h-[47px] mt-[20px] flex justify-center items-center font-ubuntu font-[400] text-[16px] text-[#FFF9F9]"><img
-							class="w-[24px] h-24[px] mr-[10px] " src="@/assets/Register_1.svg" alt="">Регистрация</button>
-					<button @click="store.modal = true, burgerMenu = false, store.bg = 'bg-bee', store.comp = 'Login'"
-						class="border-[2px] border-solid border-black rounded-[8px]  w-[218px] h-[47px] mt-[5px] mb-[20px] flex justify-center items-center font-ubuntu font-[400] text-[16px] text-[##000000]">
-						<img class="w-[24px] h-[24px] mr-[10px]" src="@/assets/Enter_1.svg" alt="">Вход</button>
-				</div>
-
-				<div class="my-[20px] px-[10px]">
-					<div class="grid grid-cols-2 gap-[80px]">						
-						<div class="flex items-center">
-							<p class="font-inter text-[16px] text-black">+996779454233</p>
-						</div>
-						<div class="flex justify-around items-center">
-							<a href="https://wa.me/79146089174" target="_blank">
-								<img src="@/assets/WhatsApp.svg" alt="">
-							</a>
-
-							<a href="https://t.me/+996779454233" target="_blank">
-								<img src="@/assets/Telegram.svg" alt="">
-							</a>
-						</div>
-
-					</div>
-					<p class="my-[10px]">Адрес: 770033,Кыргызстан <br>ул.Киевская,77</p>
-					<a href="https://www.instagram.com/crafthoney.kg" target="_blank">
-						<img src="@/assets/Instagram.svg" alt="">
-					</a>
-				</div>
-
-			</div>
+			<Burger @changeBurger="changeBurger"/>
 		</div>
 
 
@@ -130,9 +82,15 @@
 <script>
 
 import Contacts from '@/components/Contacts.vue'
+import Burger from '@/components/Burger.vue'
 import { useStore } from '@/stores/test'
 
 export default {
+
+	beforeRouteEnter(to, from) {
+	
+	
+	},
 
 	data() {
 
@@ -140,7 +98,17 @@ export default {
 
 			burgerMenu: false,
 			store: useStore(),
-			
+			lang: useStore().lang
+
+		}
+
+	},
+
+	methods: {
+
+		changeBurger() {
+
+			this.burgerMenu = false;
 
 		}
 
@@ -148,13 +116,14 @@ export default {
 
 	components: {
 
-		Contacts
+		Contacts,
+		Burger
 
 	},
 	
 	mounted() {
 	
-		console.log(this.$pinia)
+		console.log(this.$route)
 	
 	}
 

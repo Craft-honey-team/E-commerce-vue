@@ -1,37 +1,48 @@
 <template>
     <Layout>
-        <div>
-            <div class="flex items-end ">
-                <router-link class="text-slate-500" to="/Personal">Мои заказы</router-link>/<router-link to="/PersonalArea">Настройки</router-link>
-            </div>
-            <div
-                class="flex justify-center items-center w-full text-[40px] font-[400] border-b-2 border-black mb-10">
-                <h1>Личный кабинет</h1>
-            </div>
-             <div class=" w-[30%] flex justify-between text-[18px]">
-                <div class="text-slate-500 w-[40%]">
-                    <p class="py-[5px]">Ваше имя</p>
-                    <p class="py-[5px]">Электронная почта</p>
-                    <p class="py-[5px]">Телефон</p>
-                    <p class="py-[5px]">Адрес для доставок</p>
-                </div>
-                <div>
-                    <p class="py-[5px]">Иван иванов</p>
-                    <p class="py-[5px]">mailti@gmail.com</p>
-                    <p class="py-[5px]">+996555678349</p>
-                    <p class="py-[5px]">г.Бишкек</p>
-                </div>
-             </div>
-             <router-link class="text-blue-700 underline decoration-1 text-[18px]" to="">Изменить пароль</router-link>
-             <div class="py-[2%] w-[25%]">
-                <p class="font-bold text-[20px] ">Привязка социальных сетей</p>
-                <p class="text-[18px] py-[5px]"> Привяжите учетную запись социальной сети и используйте ее для авторизации</p>
-             </div>
-             <div class="w-[15%] h-[40px] flex justify-around">
-                <div>
-                    <img class="w-[50px] h-[50px]" src="@/assets/Instagram.svg" alt="">
-                </div>
-             </div>
-        </div>
+		<div>
+			<div class="pt-[20px] mt-[20px] mb-[40px] border-t-[3px] border-black">
+				<p class="text-[50px]">{{ store.langProp.personalarea }}</p>
+			</div>
+			<div class="grid grid-flow-row gap-20">
+				<div class="grid grid-flow-col auto-cols-max text-[20px] max-[700px]:grid-cols-1">
+					<span
+						class="bg-gray-200 h-[30px] flex items-center font-bold font-roboto rounded-[10px] px-2 text-black text-center">{{
+							store.langProp.settings }}</span>
+					<span class="justify-self-center mx-2 max-[700px]:hidden">|</span>
+					<button @click="$router.push(`../Personal/${$route.params.id}`)"
+						class="bg-[#EAAD02] h-[30px] rounded-[10px] px-2 text-white">{{ store.langProp.myorders
+						}}</button>
+				</div>
+				<div class="grid grid-flow-col auto-cols-max gap-[30px] text-[20px]">
+					<div class="text-slate-500 ">
+						<p class=" ">Ваше имя</p>
+						<p class=" ">Электронная почта</p>
+						<p class=" ">Телефон</p>
+						<p class=" ">Адрес для доставки</p>
+					</div>
+					<div>
+						<p class=" ">Иван иванов</p>
+						<p class=" ">mailti@gmail.com</p>
+						<p class=" ">+996555678349</p>
+						<p class=" ">г.Бишкек</p>
+					</div>
+				</div>
+				<router-link class="text-blue-700 underline decoration-1 text-[18px]" to="">Изменить пароль</router-link>
+			</div>        
+		</div>
     </Layout>
 </template>
+<script>
+import { useStore } from '@/stores/test'
+export default {
+    data() {
+        return {
+            store: useStore()
+        }
+    }
+
+}
+
+</script>
+

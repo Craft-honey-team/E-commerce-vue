@@ -11,6 +11,7 @@ import router from "./router";
 
 import "./assets/main.css";
 
+
 const app = createApp(App);
 const pinia = createPinia();
 const provider = new GoogleAuthProvider()
@@ -33,10 +34,11 @@ app.component("Layout", Layout);
 app.use(pinia)
 app.use(router)
 
-console.log(useStore().langProp)
-
 initializeApp(firebaseConfig);
+
+useStore().checkStatus();
 
 const auth = getAuth();
 
 app.mount("#app");
+

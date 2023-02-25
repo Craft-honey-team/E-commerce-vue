@@ -56,7 +56,7 @@
       <button @click="register"
         :disabled="name.length <= 2 || password.length <= 5 || email.length <= 5 || password !== password2"
         class=" bg-[#EAAD02] border-2 border-none rounded-[3px] text-white h-[45px] disabled:opacity-50 ">{{
-          store.langProp.toComeIn }}
+          store.langProp.registration }}
       </button>
       <p class="text-center">{{ store.langProp.doyouhaveaccount }}<button
           @click="store.comp = 'Login'" class="ml-[8px]  text-blue-500 underline hover:text-amber-700">{{
