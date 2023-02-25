@@ -51,7 +51,7 @@
 				</div>
 			</div>
 		</div>
-		<button @click="exitPersonalArea" class="bg-[#EAAD02] h-[30px] w-[200px] rounded-[10px] px-2 text-center text-white">Выйти из АКК</button>
+		<button @click="exitPersonalArea" class="bg-[#EAAD02] h-[30px] w-[200px] rounded-[10px] px-2 text-center text-white  hover:text-amber-700 hover:underline underline-offset-4">Выйти из АКК</button>
     </Layout>
 </template>
 

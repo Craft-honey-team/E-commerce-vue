@@ -29,7 +29,7 @@
 					</div>
 				</div>
 				<router-link class="text-blue-700 underline decoration-1 text-[18px] hover:text-amber-700 hover:underline underline-offset-4" to="">Изменить пароль</router-link>
-				<button @click="exitPersonalArea" class="bg-[#EAAD02] h-[30px] w-[200px] rounded-[10px] px-2 text-center text-white">Выйти из АКК</button>
+				<button @click="exitPersonalArea" class="bg-[#EAAD02] h-[30px] w-[200px] rounded-[10px] px-2 text-center text-white  hover:text-amber-700 hover:underline underline-offset-4">Выйти из АКК</button>
 			</div>        
 		</div>
     </Layout>

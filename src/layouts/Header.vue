@@ -28,7 +28,7 @@
 
 			<div v-if="!store.loggedIn" class="flex items-center">
 				<img class="mr-[10px] w-[24px]" src="@/assets/account_circle.svg">
-				<button class="text-xl text-center"
+				<button class="text-xl text-center  hover:text-amber-700 hover:underline underline-offset-4"
 					@click="store.modal = true, store.comp = 'Login', store.bg = 'bg-bee'">{{
 						store.langProp.login }}</button>
 			</div>
