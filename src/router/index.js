@@ -3,12 +3,12 @@ import { useStore } from '@/stores/test'
 
 const routes = [
     {
-      path: "home",
-      alias: "home",
+      path: "Home",
+      alias: "Home",
       component: () => import('@/views/Home.vue'),
     },
     {
-      path: 'about',
+      path: 'About',
       alias: 'About',
       component: () => import('@/views/About.vue'),
     },
@@ -52,25 +52,26 @@ const router = createRouter({
   	{
   		path: '/ru',
   		name: 'ru',
-  		redirect: to => { return 'ru/home' },
+  		redirect: to => { return 'ru/Home' },
   		beforeEnter: async (to, from) => { useStore().lang = 'ru'; useStore().process(); },
   		children: routes,
   	},
   	{
   		path: '/en',
   		name: 'en',
-  		redirect: to => { return 'en/home' },
+  		redirect: to => { return 'en/Home' },
   		beforeEnter: (to) => { useStore().lang = 'en'; useStore().process(); },
   		children: routes,
   	},
   	{
   		path: '/kg',
   		name: 'kg',
-   		redirect: to => { return 'kg/home' },
+   		redirect: to => { return 'kg/Home' },
    		beforeEnter: (to) => { useStore().lang = 'kg'; useStore().process(); },
   		children: routes,
   	},
-  ]
+  ],
+  strict: true,
 });
 
 export default router;

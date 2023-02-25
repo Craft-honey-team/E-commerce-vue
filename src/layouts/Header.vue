@@ -4,13 +4,13 @@
 		<div class="grid grid-flow-col gap-[40px] items-center">
 
 			<div>
-				<router-link class="flex max-w-fit" :to="`/${lang}/home`">
+				<router-link class="flex max-w-fit" :to="`/${lang}/Home`">
 					<img class="self-center w-[60px] inline" src="../assets/drawing.svg" />
 					<img class="ml-[10px] self-center w-[120px] inline" src="../assets/CraftHoney.svg" />
 				</router-link>
 			</div>
 
-			<div v-if="$route.path != `/${lang}/home`" class="text-xl [&>a]:mr-[30px] max-[1200px]:hidden">
+			<div v-if="$route.path != `/${lang}/Home`" class="text-xl [&>a]:mr-[30px] max-[1200px]:hidden">
 				<router-link :to="`/${lang}/Products`">{{ store?.langProp?.catalogue }}</router-link>
 				<router-link :to="`/${lang}/About`">{{ store.langProp.about }}</router-link>
 				<router-link :to="`/${lang}/Blog`">{{ store.langProp.blog }}</router-link>
@@ -26,16 +26,16 @@
 
 		<div class="grid grid-flow-col gap-[40px] items-center max-[1200px]:hidden">
 
-			<div v-if="!store.loggedIn && !$route.path.includes('PersonalArea')" class="flex items-center">
+			<div v-if="!store.loggedIn && !$route.path.includes('Personal')" class="flex items-center">
 				<img class="mr-[10px] w-[24px]" src="@/assets/account_circle.svg">
 				<button class="text-xl text-center"
 					@click="store.modal = true, store.comp = 'Login', store.bg = 'bg-bee'">{{
 						store.langProp.login }}</button>
 			</div>
 
-			<div v-if="store.loggedIn && !$route.path.includes('PersonalArea')" class="flex items-center">
+			<div v-if="store.loggedIn && !$route.path.includes('Personal')" class="flex items-center">
 				<img class="mr-[10px] w-[24px]" src="@/assets/account_circle.svg">
-				<router-link class="text-xl text-center" :to='`personalArea/${store.uid}`'>
+				<router-link class="text-xl text-center" :to='`/${lang}/PersonalArea/${store.uid}`'>
 					{{ store.langProp.profile }}
 				</router-link>
 			</div>

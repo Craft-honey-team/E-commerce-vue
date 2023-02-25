@@ -30,8 +30,8 @@
 				<img class="w-[24px] h-[24px] mr-[10px]" src="@/assets/Enter_1.svg" alt="">{{ store.langProp.login }}</button>
 		</div>
 
-		<div v-if="store.loggedIn && !$route.path.includes('personalArea')" class="flex justify-center border-b-[1px] border-[#BCB9B9] ">
-			<router-link :to='`personalArea/${store.uid}`' class="border-[2px] border-solid border-black rounded-[8px] my-4 w-[218px] h-[47px] flex justify-center items-center font-ubuntu font-[400] text-[16px] text-[##000000]">
+		<div v-if="store.loggedIn && !$route.path.includes('Personal')" class="flex justify-center border-b-[1px] border-[#BCB9B9] ">
+			<router-link :to='`/${lang}/PersonalArea/${store.uid}`' class="border-[2px] border-solid border-black rounded-[8px] my-4 w-[218px] h-[47px] flex justify-center items-center font-ubuntu font-[400] text-[16px] text-[##000000]">
 				<img class="w-[24px] h-[24px] mr-[10px]" src="@/assets/Enter_1.svg" alt="">{{ store.langProp.profile }}
 			</router-link>
 		</div>

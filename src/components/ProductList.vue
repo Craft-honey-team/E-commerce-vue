@@ -26,7 +26,7 @@
                             <span class="">Количество товаров: <button class="text-[25px]"
                                     v-on:click="incrementProductCount(index)">+</button> {{
                                         item.quantity }} <button class="text-[30px]"
-                                    v-on:click="decrementProductCount">-</button></span>
+                                    v-on:click="decrementProductCount(index)">-</button></span>
                         </div>
                     </div>
                     <button class="text-[#FF9900] ">Купить</button>
@@ -93,7 +93,7 @@ methods: {
         this.data[index].quantity++;
     },
     decrementProductCount(index) {
-        if (this.data[index].quantity > 0) {
+        if (this.data[index].quantity > 1) {
             this.data[index].quantity--;
         }
     },
