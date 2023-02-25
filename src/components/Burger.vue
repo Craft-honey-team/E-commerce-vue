@@ -1,22 +1,22 @@
 <template>
 
 
-	<div class=" ">
+	<div class="  ">
 		<div class="flex flex-col justify-center [&>*]:px-[10px]">
 			<button @click="$emit('changeBurger')"
-				class="self-end w-fit focus:outline-none mr-2 mt-2 text-[22px] text-right">
+				class="self-end w-fit focus:outline-none mr-2 mt-2 text-[22px] text-right hover:text-amber-700 ">
 				<strong>X</strong>
 			</button>
-			<router-link :to="`/${lang}/Products`" class="flex items-center w-full h-[46px] font-inter font-[200] text-[22px] border-b-[1px]  border-black text-[#999999]">
+			<router-link :to="`/${lang}/Products`" class="flex items-center w-full h-[46px] font-inter font-[200] text-[22px] border-b-[1px]  border-black text-[#999999] hover:text-amber-700 hover:underline underline-offset-4">
 				{{ store.langProp.catalogue }}
 			</router-link>
-			<router-link :to="`/${lang}/About`" class="flex items-center w-full h-[46px] font-inter font-[200] text-[22px] border-b-[1px]  border-black text-[#999999]">
+			<router-link :to="`/${lang}/About`" class="flex items-center w-full h-[46px] font-inter font-[200] text-[22px] border-b-[1px]  border-black text-[#999999] hover:text-amber-700 hover:underline underline-offset-4">
 				{{ store.langProp.aboutus }}	
 			</router-link>
-			<router-link :to="`/${lang}/Blog`" class="flex items-center w-full h-[46px] font-inter font-[200] text-[22px] border-b-[1px]  border-black text-[#999999]">
+			<router-link :to="`/${lang}/Blog`" class="flex items-center w-full h-[46px] font-inter font-[200] text-[22px] border-b-[1px]  border-black text-[#999999] hover:text-amber-700 hover:underline underline-offset-4">
 				{{ store.langProp.blog }}
 			</router-link>
-			<button @click="store.modal = true, burgerMenu = false, store.comp = 'Contacts', store.bg = 'bg-white'" class="w-full h-[46px] text-left font-inter font-[200] text-[22px] border-b-[1px]  border-black text-[#999999]">
+			<button @click="store.modal = true, burgerMenu = false, store.comp = 'Contacts', store.bg = 'bg-white'" class="w-full h-[46px] text-left font-inter font-[200] text-[22px] border-b-[1px]  border-black text-[#999999] hover:text-amber-700 hover:underline underline-offset-4">
 				{{ store.langProp.contacts }}
 			</button>
 		</div>

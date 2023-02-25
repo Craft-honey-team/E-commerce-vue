@@ -11,6 +11,7 @@ import router from "./router";
 
 import "./assets/main.css";
 
+
 const app = createApp(App);
 const pinia = createPinia();
 const provider = new GoogleAuthProvider()
@@ -39,4 +40,5 @@ useStore().checkStatus();
 
 const auth = getAuth();
 
-app.mount('#app')
+app.mount("#app");
+

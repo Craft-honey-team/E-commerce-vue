@@ -28,19 +28,34 @@
 						<p class=" ">г.Бишкек</p>
 					</div>
 				</div>
-				<router-link class="text-blue-700 underline decoration-1 text-[18px]" to="">Изменить пароль</router-link>
+				<router-link class="text-blue-700 underline decoration-1 text-[18px] hover:text-amber-700 hover:underline underline-offset-4" to="">Изменить пароль</router-link>
+				<button @click="exitPersonalArea" class="bg-[#EAAD02] h-[30px] w-[200px] rounded-[10px] px-2 text-center text-white  hover:text-amber-700 hover:underline underline-offset-4">Выйти из АКК</button>
 			</div>        
 		</div>
     </Layout>
 </template>
 <script>
-import { useStore } from '@/stores/test'
+import { useStore } from '@/stores/test';
+import { getAuth, signOut } from "firebase/auth";
 export default {
     data() {
         return {
             store: useStore()
         }
-    }
+    },
+	methods: {
+		exitPersonalArea(){
+		const auth = getAuth();
+signOut(auth).then(() => {
+  // Sign-out successful.
+  this.store.uid = '';
+  this.store.loggedIn = false;
+  this.$router.push('/ru/home');
+}).catch((error) => {
+  // An error happened.
+});
+	},
+	}
 
 }
 
