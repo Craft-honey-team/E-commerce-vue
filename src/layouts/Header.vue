@@ -26,14 +26,14 @@
 
 		<div class="grid grid-flow-col gap-[40px] items-center max-[1200px]:hidden">
 
-			<div v-if="!store.loggedIn" class="flex items-center">
+			<div v-if="!store.loggedIn && !$route.path.includes('PersonalArea')" class="flex items-center">
 				<img class="mr-[10px] w-[24px]" src="@/assets/account_circle.svg">
 				<button class="text-xl text-center"
 					@click="store.modal = true, store.comp = 'Login', store.bg = 'bg-bee'">{{
 						store.langProp.login }}</button>
 			</div>
 
-			<div v-if="store.loggedIn && !$route.path.includes('personalArea')" class="flex items-center">
+			<div v-if="store.loggedIn && !$route.path.includes('PersonalArea')" class="flex items-center">
 				<img class="mr-[10px] w-[24px]" src="@/assets/account_circle.svg">
 				<router-link class="text-xl text-center" :to='`personalArea/${store.uid}`'>
 					{{ store.langProp.profile }}

@@ -1,4 +1,4 @@
-import { createApp } from 'vue'
+import { createSSRApp } from 'vue'
 import { createPinia } from 'pinia'
 import { useStore } from '@/stores/test'
 import { initializeApp } from 'firebase/app'
@@ -11,8 +11,7 @@ import router from "./router";
 
 import "./assets/main.css";
 
-
-const app = createApp(App);
+const app = createSSRApp(App);
 const pinia = createPinia();
 const provider = new GoogleAuthProvider()
 const firebaseConfig = {
@@ -40,5 +39,4 @@ useStore().checkStatus();
 
 const auth = getAuth();
 
-app.mount("#app");
-
+app.mount('#app')

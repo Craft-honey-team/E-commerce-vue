@@ -1,13 +1,11 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, createMemoryHistory } from 'vue-router'
 import { useStore } from '@/stores/test'
-
-import Home from '@/views/Home.vue'
 
 const routes = [
     {
       path: "home",
       alias: "home",
-      component: Home,
+      component: () => import('@/views/Home.vue'),
     },
     {
       path: 'about',
