@@ -51,18 +51,20 @@
 				</div>
 			</div>
 		</div>
+		<button @click="exitPersonalArea" class="bg-[#EAAD02] h-[30px] w-[200px] rounded-[10px] px-2 text-center text-white">Выйти из АКК</button>
     </Layout>
 </template>
 
 <script>
 
 import { useStore } from "@/stores/test";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 
 export default {
+	
 
 	beforeRouteEnter(to, from, next) {
-			
+		
 		const auth = getAuth();
 		onAuthStateChanged(auth, (user) => {
 		  if (user) {
@@ -70,13 +72,15 @@ export default {
 			// https://firebase.google.com/docs/reference/js/firebase.User
 			const uid = user.uid;
 		  	console.log(uid)
-		  	console.log(to)
+		  	console.log(from)
 			if (uid != to.params.id) next('/')
 			next()
 			// ...
 		  } else {
 			// User is signed out
 			// ...
+			
+			
 		  }
 		});
 	
@@ -88,6 +92,22 @@ export default {
 			store: useStore()
 
 		}
+
+	},
+
+	methods: {
+
+		exitPersonalArea(){
+		const auth = getAuth();
+signOut(auth).then(() => {
+  // Sign-out successful.
+  this.store.uid = '';
+  this.store.loggedIn = false;
+  this.$router.push('/ru/home');
+}).catch((error) => {
+  // An error happened.
+});
+	},
 
 	}
 

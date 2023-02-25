@@ -2,9 +2,9 @@
 
 
     <Layout>
-        <div class="">
+        <div class="pt-[20px] mt-[20px] mb-[40px] border-t-[3px] border-black">
         
-       		<h1 class="text-[45px]">{{ store.langProp.blog }}</h1>
+       		<h1 class="text-[50px]">{{ store.langProp.blog }}</h1>
   
         </div>
 
