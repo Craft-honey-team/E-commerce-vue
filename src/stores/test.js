@@ -10,6 +10,8 @@ export const useStore = defineStore('store', {
 		comp: 'Contacts',
 		loggedIn: false,
 		uid: '',
+		name: '',
+		email: '',
 		lang: 'ru',
 		langProp: {  }
 	}),
@@ -42,6 +44,9 @@ export const useStore = defineStore('store', {
 				// https://firebase.google.com/docs/reference/js/firebase.User
 				this.loggedIn = true;
 				this.uid = user.uid;
+				this.name = user.displayName;
+				this.email = user.email;
+				console.log(user)
 				// ...
 			  } else {
 				// User is signed out

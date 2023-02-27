@@ -1,7 +1,7 @@
 <template>
     <div class="flex justify-center">
         <div class="border-b-black border-b-[3px] w-fit">
-            <h2 class="text-[40px] mt-0">Розничная</h2>
+            <h2 class="text-[40px]">Розничная</h2>
         </div>
     </div>
 
@@ -29,7 +29,7 @@
                                     v-on:click="decrementProductCount(index)">-</button></span>
                         </div>
                     </div>
-                    <button class="text-[#FF9900] ">Купить</button>
+                    <button @click = "addToCart(index, 'orders')" class="text-[#FF9900] ">Купить</button>
                 </div>
             </div>
 
@@ -71,14 +71,36 @@
 </template>
 
 <script>
+import { useStore } from '@/stores/test';
+
 export default {
     data() {
     return {
         data: [],
         dataOpt: [],
+        store: useStore()
     };
 },
 methods: {
+
+	addToCart(index, type) {
+	
+		fetch('/api/users', {
+		
+			method: 'POST',
+			headers: {
+			
+				'Content-Type': 'application/json'
+			
+			},
+			body: JSON.stringify({ 1: index, 2: this.store.uid, 3: type, 4: this.data[index].quantity })
+		
+		})
+			.then((res) => console.log('ok'))
+			.catch((err) => console.log(err));
+	
+	},
+	
     async getdata() {
         try {
             let res = await fetch('/api/productsList');

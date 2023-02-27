@@ -16,14 +16,14 @@
 				</div>
 				<div class="grid grid-flow-col auto-cols-max gap-[30px] text-[20px]">
 					<div class="text-slate-500 ">
-						<p class=" ">Ваше имя</p>
-						<p class=" ">Электронная почта</p>
-						<p class=" ">Телефон</p>
-						<p class=" ">Адрес для доставки</p>
+						<p class=" ">{{ store.langProp.yourname }}</p>
+						<p class=" ">Email</p>
+						<p class=" ">{{ store.langProp.telephone }}</p>
+						<p class=" ">{{ store.langProp.delivery }}</p>
 					</div>
 					<div>
-						<p class=" ">Иван иванов</p>
-						<p class=" ">mailti@gmail.com</p>
+						<p class=" ">{{ store.name }}</p>
+						<p class=" ">{{ store.email }}</p>
 						<p class=" ">+996555678349</p>
 						<p class=" ">г.Бишкек</p>
 					</div>

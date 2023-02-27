@@ -41,7 +41,7 @@
 			</div>
 
 			<div class="">
-				<router-link to="Checkout">
+				<router-link :to="`/${store.lang}/Checkout`">
 					<img class="w-[22px] max-[800px]:hidden " src="@/assets/shopping_cart.svg" alt="">
 				</router-link>
 			</div>

@@ -68,7 +68,7 @@
 
 <script>
 import { useStore } from '@/stores/test'
-import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, updateProfile } from "firebase/auth";
 
 export default {
   data() {
@@ -114,6 +114,14 @@ export default {
 		  .then((userCredential) => {
 			const user = userCredential.user;
 			this.store.comp = 'Login';
+		  })
+		  .then(() => {
+		  	updateProfile(auth.currentUser, {
+				displayName: this.name
+		  	}).then(() => {
+		  	}).catch((error) => {
+				console.log(error)		  	
+		  	})
 		  })
 		  .catch((error) => {
 			const errorCode = error.code;
