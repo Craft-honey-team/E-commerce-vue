@@ -61,7 +61,7 @@
                max-[370px]:gap-[40px] 
                max-[650px]:gap-[40px] max-[650px]:grid-cols-1
                 grid grid-cols-3">
-        <div class="justify-self-center" v-for="(item) in dataOpt">
+        <div class="justify-self-center" v-for="(item, indexOpt) in dataOpt">
             <div class="bg-white rounded-[12px] p-2 w-80">
                 <div class="text-[25px]">
                     <h1 class="mb-[10px]">{{ item.name }}</h1>
@@ -82,13 +82,13 @@
                             </div>
                             <div class="grid grid-flow-col self-center justify-self-end gap-[2px] px-1">
                                 <button class="w-[30px] h-[30px] border-solid border-2 border-[#1C1B1F]  rounded-full  hover:bg-[#EAAD02]"
-                                    v-on:click="decrementProductCount(index)">
+                                    v-on:click="decrementOptProductCount(indexOpt)">
                                     <p class="relative mb-[10px]">-</p>
                                 </button>
                                 <p class="text-[20px]">{{ item.quantity }} шт</p>
 
                                 <button class=" w-[30px] h-[30px] border-solid border-2 border-[#1C1B1F]  rounded-full hover:bg-[#EAAD02]"
-                                    v-on:click="incrementProductCount(index)">
+                                    v-on:click="incrementOptProductCount(indexOpt)">
                                     <p class="relative mb-[10px]">+</p>
                                 </button>
                             </div>
@@ -130,6 +130,14 @@ export default {
         decrementProductCount(index) {
             if (this.data[index].quantity > 1) {
                 this.data[index].quantity--;
+            }
+        },
+        incrementOptProductCount: function (indexOpt) {
+            this.dataOpt[indexOpt].quantity++;
+        },
+        decrementOptProductCount(indexOpt) {
+            if (this.dataOpt[indexOpt].quantity > 1) {
+                this.dataOpt[indexOpt].quantity--;
             }
         },
     },
