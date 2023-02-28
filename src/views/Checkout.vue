@@ -1,16 +1,59 @@
 <template>
   <Layout>
-    <div>
+    <div class=" ">
       <div class="flex justify-center text-[30px] mb-[10px]">
         <h1 class="text-gray-700">Корзина</h1>
       </div>
       <div class="flex justify-center mb-[5%]">
         <hr class="w-[900px] bg-gray-700 h-[2px]">
       </div>
+      <div class="grid grid-flow-row gap-20">
+      <div class="grid grid-flow-col justify-around" v-for="(item, index) in store.cart">
 
-      <div class="grid grid-cols-4 max-[1100px]:grid-cols-2">
+        <div>
+          <img class="w-[100px] h-[100px] rounded-[5px]" src="@/assets/Group19.png">
+        </div>
+        <div class="text-[25px]">
+          <h1 class="mb-[10px]">{{ item.name }}</h1>
+          <span>Объем: {{ item.volume }}л</span>
+        </div>
+        
+          <div class="grid grid-flow-col self-center">
 
-        <div class="justify-self-center " v-for="(item, index) in store.cart">
+            <button class="w-[30px] h-[30px] border-solid border-2 border-[#1C1B1F] pb-[2px] rounded-full  hover:bg-[#EAAD02]"
+              v-on:click="decrementProductCount(index)">
+              <p>-</p>
+            </button>
+            <p class="text-[20px]">{{ item.quantity }} шт</p>
+
+            <button class=" w-[30px] h-[30px] pb-[2px] border-solid border-2 border-[#1C1B1F]  rounded-full hover:bg-[#EAAD02]"
+              v-on:click="incrementProductCount(index)">
+              <p>+</p>
+            </button>
+
+          </div>
+        
+        <div>
+          <p class="text-[30px] w-[160px] text-center">{{ store.sum() }} сом</p>
+          <div           
+            class="flex justify-center  bg-[#EAAD02] h-[35px] w-[160px] rounded-[6px] px-2 text-center text-white  hover:text-amber-700 hover:underline hover:cursor-pointer underline-offset-4">
+            <button @click="removeCart(index)">Убрать</button>
+          </div>
+        </div>
+      </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+      <!-- <div class="justify-self-center " v-for="(item, index) in store.cart">
 
             <div class="bg-white rounded-[12px] p-2">
                 <div class="text-[25px]">
@@ -50,14 +93,16 @@
                 </div>
             </div>
 
-        </div>
-      </div>
-      <div class="flex justify-center">
-        <button class="text-center border-4 border-black bg-black px-4 py-2 rounded-[12px] text-white">
+        </div> -->
+
+      <div class="text-center mt-[60px] mb-[60px]">
+        <p class="text-[40px]">Итого: {{ store.sum() }} сом</p>
+        <button @click="purchaseUser"
+          class="w-[200px] text-center border-4 border-black bg-black px-4 py-2 rounded-[12px] text-white  hover:text-amber-700 hover:underline hover:cursor-pointer underline-offset-4">
           Купить
         </button>
 
-        <p class="text-[40px]">{{ store.sum() }} сом</p>
+        
       </div>
     </div>
   </Layout>
@@ -69,100 +114,101 @@ import { useStore } from "@/stores/test";
 
 export default {
 
-	data() {
-	
-		return {
-		
-			store: useStore(),
-			controller: new AbortController(),
-			timer: setTimeout(console.log('will it'), 2000)
-		
-		}
-	
-	},
+  data() {
+
+    return {
+
+      store: useStore(),
+      controller: new AbortController(),
+      timer: setTimeout(console.log('will it'), 2000)
+
+    }
+
+  },
 
   components: {
     Layout
   },
   methods: {
-  
-  	removeCart(index) {
-  	
-  		delete this.store.cart[index];
-	  		
-	  	if (this.store.uid != '') {
-	  		
-	  		fetch('/api/deleteCart', {
-	  		
-	  			method: 'POST',
-	  			headers: {
-	  			
-	  				'Content-Type': 'application/json'
-	  			
-	  			},
-	  			body: JSON.stringify({ 1: index, 2: this.store.uid })
-	  		
-	  		})
-	  		
-	  	} else {
-	  	
-	  		localStorage.setItem('cart', JSON.stringify(this.store.cart));
-	  	
-	  	}
-  	
-  	},
-  	
-  	incrementProductCount: function (index) {
-  	
-        this.store.cart[index].quantity++;
-        
-        clearTimeout(this.timer);
-        
-        this.timer = setTimeout(() => this.updateCart(index), 2000);
-        
+
+
+    removeCart(index) {
+
+      delete this.store.cart[index];
+
+      if (this.store.uid != '') {
+
+        fetch('/api/deleteCart', {
+
+          method: 'POST',
+          headers: {
+
+            'Content-Type': 'application/json'
+
+          },
+          body: JSON.stringify({ 1: index, 2: this.store.uid })
+
+        })
+
+      } else {
+
+        localStorage.setItem('cart', JSON.stringify(this.store.cart));
+
+      }
+
     },
-        
+
+    incrementProductCount: function (index) {
+
+      this.store.cart[index].quantity++;
+
+      clearTimeout(this.timer);
+
+      this.timer = setTimeout(() => this.updateCart(index), 2000);
+
+    },
+
     decrementProductCount(index) {
-    
-    	if (this.store.cart[index].quantity > 1) {
-    	
-        	this.store.cart[index].quantity--;
-        	
-        	clearTimeout(this.timer);
-        
-        	this.timer = setTimeout(() => this.updateCart(index), 2000);
-        	
-        }
+
+      if (this.store.cart[index].quantity > 1) {
+
+        this.store.cart[index].quantity--;
+
+        clearTimeout(this.timer);
+
+        this.timer = setTimeout(() => this.updateCart(index), 2000);
+
+      }
     },
-    
+
     updateCart(index) {
-    
-    	console.log("works");
-    
-    	if (this.store.uid != '') {
-		    
-			fetch('/api/updateCart', {
-		  		
-	  			method: 'POST',
-	  			signal: this.controller.signal,
-	  			headers: {
-	  			
-	  				'Content-Type': 'application/json'
-	  			
-	  			},
-	  			body: JSON.stringify({ 1: parseInt(index), 2: this.store.cart[index].quantity, 3: this.store.uid })
-		  		
-		  	})
-		  	
-		} else {
-		
-			localStorage.setItem('cart', JSON.stringify(this.store.cart));
-		
-		}
-    
+
+      console.log("works");
+
+      if (this.store.uid != '') {
+
+        fetch('/api/updateCart', {
+
+          method: 'POST',
+          signal: this.controller.signal,
+          headers: {
+
+            'Content-Type': 'application/json'
+
+          },
+          body: JSON.stringify({ 1: parseInt(index), 2: this.store.cart[index].quantity, 3: this.store.uid })
+
+        })
+
+      } else {
+
+        localStorage.setItem('cart', JSON.stringify(this.store.cart));
+
+      }
+
     }
-  
+
   }
-  
+
 };
 </script>

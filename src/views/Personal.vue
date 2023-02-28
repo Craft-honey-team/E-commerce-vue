@@ -32,7 +32,7 @@
 						</div>
 						<div>
 							<p class="text-slate-700">Дата, время</p>
-							<p>15 Марта, 2023 12:00</p>
+							<p>{{  }}</p>
 						</div>
 						<div>
 							<p class="text-slate-700">Способ оплаты</p>
@@ -89,7 +89,8 @@ export default {
 
 		return {
 
-			store: useStore()
+			store: useStore(),
+			
 
 		}
 
@@ -109,6 +110,7 @@ signOut(auth).then(() => {
   // An error happened.
 });
 	},
+	
 
 	}
 
