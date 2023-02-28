@@ -55,21 +55,46 @@ const router = createRouter({
   		path: '/ru',
   		name: 'ru',
   		redirect: to => { return 'ru/Home' },
-  		beforeEnter: async (to, from) => { useStore().lang = 'ru'; useStore().process(); },
+  		beforeEnter: async (to, from, next) => { useStore().lang = 'ru'; 
+  		
+  			await useStore().process();
+  			await useStore().checkStatus()
+			await useStore().getData();
+			useStore().getCart();
+  			
+  			next()
+  			  		
+  		},
   		children: routes,
   	},
   	{
   		path: '/en',
   		name: 'en',
   		redirect: to => { return 'en/Home' },
-  		beforeEnter: (to) => { useStore().lang = 'en'; useStore().process(); },
+  		beforeEnter: async (to, from, next) => { useStore().lang = 'en'; 
+  		
+  			await useStore().process();
+  			await useStore().checkStatus();
+  			await useStore().getData();
+  			
+  			next()
+  		
+  		},
   		children: routes,
   	},
   	{
   		path: '/kg',
   		name: 'kg',
    		redirect: to => { return 'kg/Home' },
-   		beforeEnter: (to) => { useStore().lang = 'kg'; useStore().process(); },
+   		beforeEnter: async (to, from, next) => { useStore().lang = 'kg';
+   		
+   			await useStore().process();
+   			await useStore().checkStatus();
+			await useStore().getData();
+  			
+  			next()
+  			   		
+   		},
   		children: routes,
   	},
   ],

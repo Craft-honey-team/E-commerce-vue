@@ -124,6 +124,7 @@ export default {
 	mounted() {
 	
 		console.log(this.$route)
+		console.log(this.$pinia.state._value.store.uid)
 	
 	}
 

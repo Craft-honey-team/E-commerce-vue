@@ -50,6 +50,7 @@ signOut(auth).then(() => {
   // Sign-out successful.
   this.store.uid = '';
   this.store.loggedIn = false;
+  this.store.getCart();
   this.$router.push('/ru/home');
 }).catch((error) => {
   // An error happened.

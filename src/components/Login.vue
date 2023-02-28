@@ -78,11 +78,22 @@ export default {
                     const token = credential.accessToken;
                     const user = result.user;
                     this.store.modal = false;
+                    fetch('/api/users', {
+		  
+					  	method: 'POST',
+					  	headers: {
+					  	
+					  		'Content-Type': 'application/json'
+					  	
+					  	},
+					  	body: JSON.stringify({ 1: user.uid })
+		  			})		
+		  			store.getCart();
                     this.$router.push(`/${this.store.lang}/PersonalArea/${user.uid}`);
                 }).catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
-                    const email = error.customData.email;
+                    //const email = error.customData.email;
                     const credential = GoogleAuthProvider.credentialFromError(error);
                 });
 
@@ -94,6 +105,7 @@ export default {
 				const user = userCredential.user;
 				console.log(user)
 				this.store.modal = false;
+				store.getCart();
                 this.$router.push(`/${this.store.lang}/PersonalArea/${user.uid}`);
 			  })
 			  .catch((error) => {

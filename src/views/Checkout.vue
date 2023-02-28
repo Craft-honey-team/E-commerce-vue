@@ -10,23 +10,46 @@
 
       <div class="grid grid-cols-4 max-[1100px]:grid-cols-2">
 
-        <div v-for="item in DATA">
-          <div
-            class="rounded-xl w-440 h-650 bg-gradient-to-r p-[3px] from-[#4beb5b] via-[#f1d836cc] to-[#fcb229] mb-10 ml-10 mr-10  ">
-            <div class="bg-white rounded-xl p-3  ">
-              <img class="w-[100%] rounded-[5px]" :src="item.image" />
-              <div class="flex-wrap mb-[7%] flex justify-between text-[25px]">
-                <h1>{{ item.name }}</h1>
-                <span>{{ item.price }} сом</span>
-              </div>
-              <div class="">
-                <p>Lorem ipsum dolor.</p>
-                <button class="h-[25px]  rounded-[12px] text-[#FF9900]">
-                  Убрать
-                </button>
-              </div>
+        <div class="justify-self-center " v-for="(item, index) in store.cart">
+
+            <div class="bg-white rounded-[12px] p-2">
+                <div class="text-[25px]">
+                    <h1 class="mb-[10px]">{{ item.name }}</h1>
+
+                </div>
+                <img class="rounded-[5px] mb-[10px]" src="@/assets/Group19.png">
+
+                <div class="grid grid-flow-row gap-4">
+
+                    <div class="grid grid-cols-2 gap-[50px] text-[20px]">
+                        <span>Объем: {{ item.volume }}л</span>
+                        <span class = "justify-self-end">Цена: {{ item.price }}kgs</span>
+                    </div>
+                    <div class="">
+                        <div class="grid grid-cols-2 gap-[20px]">
+                            <p class="text-[20px] leading-none self-center">Количество товаров:</p>
+                            <div class="grid grid-flow-col self-center justify-self-end gap-[2px] px-1">
+                                
+								<button class="w-[30px] h-[30px] border-solid border-2 border-[#1C1B1F]  rounded-full  hover:bg-[#EAAD02]"
+                                    v-on:click="decrementProductCount(index)">
+                                    <p>-</p>
+                                </button>
+                                <p class="text-[20px]">{{ item.quantity }} шт</p>
+
+                                <button class=" w-[30px] h-[30px] border-solid border-2 border-[#1C1B1F]  rounded-full hover:bg-[#EAAD02]"
+                                    v-on:click="incrementProductCount(index)">
+                                    <p>+</p>
+                                </button>
+                             
+                            </div>
+                        </div>
+                    </div>
+                    <div @click = "removeCart(index)" class="flex justify-center align-center bg-[#EAAD02] h-[35px] rounded-[6px] px-2 text-center text-white  hover:text-amber-700 hover:underline hover:cursor-pointer underline-offset-4">
+                        <button>Убрать</button>
+                    </div>
+                </div>
             </div>
-          </div>
+
         </div>
       </div>
       <div class="flex justify-center">
@@ -34,7 +57,7 @@
           Купить
         </button>
 
-        <p class="text-[40px]">{{ priceSum() }} сом</p>
+        <p class="text-[40px]">{{ store.sum() }} сом</p>
       </div>
     </div>
   </Layout>
@@ -42,59 +65,104 @@
 
 <script>
 import Layout from "@/layouts/Layout.vue";
+import { useStore } from "@/stores/test";
 
 export default {
-  data: () => ({
-    DATA: [
 
-      {
-        "id": 1,
-        "name": "med1",
-        "image": "https://tea.ua/upload/blog/1221/2112/honey/2.png",
-        "price": 2383
-      },
-      {
-        "id": 2,
-        "name": "med2",
-        "image": "https://tea.ua/upload/blog/1221/2112/honey/2.png",
-        "price": 883
-      },
+	data() {
+	
+		return {
+		
+			store: useStore(),
+			controller: new AbortController(),
+			timer: setTimeout(console.log('will it'), 2000)
+		
+		}
+	
+	},
 
-      {
-        "id": 3,
-        "name": "med3",
-        "image": "https://tea.ua/upload/blog/1221/2112/honey/2.png",
-        "price": 233
-      },
-      {
-        "id": 4,
-        "name": "med4",
-        "image": "https://tea.ua/upload/blog/1221/2112/honey/2.png",
-        "price": 3456
-      },
-    ],
-
-  }),
   components: {
     Layout
   },
   methods: {
-    async getdata() {
-      const response = await fetch(`http://localhost:3000/products`);
-      const data = await response.json();
-      this.DATA = await data;
-      console.log(this.DATA);
+  
+  	removeCart(index) {
+  	
+  		delete this.store.cart[index];
+	  		
+	  	if (this.store.uid != '') {
+	  		
+	  		fetch('/api/deleteCart', {
+	  		
+	  			method: 'POST',
+	  			headers: {
+	  			
+	  				'Content-Type': 'application/json'
+	  			
+	  			},
+	  			body: JSON.stringify({ 1: index, 2: this.store.uid })
+	  		
+	  		})
+	  		
+	  	} else {
+	  	
+	  		localStorage.setItem('cart', JSON.stringify(this.store.cart));
+	  	
+	  	}
+  	
+  	},
+  	
+  	incrementProductCount: function (index) {
+  	
+        this.store.cart[index].quantity++;
+        
+        clearTimeout(this.timer);
+        
+        this.timer = setTimeout(() => this.updateCart(index), 2000);
+        
     },
-    priceSum() {
-      let sum = 0
-      let result = this.DATA.map(item => {
-        sum += item.price
-      })
-      return sum
+        
+    decrementProductCount(index) {
+    
+    	if (this.store.cart[index].quantity > 1) {
+    	
+        	this.store.cart[index].quantity--;
+        	
+        	clearTimeout(this.timer);
+        
+        	this.timer = setTimeout(() => this.updateCart(index), 2000);
+        	
+        }
+    },
+    
+    updateCart(index) {
+    
+    	console.log("works");
+    
+    	if (this.store.uid != '') {
+		    
+			fetch('/api/updateCart', {
+		  		
+	  			method: 'POST',
+	  			signal: this.controller.signal,
+	  			headers: {
+	  			
+	  				'Content-Type': 'application/json'
+	  			
+	  			},
+	  			body: JSON.stringify({ 1: parseInt(index), 2: this.store.cart[index].quantity, 3: this.store.uid })
+		  		
+		  	})
+		  	
+		} else {
+		
+			localStorage.setItem('cart', JSON.stringify(this.store.cart));
+		
+		}
+    
     }
-  },
-  mounted() {
-    this.priceSum()
-  },
+  
+  }
+  
 };
 </script>
