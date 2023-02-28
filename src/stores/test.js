@@ -135,7 +135,8 @@ export const useStore = defineStore('store', {
 				
 			} catch(error) {
 			
-				if (localStorage.getItem('cart' == null)) {
+				if (localStorage.getItem('cart') != null) {
+					console.log("work bitch");
 					this.cart = JSON.parse(localStorage.getItem('cart'));
 				}
 				console.log(error);

@@ -30,7 +30,18 @@ const firebaseConfig = {
 };
 
 app.component("Layout", Layout);
+/*
+router.beforeEach(async (to, from, next) => {
 
+	await useStore().process();
+	await useStore().checkStatus();
+	useStore().getData();
+	useStore().getCart();
+	
+	next()
+
+})
+*/
 app.use(pinia)
 app.use(router)
 

@@ -4,16 +4,16 @@
 		<div class="grid grid-flow-col gap-[40px] items-center">
 
 			<div>
-				<router-link class="flex max-w-fit" :to="`/${lang}/Home`">
+				<router-link class="flex max-w-fit" :to="`/${store.lang}/Home`">
 					<img class="self-center w-[60px] inline" src="../assets/drawing.svg" />
 					<img class="ml-[10px] self-center w-[120px] inline" src="../assets/CraftHoney.svg" />
 				</router-link>
 			</div>
 
-			<div v-if="$route.path != `/${lang}/Home`" class="text-xl [&>a]:mr-[30px] max-[1200px]:hidden">
-				<router-link class=" hover:text-amber-700 hover:underline underline-offset-4" :to="`/${lang}/Products`">{{ store?.langProp?.catalogue }}</router-link>
-				<router-link class=" hover:text-amber-700 hover:underline underline-offset-4" :to="`/${lang}/About`">{{ store.langProp.about }}</router-link>
-				<router-link class=" hover:text-amber-700 hover:underline underline-offset-4" :to="`/${lang}/Blog`">{{ store.langProp.blog }}</router-link>
+			<div v-if="!$route.path.includes('Home')" class="text-xl [&>a]:mr-[30px] max-[1200px]:hidden">
+				<router-link class=" hover:text-amber-700 hover:underline underline-offset-4" :to="`/${store.lang}/Products`">{{ store?.langProp?.catalogue }}</router-link>
+				<router-link class=" hover:text-amber-700 hover:underline underline-offset-4" :to="`/${store.lang}/About`">{{ store.langProp.about }}</router-link>
+				<router-link class=" hover:text-amber-700 hover:underline underline-offset-4" :to="`/${store.lang}/Blog`">{{ store.langProp.blog }}</router-link>
 				<button class=" hover:text-amber-700 hover:underline underline-offset-4" @click="store.modal = true, store.comp = 'Contacts', store.bg = 'bg-white'">{{ store.langProp.contacts }}</button>
 			</div>
 
@@ -35,7 +35,7 @@
 
 			<div v-if="store.loggedIn && !$route.path.includes('Personal')" class="flex items-center">
 				<img class="mr-[10px] w-[24px]" src="@/assets/account_circle.svg">
-				<router-link class="text-xl text-center hover:text-amber-700 hover:underline underline-offset-4" :to='`/${lang}/PersonalArea/${store.uid}`'>
+				<router-link class="text-xl text-center hover:text-amber-700 hover:underline underline-offset-4" :to='`/${store.lang}/PersonalArea/${store.uid}`'>
 					{{ store.langProp.profile }}
 				</router-link>
 			</div>
@@ -47,7 +47,7 @@
 			</div>
 			<div>
 				<p class="text-xl">{{ store.langProp.lang }}: 
-					<select class="ml-[8px] h-[32px] w-[56px] bg-[#ffcc00] rounded-xl hover:cursor-pointer px-2 hover:text-amber-700 hover:bg-amber-200 underline-offset-4" name="lang" id="">
+					<select class="ml-[8px] h-[32px] w-[56px] bg-[#ffcc00] rounded-xl hover:cursor-pointer px-2 hover:text-amber-700 hover:bg-amber-200 underline-offset-4" name="store.lang" id="">
 						<option  selected disabled hidden>{{ store.lang.toUpperCase() }}</option>
 						<option  @click="store.lang = 'ru', $router.push(`/ru/${$route.path.slice(4, $route.path.length)}`)" value="">RU</option>
 						<option  @click="store.lang = 'en', $router.push(`/en/${$route.path.slice(4, $route.path.length)}`)" value="">EN</option>
@@ -97,8 +97,7 @@ export default {
 		return {
 
 			burgerMenu: false,
-			store: useStore(),
-			lang: useStore().lang
+			store: useStore()
 
 		}
 

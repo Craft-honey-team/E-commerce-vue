@@ -138,7 +138,7 @@ export default {
 			
 				console.log(error);
 				console.log(typeof this.store.cart)
-				this.store.cart[index] = data[index];
+				this.store.cart[index] = JSON.parse(JSON.stringify(data[index]));
 			
 			}
 			

@@ -75,7 +75,8 @@ const router = createRouter({
   		
   			await useStore().process();
   			await useStore().checkStatus();
-  			await useStore().getData();
+  			useStore().getData();
+  			useStore().getCart();
   			
   			next()
   		
@@ -90,7 +91,8 @@ const router = createRouter({
    		
    			await useStore().process();
    			await useStore().checkStatus();
-			await useStore().getData();
+			useStore().getData();
+			useStore().getCart();
   			
   			next()
   			   		
