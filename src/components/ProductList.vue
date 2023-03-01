@@ -9,7 +9,7 @@
                         max-[370px]:gap-[40px] 
                         max-[650px]:gap-[40px] max-[650px]:grid-cols-1
                         grid grid-cols-3">
-        <div class="justify-self-center " v-for="(item, index) in data">
+        <div v-for="(item, index) in data">
 
             <div class="bg-white rounded-[12px] p-2">
                 <div class="text-[25px]">
@@ -28,16 +28,19 @@
                         <div class="grid grid-cols-2 gap-[20px]">
                             <p class="text-[20px] leading-none self-center">Количество товаров:</p>
                             <div class="grid grid-flow-col self-center justify-self-end gap-[2px] px-1">
+                            
                                 <button class="w-[30px] h-[30px] border-solid border-2 border-[#1C1B1F]  rounded-full  hover:bg-[#EAAD02]"
                                     v-on:click="decrementProductCount(index, 'orders')">
                                     <p>-</p>
                                 </button>
+                                
                                 <p class="text-[20px]">{{ item.quantity }} шт</p>
 
                                 <button class=" w-[30px] h-[30px] border-solid border-2 border-[#1C1B1F]  rounded-full hover:bg-[#EAAD02]"
                                     v-on:click="incrementProductCount(index, 'orders')">
                                     <p>+</p>
                                 </button>
+                                
                             </div>
                         </div>
                     </div>
@@ -58,13 +61,13 @@
                max-[370px]:gap-[40px] 
                max-[650px]:gap-[40px] max-[650px]:grid-cols-1
                 grid grid-cols-3">
-        <div class="justify-self-center" v-for="(item, index) in dataOpt">
+        <div v-for="(item, index) in dataOpt">
             <div class="bg-white rounded-[12px] p-2">
                 <div class="text-[25px]">
                     <h1 class="mb-[10px]">{{ item.name }}</h1>
 
                 </div>
-                <img class="rounded-[5px] mb-[10px] h-68" src="@/assets/Group19.png">
+                <img class="rounded-[5px] mb-[10px]" src="@/assets/Group19.png">
 
                 <div class="grid grid-flow-row gap-4">
 
@@ -76,16 +79,19 @@
                         <div class="grid grid-cols-2 gap-[20px]">
                             <p class="text-[20px] leading-none self-center">Количество товаров:</p>
                             <div class="grid grid-flow-col self-center justify-self-end gap-[2px] px-1">
+                            
                                 <button class="w-[30px] h-[30px] border-solid border-2 border-[#1C1B1F]  rounded-full  hover:bg-[#EAAD02]"
                                     v-on:click="decrementProductCount(index, 'opt')">
                                     <p class="relative mb-[10px]">-</p>
                                 </button>
+                                
                                 <p class="text-[20px]">{{ item.quantity }} шт</p>
 
                                 <button class=" w-[30px] h-[30px] border-solid border-2 border-[#1C1B1F]  rounded-full hover:bg-[#EAAD02]"
                                     v-on:click="incrementProductCount(index, 'opt')">
                                     <p class="relative mb-[10px]">+</p>
                                 </button>
+                                
                             </div>
                         </div>
                     </div>

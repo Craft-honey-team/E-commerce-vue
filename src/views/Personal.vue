@@ -2,7 +2,7 @@
     <Layout>
 		<div> 
 			<div class = "pt-[20px] mt-[20px] mb-[40px] border-t-[3px] border-black">
-				<p class = "text-[50px]">{{ store.langProp.personalarea}}</p>
+				<p class = "text-[50px]">{{ store.langProp.personalarea }}</p>
 			</div>
 			<div class="grid grid-flow-col auto-cols-max mb-[20px] text-[20px] max-[700px]:grid-cols-1">
 				<button @click="$router.push(`../PersonalArea/${$route.params.id}`)"
@@ -32,7 +32,7 @@
 						</div>
 						<div>
 							<p class="text-slate-700">Дата, время</p>
-							<p>15 Марта, 2023 12:00</p>
+							<p>{{  }}</p>
 						</div>
 						<div>
 							<p class="text-slate-700">Способ оплаты</p>
@@ -89,7 +89,8 @@ export default {
 
 		return {
 
-			store: useStore()
+			store: useStore(),
+			
 
 		}
 
@@ -109,6 +110,7 @@ signOut(auth).then(() => {
   // An error happened.
 });
 	},
+	
 
 	}
 

@@ -16,7 +16,9 @@ export const useStore = defineStore('store', {
 		dataOpt: {},
 		cart: {},
 		lang: 'ru',
-		langProp: {  }
+		langProp: {},
+		purchaseTime:{},
+
 	}),
 	getters: {
 	
@@ -37,6 +39,15 @@ export const useStore = defineStore('store', {
 			return sum
 		
 		},
+		
+		sumItem(index) {
+		
+			let sum = this.cart[index].quantity * this.cart[index].price;
+			
+			return sum
+		
+		},
+		
 		async process() {
 		
 			let res = await fetch(`/api/language/?lang=${this.lang}`)
