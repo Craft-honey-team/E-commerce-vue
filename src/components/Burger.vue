@@ -1,7 +1,7 @@
 <template>
 
 
-	<div class="  ">
+	<div class=" ">
 		<div class="flex flex-col justify-center [&>*]:px-[10px]">
 			<button @click="$emit('changeBurger')"
 				class="self-end w-fit focus:outline-none mr-2 mt-2 text-[22px] text-right hover:text-amber-700 ">
@@ -16,16 +16,16 @@
 			<router-link :to="`/${lang}/Blog`" class="flex items-center w-full h-[46px] font-inter font-[200] text-[22px] border-b-[1px]  border-black text-[#999999] hover:text-amber-700 hover:underline underline-offset-4">
 				{{ store.langProp.blog }}
 			</router-link>
-			<button @click="store.modal = true, burgerMenu = false, store.comp = 'Contacts', store.bg = 'bg-white'" class="w-full h-[46px] text-left font-inter font-[200] text-[22px] border-b-[1px]  border-black text-[#999999] hover:text-amber-700 hover:underline underline-offset-4">
+			<button @click="store.modal = true, $emit('changeBurger'), store.comp = 'Contacts', store.bg = 'bg-white'" class="w-full h-[46px] text-left font-inter font-[200] text-[22px] border-b-[1px]  border-black text-[#999999] hover:text-amber-700 hover:underline underline-offset-4">
 				{{ store.langProp.contacts }}
 			</button>
 		</div>
 
 		<div v-if="!store.loggedIn" class="flex flex-col items-center  border-b-[1px] border-[#BCB9B9] ">
-			<button @click="store.bg = 'bg-bee', store.modal = true, burgerMenu = false, store.comp = 'Register'"
+			<button @click="store.bg = 'bg-bee', store.modal = true, $emit('changeBurger'), store.comp = 'Register'"
 				class="w-[218px] h-[47px] mt-[20px] flex justify-center items-center font-ubuntu font-[400] text-[16px] text-[#FFF9F9]">
 				<img class="w-[24px] h-24[px] mr-[10px] " src="@/assets/Register_1.svg" alt="">{{ store.langProp.registration }}</button>
-			<button @click="store.modal = true, burgerMenu = false, store.bg = 'bg-bee', store.comp = 'Login'"
+			<button @click="store.modal = true, $emit('changeBurger'), store.bg = 'bg-bee', store.comp = 'Login'"
 				class="border-[2px] border-solid border-black rounded-[8px]  w-[218px] h-[47px] mt-[5px] mb-[20px] flex justify-center items-center font-ubuntu font-[400] text-[16px] text-[##000000]">
 				<img class="w-[24px] h-[24px] mr-[10px]" src="@/assets/Enter_1.svg" alt="">{{ store.langProp.login }}</button>
 		</div>

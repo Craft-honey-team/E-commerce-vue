@@ -4,7 +4,7 @@
 		
 		<div @click="store.modal = false"  v-if="store.modal" class="fixed z-[11] inset-0 flex justify-center bg-black bg-opacity-80"></div>  
 
-			<div :class = "store.bg" class="max-h-screen overflow-scroll bg-cover bg-no-repeat grid rounded-[10px] z-[11]">
+			<div :class = "store.bg" class="max-h-screen bg-cover bg-no-repeat grid rounded-[10px] z-[11]">
     			<div class="p-2 text-right">
          			<button @click="store.modal = false" class="w-10 h-10 focus:outline-none text-[29px]">
             			<strong>X</strong> 

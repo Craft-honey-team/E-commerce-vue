@@ -29,13 +29,13 @@
                             <p class="text-[20px] leading-none self-center">Количество товаров:</p>
                             <div class="grid grid-flow-col self-center justify-self-end gap-[2px] px-1">
                                 <button class="w-[30px] h-[30px] border-solid border-2 border-[#1C1B1F]  rounded-full  hover:bg-[#EAAD02]"
-                                    v-on:click="decrementProductCount(index)">
+                                    v-on:click="decrementProductCount(index, 'orders')">
                                     <p>-</p>
                                 </button>
                                 <p class="text-[20px]">{{ item.quantity }} шт</p>
 
                                 <button class=" w-[30px] h-[30px] border-solid border-2 border-[#1C1B1F]  rounded-full hover:bg-[#EAAD02]"
-                                    v-on:click="incrementProductCount(index)">
+                                    v-on:click="incrementProductCount(index, 'orders')">
                                     <p>+</p>
                                 </button>
                             </div>
@@ -77,13 +77,13 @@
                             <p class="text-[20px] leading-none self-center">Количество товаров:</p>
                             <div class="grid grid-flow-col self-center justify-self-end gap-[2px] px-1">
                                 <button class="w-[30px] h-[30px] border-solid border-2 border-[#1C1B1F]  rounded-full  hover:bg-[#EAAD02]"
-                                    v-on:click="decrementProductCount(index)">
+                                    v-on:click="decrementProductCount(index, 'opt')">
                                     <p class="relative mb-[10px]">-</p>
                                 </button>
                                 <p class="text-[20px]">{{ item.quantity }} шт</p>
 
                                 <button class=" w-[30px] h-[30px] border-solid border-2 border-[#1C1B1F]  rounded-full hover:bg-[#EAAD02]"
-                                    v-on:click="incrementProductCount(index)">
+                                    v-on:click="incrementProductCount(index, 'opt')">
                                     <p class="relative mb-[10px]">+</p>
                                 </button>
                             </div>
@@ -112,13 +112,17 @@ export default {
     },
     methods: {
         
-        incrementProductCount: function (index) {
-            this.data[index].quantity++;
+        incrementProductCount(index, type) {
+        	let data;
+        	type == 'orders' ? data = this.data : data = this.dataOpt;
+            data[index].quantity++;
         },
         
-        decrementProductCount(index) {
-            if (this.data[index].quantity > 1) {
-                this.data[index].quantity--;
+        decrementProductCount(index, type) {
+        	let data;
+        	type == 'orders' ? data = this.data : data = this.dataOpt;
+            if (data[index].quantity > 1) {
+                data[index].quantity--;
             }
         },
         
@@ -164,7 +168,7 @@ export default {
 							
 			}
 		},
-    }
+    },
 }
 
 

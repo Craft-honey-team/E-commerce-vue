@@ -19,21 +19,21 @@
 
 		</div>
 
-		<div class="grid min-[1201px]:hidden">
+		<div class="grid  min-[1201px]:hidden">
 			<img @click="burgerMenu = true" class="justify-self-center self-center hover:cursor-pointer"
 				src="../assets/menu.svg">
 		</div>
 
 		<div class="grid grid-flow-col gap-[40px] items-center max-[1200px]:hidden">
 
-			<div v-if="!store.loggedIn && !$route.path.includes('Personal')" class="flex items-center">
+			<div v-if="!store.loggedIn && !$route.path.includes('PersonalArea')" class="flex items-center">
 				<img class="mr-[10px] w-[24px]" src="@/assets/account_circle.svg">
 				<button class="text-xl text-center  hover:text-amber-700 hover:underline underline-offset-4"
 					@click="store.modal = true, store.comp = 'Login', store.bg = 'bg-bee'">{{
 						store.langProp.login }}</button>
 			</div>
 
-			<div v-if="store.loggedIn && !$route.path.includes('Personal')" class="flex items-center">
+			<div v-if="store.loggedIn && !$route.path.includes('PersonalArea')" class="flex items-center">
 				<img class="mr-[10px] w-[24px]" src="@/assets/account_circle.svg">
 				<router-link class="text-xl text-center hover:text-amber-700 hover:underline underline-offset-4" :to='`/${store.lang}/PersonalArea/${store.uid}`'>
 					{{ store.langProp.profile }}
@@ -55,7 +55,7 @@
 					</select>
 				</p>
 			</div>
-			<div class="grid grid-flow-col gap-[10px] ">
+			<div class="grid grid-flow-col gap-[10px]">
 				<a href="https://wa.me/79146089174" target="_blank">
 					<img src="@/assets/WhatsApp.svg" alt="">
 				</a>

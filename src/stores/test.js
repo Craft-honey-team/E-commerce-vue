@@ -39,17 +39,7 @@ export const useStore = defineStore('store', {
 		},
 		async process() {
 		
-			let res = await fetch('/api/language', {
-			
-				method: 'POST',
-				headers: {
-				
-					'Content-Type': 'application/json'
-				
-				},
-				body: JSON.stringify({ 1: this.lang })
-			
-			})
+			let res = await fetch(`/api/language/?lang=${this.lang}`)
 			this.langProp = await res.json();
 		
 		},
