@@ -17,7 +17,9 @@ export const useStore = defineStore('store', {
 		cart: {},
 		lang: 'ru',
 		langProp: {},
-		purchaseTime:{},
+		number: '',
+		address: '',
+		
 
 	}),
 	getters: {

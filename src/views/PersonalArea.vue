@@ -16,16 +16,33 @@
 				</div>
 				<div class="grid grid-flow-col auto-cols-max gap-[30px] text-[20px]">
 					<div class="text-slate-500 ">
-						<p class=" ">{{ store.langProp.yourname }}</p>
-						<p class=" ">Email</p>
+						<p class=" ">{{ store.langProp.yourname }}:</p>
+						<p class=" ">Email:</p>
 						<p class=" ">{{ store.langProp.telephone }}</p>
-						<p class=" ">{{ store.langProp.delivery }}</p>
+						<p class=" ">{{ store.langProp.delivery }}:</p>
 					</div>
 					<div>
 						<p class=" ">{{ store.name }}</p>
 						<p class=" ">{{ store.email }}</p>
-						<p class=" ">+996555678349</p>
-						<p class=" ">г.Бишкек</p>
+						<div v-show="setPhone">
+							<input @input="handleInput" v-model="store.number " placeholder="Введите номер телефона" class="border-solid border-2 border-grey-600 rounded-[10px] px-[5px] w-[190px] text-[14px] mr-[20px]">
+							<button @click="setPhone = false, savePhone(phone)" class="text-blue-700 underline decoration-1 text-[18px] hover:text-amber-700 hover:underline underline-offset-4">Добавить</button>
+						</div>
+						<div v-show="!setPhone">
+							<span v-if="store.number.length" class="mr-[20px]">{{ store.number }}</span>
+							<button @click="setPhone = true" class="text-blue-700 underline decoration-1 text-[18px] hover:text-amber-700 hover:underline underline-offset-4">Изменить номер</button>
+						</div>
+						<div v-show="setAddress">
+							<input @input="handleInputAddress" v-model="store.address " placeholder="Введите адрес" class="border-solid border-2 border-grey-600 rounded-[10px] px-[5px] w-[190px] text-[14px] mr-[20px]">
+							<button @click="setAddress = false" class="text-blue-700 underline decoration-1 text-[18px] hover:text-amber-700 hover:underline underline-offset-4">Добавить</button>
+						</div>
+						<div v-show="!setAddress">
+							<span v-if="store.address.length" class="mr-[20px]">{{ store.address }}</span>
+							<button @click="setAddress = true" class="text-blue-700 underline decoration-1 text-[18px] hover:text-amber-700 hover:underline underline-offset-4">Изменить адрес</button>
+						</div>
+						
+						
+						
 					</div>
 				</div>
 				<router-link class="text-blue-700 underline decoration-1 text-[18px] hover:text-amber-700 hover:underline underline-offset-4" to="">Изменить пароль</router-link>
@@ -40,7 +57,10 @@ import { getAuth, signOut } from "firebase/auth";
 export default {
     data() {
         return {
-            store: useStore()
+            store: useStore(),			
+			setPhone: false,			
+			setAddress: false,
+			
         }
     },
 	methods: {
@@ -56,7 +76,28 @@ signOut(auth).then(() => {
   // An error happened.
 });
 	},
+	handleInput(){
+	this.store.number = this.store.number.replace(/[^0-9+]/g, '');
+	this.store.number = this.store.number.substr(0 , 16);
+	
+	},
+	handleInputAddress(){
+
+	},
+	savePhone(phone){
+		fetch('/api/updateUsers', {
+				
+				method: 'POST',
+				headers: {
+				
+					'Content-Type': 'application/json'
+				
+				},
+				body: JSON.stringify({ 1: 'phone', 2: this.store.number, 3: this.store.uid})
+			
+			})
 	}
+}
 
 }
 
