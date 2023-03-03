@@ -11,10 +11,15 @@
 			</div>
 
 			<div v-if="!$route.path.includes('Home')" class="text-xl [&>a]:mr-[30px] max-[1200px]:hidden">
-				<router-link class=" hover:text-amber-700 hover:underline underline-offset-4" :to="`/${store.lang}/Products`">{{ store?.langProp?.catalogue }}</router-link>
-				<router-link class=" hover:text-amber-700 hover:underline underline-offset-4" :to="`/${store.lang}/About`">{{ store.langProp.about }}</router-link>
-				<router-link class=" hover:text-amber-700 hover:underline underline-offset-4" :to="`/${store.lang}/Blog`">{{ store.langProp.blog }}</router-link>
-				<button class=" hover:text-amber-700 hover:underline underline-offset-4" @click="store.modal = true, store.comp = 'Contacts', store.bg = 'bg-white'">{{ store.langProp.contacts }}</button>
+				<router-link class=" hover:text-amber-700 hover:underline underline-offset-4"
+					:to="`/${store.lang}/Products`">{{ store?.langProp?.catalogue }}</router-link>
+				<router-link class=" hover:text-amber-700 hover:underline underline-offset-4"
+					:to="`/${store.lang}/About`">{{ store.langProp.about }}</router-link>
+				<router-link class=" hover:text-amber-700 hover:underline underline-offset-4" :to="`/${store.lang}/Blog`">{{
+					store.langProp.blog }}</router-link>
+				<button class=" hover:text-amber-700 hover:underline underline-offset-4"
+					@click="store.modal = true, store.comp = 'Contacts', store.bg = 'bg-white'">{{ store.langProp.contacts
+					}}</button>
 			</div>
 
 		</div>
@@ -35,23 +40,36 @@
 
 			<div v-if="store.loggedIn && !$route.path.includes('Personal')" class="flex items-center">
 				<img class="mr-[10px] w-[24px]" src="@/assets/account_circle.svg">
-				<router-link class="text-xl text-center hover:text-amber-700 hover:underline underline-offset-4" :to='`/${store.lang}/PersonalArea/${store.uid}`'>
+				<router-link class="text-xl text-center hover:text-amber-700 hover:underline underline-offset-4"
+					:to='`/${store.lang}/PersonalArea/${store.uid}`'>
 					{{ store.langProp.profile }}
 				</router-link>
 			</div>
 
 			<div class="">
 				<router-link :to="`/${store.lang}/Checkout`">
-					<img class="w-[22px] max-[800px]:hidden " src="@/assets/shopping_cart.svg" alt="">
+					<div class="relative">
+						<img class="w-[22px] max-[800px]:hidden " src="@/assets/shopping_cart.svg" alt="">
+						<div v-if="Object.keys(store.cart).length"
+							class="absolute h-[18px] w-[18px] top-[-9px] left-[12px] rounded-full bg-red-600 flex justify-center align-center text-white ">
+							<span class="text-[12px]">{{ Object.keys(store.cart).length }}</span>
+						</div>
+					</div>
+
 				</router-link>
 			</div>
 			<div>
-				<p class="text-xl">{{ store.langProp.lang }}: 
-					<select class="ml-[8px] h-[32px] w-[56px] bg-[#ffcc00] rounded-xl hover:cursor-pointer px-2 hover:text-amber-700 hover:bg-amber-200 underline-offset-4" name="store.lang" id="">
-						<option  selected disabled hidden>{{ store.lang.toUpperCase() }}</option>
-						<option  @click="store.lang = 'ru', $router.push(`/ru/${$route.path.slice(4, $route.path.length)}`)" value="">RU</option>
-						<option  @click="store.lang = 'en', $router.push(`/en/${$route.path.slice(4, $route.path.length)}`)" value="">EN</option>
-						<option  @click="store.lang = 'kg', $router.push(`/kg/${$route.path.slice(4, $route.path.length)}`)" value="">KG</option>
+				<p class="text-xl">{{ store.langProp.lang }}:
+					<select
+						class="ml-[8px] h-[32px] w-[56px] bg-[#ffcc00] rounded-xl hover:cursor-pointer px-2 hover:text-amber-700 hover:bg-amber-200 underline-offset-4"
+						name="store.lang" id="">
+						<option selected disabled hidden>{{ store.lang.toUpperCase() }}</option>
+						<option @click="store.lang = 'ru', $router.push(`/ru/${$route.path.slice(4, $route.path.length)}`)"
+							value="">RU</option>
+						<option @click="store.lang = 'en', $router.push(`/en/${$route.path.slice(4, $route.path.length)}`)"
+							value="">EN</option>
+						<option @click="store.lang = 'kg', $router.push(`/kg/${$route.path.slice(4, $route.path.length)}`)"
+							value="">KG</option>
 					</select>
 				</p>
 			</div>
@@ -72,7 +90,7 @@
 		</div>
 		<div class="right-[0px] top-0 overflow-hidden transition-all duration-500 ease-in-out z-50 absolute h-screen bg-[#DAE2E2]"
 			:class="burgerMenu ? 'w-[330px]' : 'w-[0px]'">
-			<Burger @changeBurger="changeBurger"/>
+			<Burger @changeBurger="changeBurger" />
 		</div>
 
 
@@ -88,8 +106,8 @@ import { useStore } from '@/stores/test'
 export default {
 
 	beforeRouteEnter(to, from) {
-	
-	
+
+
 	},
 
 	data() {
@@ -119,12 +137,12 @@ export default {
 		Burger
 
 	},
-	
+
 	mounted() {
-	
+
 		console.log(this.$route)
 		console.log(this.$pinia.state._value.store.uid)
-	
+
 	}
 
 }
