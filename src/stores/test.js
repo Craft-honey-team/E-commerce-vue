@@ -1,6 +1,6 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth, onAuthStateChanged,sendPasswordResetEmail } from "firebase/auth";
 
 export const useStore = defineStore('store', {
 	state: () => ({

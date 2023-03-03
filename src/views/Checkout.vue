@@ -10,7 +10,7 @@
       <div class="grid grid-flow-row gap-20">
       <div class="grid grid-cols-4 " v-for="(item, index) in store.cart">
 
-        <div>
+        <div class="relative">
           <img class="w-[100px] h-[100px] rounded-[5px]" src="@/assets/Group19.png">
         </div>
         <div class="text-[25px]">
@@ -35,9 +35,9 @@
         
         <div class = "justify-self-center">
           <p class="text-[30px] text-center">{{ store.sumItem(index) }} сом</p>
-          <div           
+          <div @click="removeCart(index)"          
             class="flex justify-center  bg-[#EAAD02] h-[35px] w-[160px] rounded-[6px] px-2 text-center text-white  hover:text-amber-700 hover:underline hover:cursor-pointer underline-offset-4">
-            <button @click="removeCart(index)">Убрать</button>
+            <button >Убрать</button>
           </div>
         </div>
       </div>

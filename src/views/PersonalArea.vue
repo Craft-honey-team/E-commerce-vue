@@ -45,7 +45,7 @@
 						
 					</div>
 				</div>
-				<router-link class="text-blue-700 underline decoration-1 text-[18px] hover:text-amber-700 hover:underline underline-offset-4" to="">Изменить пароль</router-link>
+				<button @click="resetPassword" class="text-blue-700 underline decoration-1 text-[18px] hover:text-amber-700 hover:underline underline-offset-4" to="">Изменить пароль</button>
 				<button @click="exitPersonalArea" class="bg-[#EAAD02] h-[30px] w-[200px] rounded-[10px] px-2 text-center text-white  hover:text-amber-700 hover:underline underline-offset-4">Выйти из АКК</button>
 			</div>        
 		</div>
@@ -53,7 +53,7 @@
 </template>
 <script>
 import { useStore } from '@/stores/test';
-import { getAuth, signOut } from "firebase/auth";
+import { getAuth, signOut, sendPasswordResetEmail } from "firebase/auth";
 export default {
     data() {
         return {
@@ -96,6 +96,19 @@ signOut(auth).then(() => {
 				body: JSON.stringify({ 1: 'phone', 2: this.store.number, 3: this.store.uid})
 			
 			})
+	},
+	resetPassword(){
+		const auth = getAuth();
+sendPasswordResetEmail(auth, this.email)
+  .then(() => {
+    // Password reset email sent!
+    // ..
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+  });
 	}
 }
 
