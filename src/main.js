@@ -47,8 +47,6 @@ app.use(router)
 
 initializeApp(firebaseConfig);
 
-useStore().checkStatus();
-
 const auth = getAuth();
 
 app.mount("#app");

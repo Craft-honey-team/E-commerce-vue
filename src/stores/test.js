@@ -62,14 +62,12 @@ export const useStore = defineStore('store', {
 				const auth = getAuth();
 				onAuthStateChanged(auth, (user) => {
 				  if (user) {
-					console.log('works');
 					// User is signed in, see docs for a list of available properties
 					// https://firebase.google.com/docs/reference/js/firebase.User
 					this.loggedIn = true;
 					this.uid = user.uid;
 					this.name = user.displayName;
 					this.email = user.email;
-					console.log(user)
 					resolve(user);
 					// ...
 				  } else {
@@ -112,11 +110,7 @@ export const useStore = defineStore('store', {
 				
 				let data = await res.json();
 				
-				console.log(data);
-				
 				data = JSON.parse(data.orders)
-				
-				console.log(data)
 				
 				for(let i in data) {
 				
@@ -139,7 +133,6 @@ export const useStore = defineStore('store', {
 			} catch(error) {
 			
 				if (localStorage.getItem('cart') != null) {
-					console.log("work bitch");
 					this.cart = JSON.parse(localStorage.getItem('cart'));
 				}
 				console.log(error);

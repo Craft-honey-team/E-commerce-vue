@@ -110,7 +110,7 @@ export default {
 		  	
 		  	},
 		  	body: JSON.stringify({ 1: user.uid })
-		  	})
+		  })
 		  	store.getCart();
 		  	this.$router.push(`/${this.store.lang}/PersonalArea/${user.uid}`);
           
@@ -130,27 +130,21 @@ export default {
 		  .then((userCredential) => {
 			const user = userCredential.user;
 			this.store.comp = 'Login';
-		  })
-		  .then(() => {
+		  	fetch('/api/users', {
+		  
+			  	method: 'POST',
+			  	headers: {
+			  	
+			  		'Content-Type': 'application/json'
+			  	
+			  	},
+			  	body: JSON.stringify({ 1: user.uid })
+			  	
+		  	})
+		  	
 		  	updateProfile(auth.currentUser, {
 				displayName: this.name
 		  	})
-		  	.catch((error) => {
-				console.log(error)		  	
-		  	})
-		  
-		  	fetch('/api/users', {
-		  
-		  		method: 'POST',
-		  		headers: {
-		  	
-		  			'Content-Type': 'application/json'
-		  	
-		  		},
-		  		body: JSON.stringify({ 1: user.uid })
-		  
-		  	})
-		  	
 		  })
 		  .catch((error) => {
 			const errorCode = error.code;
