@@ -13,7 +13,7 @@
   <img :style = "{'transform': `translate(${xPos/13}px, ${yPos/13}px)` }" class = "w-[2200px] h-[70%] absolute left-[-10%] top-0 -z-10" src="../assets/paralax2.png" />
   <img :style = "{'transform': `translate(${xPos/24}px, ${yPos/24}px)` }" class = "w-[440px] absolute justify-self-center mr-[1120px] bottom-[60px] z-[-9]" src="../assets/paralax3a.png" />
   <img :style = "{'transform': `translate(${xPos/24}px, ${yPos/24}px)` }" class = "w-[500px] absolute justify-self-center ml-[220px] bottom-[40px] z-[-9]" src="../assets/paralax3b.png" />
-  <img :style = "{'transform': `translate(${xPos/18}px, ${yPos/20}px)` }" class = "w-[2200px] absolute justify-self-center bottom-[-4%] -z-10" src="../assets/paralax9.png" />
+  <img :style = "{'transform': `translate(${xPos/18}px, ${yPos/20}px)` }" class = "w-[2200px] absolute justify-self-center bottom-[-4%] -z-10" src="../assets/paralax10.png" />
   <div class="h-full justify-center flex items-center">
     <div class = "grid gap-[10vh] [&_*]:text-white">
       <div class="justify-center flex">
