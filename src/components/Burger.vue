@@ -3,10 +3,23 @@
 
 	<div class=" ">
 		<div class="flex flex-col justify-center [&>*]:px-[10px]">
-			<button @click="$emit('changeBurger')"
-				class="self-end w-fit focus:outline-none mr-2 mt-2 text-[22px] text-right hover:text-amber-700 ">
-				<strong>X</strong>
-			</button>
+			<div class = "flex justify-between mt-[8px]">
+				<select
+					class="self-center text-xl text-center h-[32px] w-[56px] bg-[#DAE2E2] border-[2px] border-black rounded-xl hover:cursor-pointer hover:text-amber-700 hover:bg-amber-200 underline-offset-4"
+					name="store.lang" id="">
+					<option selected disabled hidden>{{ store.lang.toUpperCase() }}</option>
+					<option @click="store.lang = 'ru', $router.push(`/ru/${$route.path.slice(4, $route.path.length)}`)"
+						value="">RU</option>
+					<option @click="store.lang = 'en', $router.push(`/en/${$route.path.slice(4, $route.path.length)}`)"
+						value="">EN</option>
+					<option @click="store.lang = 'kg', $router.push(`/kg/${$route.path.slice(4, $route.path.length)}`)"
+						value="">KG</option>
+				</select>
+				<button @click="$emit('changeBurger')"
+					class="w-fit focus:outline-none text-[24px] text-right hover:text-amber-700 ">
+					<strong>X</strong>
+				</button>
+			</div>
 			<router-link :to="`/${lang}/Products`" class="flex items-center w-full h-[46px] font-inter font-[200] text-[22px] border-b-[1px]  border-black text-[#999999] hover:text-amber-700 hover:underline underline-offset-4">
 				{{ store.langProp.catalogue }}
 			</router-link>
@@ -42,6 +55,9 @@
 					<p class="font-inter text-[16px] text-black">+996779454233</p>
 				</div>
 				<div class="flex justify-around items-center">
+					<a href="https://www.instagram.com/crafthoney.kg" target="_blank">
+						<img src="@/assets/Instagram.svg" alt="">
+					</a>
 					<a href="https://wa.me/79146089174" target="_blank">
 						<img src="@/assets/WhatsApp.svg" alt="">
 					</a>
@@ -54,9 +70,6 @@
 			</div>
 			<p class="my-[10px]">{{ store.langProp.address + ' 770033 ' + store.langProp.kyrgyzstan + ',' }}</p>
 			<p class="my-[10px]">{{ store.langProp.street }}</p>
-			<a href="https://www.instagram.com/crafthoney.kg" target="_blank">
-				<img src="@/assets/Instagram.svg" alt="">
-			</a>
 		</div>
 
 	</div>

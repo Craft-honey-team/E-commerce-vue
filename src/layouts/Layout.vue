@@ -2,7 +2,7 @@
 
 <LayoutModal/>
 
-<div class = "h-screen min-h-[700px] overflow-x-hidden px-[40px] grid grid-rows-[min-content_auto] max-w-screen max-[800px]:px-[20px]">
+<div class = "h-screen min-h-[700px] overflow-x-hidden px-[40px] grid grid-rows-[min-content_auto] max-w-screen max-[800px]:px-[20px] max-[400px]:px-[4px]">
 <Header />
 <slot />
 </div>

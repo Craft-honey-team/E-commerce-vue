@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class=" ">
+    <div>
       <div class="flex justify-center text-[30px] mb-[10px]">
         <h1 class="text-gray-700">Корзина</h1>
       </div>
@@ -8,25 +8,25 @@
         <hr class="w-full bg-gray-700 h-[2px]">
       </div>
       <div class="grid grid-flow-row gap-20">
-      <div class="grid grid-cols-4 " v-for="(item, index) in store.cart">
+      <div class="flex justify-center gap-[100px] max-[650px]:grid max-[650px]:grid-cols-2" v-for="(item, index) in store.cart">
 
-        <div class="relative">
+        <div class="relative max-[650px]:justify-self-center">
           <img class="w-[100px] h-[100px] rounded-[5px]" src="@/assets/Group19.png">
         </div>
-        <div class="text-[25px]">
+        <div class="text-[25px] text-center">
           <h1 class="mb-[10px]">{{ item.name }}</h1>
           <span>Объем: {{ item.volume }}л</span>
         </div>
         
-          <div class="grid grid-flow-col self-center justify-self-center">
+          <div class="grid grid-flow-col self-center justify-self-center w-[160px] ml-[200px]">
 
             <button class="w-[30px] h-[30px] border-solid border-2 border-[#1C1B1F] pb-[2px] rounded-full  hover:bg-[#EAAD02]"
               v-on:click="decrementProductCount(index)">
               <p>-</p>
             </button>
-            <p class="text-[20px]">{{ item.quantity }} шт</p>
+            <p class="justify-self-center text-[20px] mx-[4px]">{{ item.quantity }} шт</p>
 
-            <button class=" w-[30px] h-[30px] pb-[2px] border-solid border-2 border-[#1C1B1F]  rounded-full hover:bg-[#EAAD02]"
+            <button class="justify-self-end w-[30px] h-[30px] pb-[2px] border-solid border-2 border-[#1C1B1F]  rounded-full hover:bg-[#EAAD02]"
               v-on:click="incrementProductCount(index)">
               <p>+</p>
             </button>
@@ -164,7 +164,7 @@ export default {
 
       clearTimeout(this.timer);
 
-      this.timer = setTimeout(() => this.updateCart(index), 2000);
+      this.timer = setTimeout(() => this.updateCart(index), 1000);
 
     },
 
@@ -176,7 +176,7 @@ export default {
 
         clearTimeout(this.timer);
 
-        this.timer = setTimeout(() => this.updateCart(index), 2000);
+        this.timer = setTimeout(() => this.updateCart(index), 1000);
 
       }
     },

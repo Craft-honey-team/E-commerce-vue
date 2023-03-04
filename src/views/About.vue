@@ -1,8 +1,8 @@
 <template>
 
   <Layout>
-    <div class="pt-[20px] mt-[20px] mb-[40px] border-t-[3px] border-black">
-      <h1 class="mb-[20px] text-[50px]">{{ store.langProp.aboutus }}</h1>
+    <div class="">
+      <h1 class="my-[40px] text-[50px]">{{ store.langProp.aboutus }}</h1>
       <div class="justify-center flex  ">
 
         <img class="mb-[40px] w-[100%]" src="../assets/Rectangle17.png" alt="">

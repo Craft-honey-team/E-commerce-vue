@@ -1,17 +1,14 @@
 <template>
     <div class="flex justify-center">
         <div class="border-b-black border-b-[3px] w-fit mb-20">
-            <h2 class="text-[40px]">Розничная продукция</h2>
+            <h2 class="text-[40px] max-[900px]:text-center">Розничная продукция</h2>
         </div>
     </div>
 
-    <div class="mb-[40px] gap-x-[160px] max-[1000px]:gap-[60px] max-[1000px]:grid-cols-2
-                        max-[370px]:gap-[40px] 
-                        max-[650px]:gap-[40px] max-[650px]:grid-cols-1
-                        grid grid-cols-3">
-        <div v-for="(item, index) in data">
+    <div class="mb-[40px] flex flex-wrap justify-around">
+        <div class = "w-[320px] mb-[40px]" v-for="(item, index) in store.data">
 
-            <div class="bg-white rounded-[12px] p-2">
+            <div class="bg-white rounded-[12px]">
                 <div class="text-[25px]">
                     <h1 class="mb-[10px]">{{ item.name }}</h1>
 
@@ -54,15 +51,12 @@
     </div>
     <div class="flex justify-center">
         <div class="border-b-black border-b-[3px] w-fit mb-20">
-            <h2 class="text-[40px]">Оптовая продукция</h2>
+            <h2 class="text-[40px] max-[900px]:text-center">Оптовая продукция</h2>
         </div>
     </div>
-    <div class="mb-[40px] gap-x-[160px] max-[1000px]:gap-[60px] max-[1000px]:grid-cols-2
-               max-[370px]:gap-[40px] 
-               max-[650px]:gap-[40px] max-[650px]:grid-cols-1
-                grid grid-cols-3">
-        <div v-for="(item, index) in dataOpt">
-            <div class="bg-white rounded-[12px] p-2">
+    <div class="mb-[40px] flex flex-wrap justify-around">
+        <div class = "w-[320px]" v-for="(item, index) in store.dataOpt">
+            <div class="bg-white rounded-[12px]">
                 <div class="text-[25px]">
                     <h1 class="mb-[10px]">{{ item.name }}</h1>
 

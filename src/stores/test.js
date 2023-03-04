@@ -94,6 +94,9 @@ export const useStore = defineStore('store', {
 		},
 		async getCart() {
 		
+			console.log("are you fucking kidding me")
+			this.cart = {};
+		
 			try {
 			
 				let res = await fetch('/api/usersCart', {

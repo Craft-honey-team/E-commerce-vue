@@ -1,27 +1,26 @@
 <template>
     <Layout>
 		<div>
-			<div class="pt-[20px] mt-[20px] mb-[40px] border-t-[3px] border-black">
+			<div class="my-[40px]">
 				<p class="text-[50px]">{{ store.langProp.personalarea }}</p>
 			</div>
 			<div class="grid grid-flow-row gap-20">
-				<div class="grid grid-flow-col auto-cols-max text-[20px] max-[700px]:grid-cols-1">
+				<div class="grid grid-flow-col auto-cols-max text-[20px]">
 					<span
 						class="bg-gray-200 h-[30px] flex items-center font-bold font-roboto rounded-[10px] px-2 text-black text-center">{{
 							store.langProp.settings }}</span>
 					<span class="justify-self-center mx-2 max-[700px]:hidden">|</span>
 					<button @click="$router.push(`../Personal/${$route.params.id}`)"
-						class="bg-[#EAAD02] h-[30px] rounded-[10px] px-2 text-white">{{ store.langProp.myorders
-						}}</button>
+						class="bg-[#EAAD02] h-[30px] rounded-[10px] px-2 text-white">{{ store.langProp.myorders }}</button>
 				</div>
 				<div class="grid grid-flow-col auto-cols-max gap-[30px] text-[20px]">
-					<div class="text-slate-500 ">
+					<div class="text-slate-500 grid grid-rows-4">
 						<p class=" ">{{ store.langProp.yourname }}:</p>
 						<p class=" ">Email:</p>
 						<p class=" ">{{ store.langProp.telephone }}</p>
 						<p class=" ">{{ store.langProp.delivery }}:</p>
 					</div>
-					<div>
+					<div class = "grid grid-rows-4">
 						<p class=" ">{{ store.name }}</p>
 						<p class=" ">{{ store.email }}</p>
 						<div v-show="setPhone">
@@ -45,7 +44,7 @@
 						
 					</div>
 				</div>
-				<button @click="resetPassword" class="text-blue-700 underline decoration-1 text-[18px] hover:text-amber-700 hover:underline underline-offset-4" to="">Изменить пароль</button>
+				<button @click="resetPassword" class="text-blue-700 underline decoration-1 text-[18px] hover:text-amber-700 hover:underline underline-offset-4 w-max" to="">Изменить пароль</button>
 				<button @click="exitPersonalArea" class="bg-[#EAAD02] h-[30px] w-[200px] rounded-[10px] px-2 text-center text-white  hover:text-amber-700 hover:underline underline-offset-4">Выйти из АКК</button>
 			</div>        
 		</div>
@@ -66,15 +65,15 @@ export default {
 	methods: {
 		exitPersonalArea(){
 		const auth = getAuth();
-signOut(auth).then(() => {
-  // Sign-out successful.
-  this.store.uid = '';
-  this.store.loggedIn = false;
-  this.store.getCart();
-  this.$router.push('/ru/home');
-}).catch((error) => {
-  // An error happened.
-});
+		signOut(auth).then(() => {
+		  // Sign-out successful.
+		  this.store.uid = '';
+		  this.store.loggedIn = false;
+		  this.store.getCart();
+		  this.$router.push(`/${this.store.lang}/Home`);
+		}).catch((error) => {
+		  // An error happened.
+		});
 	},
 	handleInput(){
 	this.store.number = this.store.number.replace(/[^0-9+]/g, '');
@@ -99,16 +98,13 @@ signOut(auth).then(() => {
 	},
 	resetPassword(){
 		const auth = getAuth();
-sendPasswordResetEmail(auth, this.email)
-  .then(() => {
-    // Password reset email sent!
-    // ..
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // ..
-  });
+		sendPasswordResetEmail(auth, this.store.email)
+  			.then(() => {
+  			})
+			.catch((error) => {
+				const errorCode = error.code;
+				const errorMessage = error.message;
+			});
 	}
 }
 

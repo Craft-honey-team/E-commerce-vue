@@ -3,7 +3,7 @@
 	<Layout>
 	
 		<div>
-        	<div class = "pt-[20px] mt-[20px] mb-[40px] border-t-[3px] border-black"><p class = "text-[50px]">{{ store.langProp.catalogue }}</p></div>
+        	<div class = "my-[40px] max-[900px]:text-center"><p class = "text-[50px]">{{ store.langProp.catalogue }}</p></div>
 		
     		<ProductList />      
     	</div>  

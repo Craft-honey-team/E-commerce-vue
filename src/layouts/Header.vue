@@ -1,5 +1,5 @@
 <template>
-	<header class="bg-white flex justify-between my-[10px] max-[800px]:grid-cols-1">
+	<header :class = "{'border-black border-b-[3px] pb-[20px]': !$route.path.includes('Home')}" class="bg-white flex justify-between mt-[10px] pb-[10px] max-[800px]:grid-cols-1">
 
 		<div class="grid grid-flow-col gap-[40px] items-center">
 
@@ -12,7 +12,7 @@
 
 			<div v-if="!$route.path.includes('Home')" class="text-xl [&>a]:mr-[30px] max-[1200px]:hidden">
 				<router-link class=" hover:text-amber-700 hover:underline underline-offset-4"
-					:to="`/${store.lang}/Products`">{{ store?.langProp?.catalogue }}</router-link>
+					:to="`products`">{{ store?.langProp?.catalogue }}</router-link>
 				<router-link class=" hover:text-amber-700 hover:underline underline-offset-4"
 					:to="`/${store.lang}/About`">{{ store.langProp.about }}</router-link>
 				<router-link class=" hover:text-amber-700 hover:underline underline-offset-4" :to="`/${store.lang}/Blog`">{{
@@ -24,9 +24,23 @@
 
 		</div>
 
-		<div class="grid  min-[1201px]:hidden">
-			<img @click="burgerMenu = true" class="justify-self-center self-center hover:cursor-pointer"
-				src="../assets/menu.svg">
+		<div class="grid grid-flow-col gap-[20px] min-[1201px]:hidden">
+			<div class = "self-center">
+				<router-link :to="`/${store.lang}/Checkout`">
+					<div class="relative">
+						<img class="w-[22px]" src="@/assets/shopping_cart.svg" alt="">
+						<div v-if="Object.keys(store.cart).length"
+							class="absolute h-[18px] w-[18px] top-[-9px] left-[12px] rounded-full bg-red-600 flex justify-center align-center text-white ">
+							<span class="text-[12px]">{{ Object.keys(store.cart).length }}</span>
+						</div>
+					</div>
+
+				</router-link>
+			</div>
+			<div class = "self-center">
+				<img @click="burgerMenu = true" class="justify-self-center self-center hover:cursor-pointer"
+					src="../assets/menu.svg">
+			</div>
 		</div>
 
 		<div class="grid grid-flow-col gap-[40px] items-center max-[1200px]:hidden">
@@ -34,8 +48,7 @@
 			<div v-if="!store.loggedIn && !$route.path.includes('Personal')" class="flex items-center">
 				<img class="mr-[10px] w-[24px]" src="@/assets/account_circle.svg">
 				<button class="text-xl text-center  hover:text-amber-700 hover:underline underline-offset-4"
-					@click="store.modal = true, store.comp = 'Login', store.bg = 'bg-bee'">{{
-						store.langProp.login }}</button>
+					@click="store.modal = true, store.comp = 'Login', store.bg = 'bg-bee'">{{ store.langProp.login }}</button>
 			</div>
 
 			<div v-if="store.loggedIn && !$route.path.includes('Personal')" class="flex items-center">
@@ -46,10 +59,10 @@
 				</router-link>
 			</div>
 
-			<div class="">
+			<div>
 				<router-link :to="`/${store.lang}/Checkout`">
 					<div class="relative">
-						<img class="w-[22px] max-[800px]:hidden " src="@/assets/shopping_cart.svg" alt="">
+						<img class="w-[22px]" src="@/assets/shopping_cart.svg" alt="">
 						<div v-if="Object.keys(store.cart).length"
 							class="absolute h-[18px] w-[18px] top-[-9px] left-[12px] rounded-full bg-red-600 flex justify-center align-center text-white ">
 							<span class="text-[12px]">{{ Object.keys(store.cart).length }}</span>
@@ -59,9 +72,9 @@
 				</router-link>
 			</div>
 			<div>
-				<p class="text-xl">{{ store.langProp.lang }}:
+				<p class="text-xl [&_*]:text-center">{{ store.langProp.lang }}:
 					<select
-						class="ml-[8px] h-[32px] w-[56px] bg-[#ffcc00] rounded-xl hover:cursor-pointer px-2 hover:text-amber-700 hover:bg-amber-200 underline-offset-4"
+						class="ml-[8px] h-[32px] w-[56px] bg-[#ffcc00] rounded-xl hover:cursor-pointer hover:text-amber-700 hover:bg-amber-200 underline-offset-4"
 						name="store.lang" id="">
 						<option selected disabled hidden>{{ store.lang.toUpperCase() }}</option>
 						<option @click="store.lang = 'ru', $router.push(`/ru/${$route.path.slice(4, $route.path.length)}`)"
@@ -115,6 +128,7 @@ export default {
 		return {
 
 			burgerMenu: false,
+			products: "/${store.lang}/Products",
 			store: useStore()
 
 		}

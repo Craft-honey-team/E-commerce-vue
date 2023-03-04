@@ -1,5 +1,5 @@
 <template>
-    <div class="h-[500px] grid grid-cols-2 [&_*]:font-roboto [&_input]:pl-[8px]">
+    <div class="h-[500px] grid grid-cols-2 max-[450px]:grid-cols-1 [&_*]:font-roboto [&_input]:pl-[8px]">
 
         <div class="grid auto-rows-min gap-[20px]">
             <div class="text-[30px] flex justify-center ">
@@ -88,7 +88,8 @@ export default {
 					  	},
 					  	body: JSON.stringify({ 1: user.uid })
 		  			})		
-		  			store.getCart();
+		  			this.store.getCart();
+		  			this.store.name = user.displayName;
                     this.$router.push(`/${this.store.lang}/PersonalArea/${user.uid}`);
                 }).catch((error) => {
                     const errorCode = error.code;
@@ -105,7 +106,8 @@ export default {
 				const user = userCredential.user;
 				console.log(user)
 				this.store.modal = false;
-				store.getCart();
+				this.store.getCart();
+				this.store.name = user.displayName;
                 this.$router.push(`/${this.store.lang}/PersonalArea/${user.uid}`);
 			  })
 			  .catch((error) => {

@@ -10,7 +10,7 @@
             			<strong>X</strong> 
             		</button>
      			 </div>
-				<component class = "mx-20 mb-10" :is="store.comp"/>
+				<component class = "mx-20 mb-10 max-[450px]:mx-[10px]" :is="store.comp"/>
 				
 			</div>
 

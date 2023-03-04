@@ -1,10 +1,10 @@
 <template>
     <Layout>
 		<div> 
-			<div class = "pt-[20px] mt-[20px] mb-[40px] border-t-[3px] border-black">
+			<div class = "my-[40px]">
 				<p class = "text-[50px]">{{ store.langProp.personalarea }}</p>
 			</div>
-			<div class="grid grid-flow-col auto-cols-max mb-[20px] text-[20px] max-[700px]:grid-cols-1">
+			<div class="grid grid-flow-col auto-cols-max mb-[20px] text-[20px]">
 				<button @click="$router.push(`../PersonalArea/${$route.params.id}`)"
 					class="bg-[#EAAD02] h-[30px] rounded-[10px] px-2 text-white">{{ store.langProp.settings
 					}}</button>
@@ -100,15 +100,13 @@ export default {
 
 		exitPersonalArea(){
 		const auth = getAuth();
-signOut(auth).then(() => {
-  // Sign-out successful.
-  this.store.uid = '';
-  this.store.loggedIn = false;
-  this.store.getCart();
-  this.$router.push('/ru/home');
-}).catch((error) => {
-  // An error happened.
-});
+		signOut(auth).then(() => {
+			this.store.uid = '';
+			this.store.loggedIn = false;
+			this.store.getCart();
+			this.$router.push(`/${this.store.lang}/Home`);
+		}).catch((error) => {
+		});
 	},
 	
 
