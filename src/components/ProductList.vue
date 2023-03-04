@@ -1,7 +1,7 @@
 <template>
     <div class="flex justify-center">
         <div class="border-b-black border-b-[3px] w-fit mb-20">
-            <h2 class="text-[40px] max-[900px]:text-center">Розничная продукция</h2>
+            <h2 class="text-[40px] max-[900px]:text-center">{{ store.langProp.retail }}</h2>
         </div>
     </div>
 
@@ -10,7 +10,7 @@
 
             <div class="bg-white rounded-[12px]">
                 <div class="text-[25px]">
-                    <h1 class="mb-[10px]">{{ item.name }}</h1>
+                    <h1 class="mb-[10px]">{{ store.langProp.med }}</h1>
 
                 </div>
                 <img class="rounded-[5px] mb-[10px]" src="@/assets/Group19.png">
@@ -18,12 +18,12 @@
                 <div class="grid grid-flow-row gap-4">
 
                     <div class="grid grid-cols-2 gap-[50px] text-[20px]">
-                        <span>Объем: {{ item.volume }}л</span>
-                        <span class = "justify-self-end">Цена: {{ item.price }}kgs</span>
+                        <span>{{ store.langProp.volume }}: {{ item.volume }}{{ store.langProp.volumeShort }}</span>
+                        <span class = "justify-self-end">{{ store.langProp.priceWord }}: {{ item.price }}kgs</span>
                     </div>
                     <div class="">
                         <div class="grid grid-cols-2 gap-[20px]">
-                            <p class="text-[20px] leading-none self-center">Количество товаров:</p>
+                            <p class="text-[20px] leading-none self-center">{{ store.langProp.quantity }}:</p>
                             <div class="grid grid-flow-col self-center justify-self-end gap-[2px] px-1">
                             
                                 <button class="w-[30px] h-[30px] border-solid border-2 border-[#1C1B1F]  rounded-full  hover:bg-[#EAAD02]"
@@ -31,7 +31,7 @@
                                     <p>-</p>
                                 </button>
                                 
-                                <p class="text-[20px]">{{ item.quantity }} шт</p>
+                                <p class="text-[20px]">{{ item.quantity }} {{ store.langProp.quantityShort }}</p>
 
                                 <button class=" w-[30px] h-[30px] border-solid border-2 border-[#1C1B1F]  rounded-full hover:bg-[#EAAD02]"
                                     v-on:click="incrementProductCount(index, 'orders')">
@@ -42,7 +42,7 @@
                         </div>
                     </div>
                     <div @click = "addToCart(index, 'orders')" class="flex justify-center align-center bg-[#EAAD02] h-[35px] rounded-[6px] px-2 text-center text-white  hover:text-amber-700 hover:underline hover:cursor-pointer underline-offset-4">
-                        <button>Купить</button>
+                        <button>{{ store.langProp.buy }}</button>
                     </div>
                 </div>
             </div>
@@ -51,14 +51,14 @@
     </div>
     <div class="flex justify-center">
         <div class="border-b-black border-b-[3px] w-fit mb-20">
-            <h2 class="text-[40px] max-[900px]:text-center">Оптовая продукция</h2>
+            <h2 class="text-[40px] max-[900px]:text-center">{{ store.langProp.wholesale }}</h2>
         </div>
     </div>
     <div class="mb-[40px] flex flex-wrap justify-around">
         <div class = "w-[320px]" v-for="(item, index) in store.dataOpt">
             <div class="bg-white rounded-[12px]">
                 <div class="text-[25px]">
-                    <h1 class="mb-[10px]">{{ item.name }}</h1>
+                    <h1 class="mb-[10px]">{{ store.langProp.med }}</h1>
 
                 </div>
                 <img class="rounded-[5px] mb-[10px]" src="@/assets/Group19.png">
@@ -66,12 +66,12 @@
                 <div class="grid grid-flow-row gap-4">
 
                     <div class="grid grid-cols-2 gap-[20px] text-[20px]">
-                        <span>Объем: {{ item.volume }}л</span>
-                        <span class = "justify-self-end">Цена: {{ item.price }}kgs</span>
+                        <span>{{ store.langProp.volume }}: {{ item.volume }}{{ store.langProp.volumeShort }}</span>
+                        <span class = "justify-self-end">{{ store.langProp.priceWord }}: {{ item.price }}{{ store.langProp.currency }}</span>
                     </div>
                     <div class="">
                         <div class="grid grid-cols-2 gap-[20px]">
-                            <p class="text-[20px] leading-none self-center">Количество товаров:</p>
+                            <p class="text-[20px] leading-none self-center">{{ store.langProp.quantity }}:</p>
                             <div class="grid grid-flow-col self-center justify-self-end gap-[2px] px-1">
                             
                                 <button class="w-[30px] h-[30px] border-solid border-2 border-[#1C1B1F]  rounded-full  hover:bg-[#EAAD02]"
@@ -79,7 +79,7 @@
                                     <p class="relative mb-[10px]">-</p>
                                 </button>
                                 
-                                <p class="text-[20px]">{{ item.quantity }} шт</p>
+                                <p class="text-[20px]">{{ item.quantity }} {{ store.langProp.quantityShort }}</p>
 
                                 <button class=" w-[30px] h-[30px] border-solid border-2 border-[#1C1B1F]  rounded-full hover:bg-[#EAAD02]"
                                     v-on:click="incrementProductCount(index, 'opt')">
@@ -90,7 +90,7 @@
                         </div>
                     </div>
                     <div @click = "addToCart(index, 'ordersOpt')" class="flex justify-center align-center bg-[#EAAD02] h-[35px] rounded-[6px] px-2 text-center text-white  hover:text-amber-700 hover:underline hover:cursor-pointer underline-offset-4">
-                        <button class="">Купить</button>
+                        <button class="">{{ store.langProp.buy }}</button>
                     </div>
                 </div>
             </div>

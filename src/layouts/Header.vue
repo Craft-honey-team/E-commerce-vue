@@ -10,7 +10,7 @@
 				</router-link>
 			</div>
 
-			<div v-if="!$route.path.includes('Home')" class="text-xl [&>a]:mr-[30px] max-[1200px]:hidden">
+			<div v-if="!$route.path.includes('Home')" class="text-xl [&>a]:mr-[30px] max-[1300px]:hidden">
 				<router-link class=" hover:text-amber-700 hover:underline underline-offset-4"
 					:to="`products`">{{ store?.langProp?.catalogue }}</router-link>
 				<router-link class=" hover:text-amber-700 hover:underline underline-offset-4"
@@ -24,7 +24,7 @@
 
 		</div>
 
-		<div class="grid grid-flow-col gap-[20px] min-[1201px]:hidden">
+		<div class="grid grid-flow-col gap-[20px] min-[1301px]:hidden">
 			<div class = "self-center">
 				<router-link :to="`/${store.lang}/Checkout`">
 					<div class="relative">
@@ -43,7 +43,7 @@
 			</div>
 		</div>
 
-		<div class="grid grid-flow-col gap-[40px] items-center max-[1200px]:hidden">
+		<div class="grid grid-flow-col gap-[40px] items-center max-[1300px]:hidden">
 
 			<div v-if="!store.loggedIn && !$route.path.includes('Personal')" class="flex items-center">
 				<img class="mr-[10px] w-[24px]" src="@/assets/account_circle.svg">
@@ -55,7 +55,7 @@
 				<img class="mr-[10px] w-[24px]" src="@/assets/account_circle.svg">
 				<router-link class="text-xl text-center hover:text-amber-700 hover:underline underline-offset-4"
 					:to='`/${store.lang}/PersonalArea/${store.uid}`'>
-					{{ store.langProp.profile }}
+					{{ store.langProp.personalarea }}
 				</router-link>
 			</div>
 
@@ -74,14 +74,14 @@
 			<div>
 				<p class="text-xl [&_*]:text-center">{{ store.langProp.lang }}:
 					<select @change="$router.push(`/${store.lang}/${$route.path.slice(4, $route.path.length)}`)"
-						class="ml-[8px] h-[32px] w-[56px] bg-[#ffcc00] rounded-xl hover:cursor-pointer hover:text-amber-700 hover:bg-amber-200 underline-offset-4"
+						class="ml-[8px] h-[32px] w-[70px] bg-[#ffcc00] rounded-xl hover:cursor-pointer hover:text-amber-700 hover:bg-amber-200 underline-offset-4"
 						name="store.lang" id="" v-model="store.lang">
 						<option selected disabled hidden>{{ store.lang.toUpperCase() }}</option>
-						<option @click="store.lang = 'ru'"
+						<option 
 							value="ru">RU</option>
-						<option @click="store.lang = 'en'"
+						<option 
 							value="en">EN</option>
-						<option @click="store.lang = 'kg'"
+						<option
 							value="kg">KG</option>
 					</select>
 				</p>

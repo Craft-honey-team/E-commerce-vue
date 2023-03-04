@@ -2,7 +2,7 @@
   <Layout>
     <div>
       <div class="flex justify-center text-[30px] mb-[10px]">
-        <h1 class="text-gray-700">Корзина</h1>
+        <h1 class="text-gray-700">{{ store.langProp.cart }}</h1>
       </div>
       <div class="flex justify-center mb-[5%]">
         <hr class="w-full bg-gray-700 h-[2px]">
@@ -14,8 +14,8 @@
           <img class="w-[100px] h-[100px] rounded-[5px]" src="@/assets/Group19.png">
         </div>
         <div class="text-[25px] text-center">
-          <h1 class="mb-[10px]">{{ item.name }}</h1>
-          <span>Объем: {{ item.volume }}л</span>
+          <h1 class="mb-[10px]">{{ store.langProp.med }}</h1>
+          <span>{{ store.langProp.volume }}: {{ item.volume }}{{ store.langProp.volumeShort }}</span>
         </div>
         
           <div class="grid grid-flow-col self-center justify-self-center w-[160px] ml-[200px]">
@@ -24,7 +24,7 @@
               v-on:click="decrementProductCount(index)">
               <p>-</p>
             </button>
-            <p class="justify-self-center text-[20px] mx-[4px]">{{ item.quantity }} шт</p>
+            <p class="justify-self-center text-[20px] mx-[4px]">{{ item.quantity }} {{ store.langProp.quantityShort }}</p>
 
             <button class="justify-self-end w-[30px] h-[30px] pb-[2px] border-solid border-2 border-[#1C1B1F]  rounded-full hover:bg-[#EAAD02]"
               v-on:click="incrementProductCount(index)">
@@ -34,10 +34,10 @@
           </div>
         
         <div class = "justify-self-center">
-          <p class="text-[30px] text-center">{{ store.sumItem(index) }} сом</p>
+          <p class="text-[30px] text-center">{{ store.sumItem(index) }} {{ store.langProp.currency }}</p>
           <div @click="removeCart(index)"          
             class="flex justify-center  bg-[#EAAD02] h-[35px] w-[160px] rounded-[6px] px-2 text-center text-white  hover:text-amber-700 hover:underline hover:cursor-pointer underline-offset-4">
-            <button >Убрать</button>
+            <button >{{ store.langProp.remove }}</button>
           </div>
         </div>
       </div>
@@ -96,10 +96,10 @@
         </div> -->
 
       <div class="text-center mt-[60px] mb-[60px]">
-        <p class="text-[40px]">Итого: {{ store.sum() }} сом</p>
+        <p class="text-[40px]">{{ store.langProp.total }}: {{ store.sum() }} {{ store.langProp.currency }}</p>
         <button @click="purchaseUser"
-          class="w-[200px] text-center border-4 border-black bg-black px-4 py-2 rounded-[12px] text-white  hover:text-amber-700 hover:underline hover:cursor-pointer underline-offset-4">
-          Купить
+          class="w-[200px] text-center bg-[#EAAD02] px-4 py-2 rounded-[12px] text-white  hover:text-amber-700 hover:underline hover:cursor-pointer underline-offset-4">
+          {{ store.langProp.buy }}
         </button>
 
         

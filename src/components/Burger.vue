@@ -4,17 +4,17 @@
 	<div class=" ">
 		<div class="flex flex-col justify-center [&>*]:px-[10px]">
 			<div class = "flex justify-between mt-[8px]">
-				<select
-					class="self-center text-xl text-center h-[32px] w-[56px] bg-[#DAE2E2] border-[2px] border-black rounded-xl hover:cursor-pointer hover:text-amber-700 hover:bg-amber-200 underline-offset-4"
-					name="store.lang" id="">
-					<option selected disabled hidden>{{ store.lang.toUpperCase() }}</option>
-					<option @click="store.lang = 'ru', $router.push(`/ru/${$route.path.slice(4, $route.path.length)}`)"
-						value="">RU</option>
-					<option @click="store.lang = 'en', $router.push(`/en/${$route.path.slice(4, $route.path.length)}`)"
-						value="">EN</option>
-					<option @click="store.lang = 'kg', $router.push(`/kg/${$route.path.slice(4, $route.path.length)}`)"
-						value="">KG</option>
-				</select>
+				<select @change="$router.push(`/${store.lang}/${$route.path.slice(4, $route.path.length)}`)"
+						class="text-center h-[32px] w-[70px] bg-[#DAE2E2] border-[2px] border-black rounded-xl hover:cursor-pointer hover:text-amber-700 hover:bg-amber-200 underline-offset-4"
+						name="store.lang" id="" v-model="store.lang">
+						<option selected disabled hidden>{{ store.lang.toUpperCase() }}</option>
+						<option 
+							value="ru">RU</option>
+						<option 
+							value="en">EN</option>
+						<option
+							value="kg">KG</option>
+					</select>
 				<button @click="$emit('changeBurger')"
 					class="w-fit focus:outline-none text-[24px] text-right hover:text-amber-700 ">
 					<strong>X</strong>
@@ -45,7 +45,7 @@
 
 		<div v-if="store.loggedIn && !$route.path.includes('Personal')" class="flex justify-center border-b-[1px] border-[#BCB9B9] ">
 			<router-link :to='`/${lang}/PersonalArea/${store.uid}`' class="border-[2px] border-solid border-black rounded-[8px] my-4 w-[218px] h-[47px] flex justify-center items-center font-ubuntu font-[400] text-[16px] text-[##000000]">
-				<img class="w-[24px] h-[24px] mr-[10px]" src="@/assets/Enter_1.svg" alt="">{{ store.langProp.profile }}
+				<img class="w-[24px] h-[24px] mr-[10px]" src="@/assets/Enter_1.svg" alt="">{{ store.langProp.personalarea }}
 			</router-link>
 		</div>
 
