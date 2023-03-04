@@ -73,16 +73,16 @@
 			</div>
 			<div>
 				<p class="text-xl [&_*]:text-center">{{ store.langProp.lang }}:
-					<select
+					<select @change="$router.push(`/${store.lang}/${$route.path.slice(4, $route.path.length)}`)"
 						class="ml-[8px] h-[32px] w-[56px] bg-[#ffcc00] rounded-xl hover:cursor-pointer hover:text-amber-700 hover:bg-amber-200 underline-offset-4"
-						name="store.lang" id="">
+						name="store.lang" id="" v-model="store.lang">
 						<option selected disabled hidden>{{ store.lang.toUpperCase() }}</option>
-						<option @click="store.lang = 'ru', $router.push(`/ru/${$route.path.slice(4, $route.path.length)}`)"
-							value="">RU</option>
-						<option @click="store.lang = 'en', $router.push(`/en/${$route.path.slice(4, $route.path.length)}`)"
-							value="">EN</option>
-						<option @click="store.lang = 'kg', $router.push(`/kg/${$route.path.slice(4, $route.path.length)}`)"
-							value="">KG</option>
+						<option @click="store.lang = 'ru'"
+							value="ru">RU</option>
+						<option @click="store.lang = 'en'"
+							value="en">EN</option>
+						<option @click="store.lang = 'kg'"
+							value="kg">KG</option>
 					</select>
 				</p>
 			</div>
