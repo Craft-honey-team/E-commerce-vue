@@ -8,7 +8,7 @@
         <hr class="w-full bg-gray-700 h-[2px]">
       </div>
       <div class="grid grid-flow-row gap-20">
-      <div class="flex justify-center gap-[100px] max-[650px]:grid max-[650px]:grid-cols-2" v-for="(item, index) in store.cart">
+      <div class="flex justify-center max-[1199px]:justify-between min-[1200px]:gap-x-[100px] max-[650px]:grid min-[500px]:grid-cols-2 max-[499px]:grid-cols-1" v-for="(item, index) in store.cart">
 
         <div class="relative max-[650px]:justify-self-center">
           <img class="w-[100px] h-[100px] rounded-[5px]" src="@/assets/Group19.png">
@@ -18,7 +18,7 @@
           <span>{{ store.langProp.volume }}: {{ item.volume }}{{ store.langProp.volumeShort }}</span>
         </div>
         
-          <div class="grid grid-flow-col self-center justify-self-center w-[160px] ml-[200px]">
+          <div class="my-[10px] grid grid-flow-col self-center justify-self-center w-[160px] min-[1200px]:ml-[200px]">
 
             <button class="w-[30px] h-[30px] border-solid border-2 border-[#1C1B1F] pb-[2px] rounded-full  hover:bg-[#EAAD02]"
               v-on:click="decrementProductCount(index)">
