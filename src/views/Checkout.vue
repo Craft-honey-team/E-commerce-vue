@@ -130,7 +130,12 @@ export default {
     Layout
   },
   methods: {
-
+	
+	purchaseUser() {
+	
+	//	fetch('/api/addOrder')
+	
+	},
 
     removeCart(index) {
 
