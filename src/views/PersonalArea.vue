@@ -1,5 +1,5 @@
 <template>
-    <Layout>
+	<Layout>
 		<div>
 			<div class="my-[40px]">
 				<p class="text-[50px]">{{ store.langProp.personalarea }}</p>
@@ -39,31 +39,65 @@
 							<span v-if="store.address.length" class="mr-[20px]">{{ store.address }}</span>
 							<button @click="setAddress = true" class="text-blue-700 underline decoration-1 text-[18px] hover:text-amber-700 hover:underline underline-offset-4">{{ store.langProp.changeAddress }}</button>
 						</div>
-						
-						
-						
+						<div class="">
+							<div v-show="dhl">
+								<img class="w-[100px] h-[80px] " src="@/assets/dhl-express.svg" alt="">
+							</div>
+							<div v-show="dpd">
+								<img class="w-[100px] h-[80px] " src="@/assets/dpd-logo-2015-.svg" alt="">
+							</div>
+							<div v-show="cdek">
+								<img class="w-[100px] h-[80px] " src="@/assets/cdek-1.svg" alt="">
+							</div>
+						</div>
+
+					</div>
+					<div class="ml-[50px] gap-[10px] leading-4">
+						<div>
+							<h2>Выберите способ доставки:</h2>
+							<span class=" text-[14px] text-red-600 break-all w-[200px]">Внимание: бесплатная доставка
+								осуществляется при заказе на
+								сумму свыше 112500сом!</span><br />
+							<span class="text-[14px] text-red-600 break-all w-[90%]">При заказе на сумму ниже 112500сом
+								доставка осуществляется
+								за счет ПОКУПАТЕЛЯ по тарифам транспортной компании!</span>
+						</div>
+						<div class="grid grid-flow-col gap-[10px]">
+							<input id = "dhl" @click = "store.addresss = 'dhl'" class = "self-center h-[20px]" name = "address" type = "radio"/>
+							<img class="w-[100px] h-[80px] hover:cursor-pointer"
+								src="@/assets/dhl-express.svg" alt="">
+							<input id = "dpd" @click = "store.addresss = 'dpd'" class = "self-center h-[20px]" name = "address" type = "radio"/>
+							<img class="w-[100px] h-[80px] hover:cursor-pointer"
+								src="@/assets/dpd-logo-2015-.svg" alt="">
+							<input id = "cdek" @click = "store.addresss = 'cdek'" class = "self-center h-[20px]" name = "address" type = "radio"/>
+							<img class="w-[100px] h-[80px] hover:cursor-pointer"
+								src="@/assets/cdek-1.svg" alt="">
+						</div>
+
 					</div>
 				</div>
 				<button @click="resetPassword" class="text-blue-700 underline decoration-1 text-[18px] hover:text-amber-700 hover:underline underline-offset-4 w-max" to="">{{ store.langProp.changePassword }}</button>
 				<button @click="exitPersonalArea" class="bg-[#EAAD02] h-[30px] w-[200px] rounded-[10px] px-2 text-center text-white  hover:text-amber-700 hover:underline underline-offset-4">{{ store.langProp.leave }}</button>
 			</div>        
 		</div>
-    </Layout>
+	</Layout>
 </template>
 <script>
 import { useStore } from '@/stores/test';
 import { getAuth, signOut, sendPasswordResetEmail } from "firebase/auth";
 export default {
-    data() {
-        return {
-            store: useStore(),			
-			setPhone: false,			
+	data() {
+		return {
+			store: useStore(),
+			setPhone: false,
 			setAddress: false,
-			
+			dpd: false,
+			dhl: false,
+			cdek: false,
         }
     },
 	methods: {
-		exitPersonalArea(){
+		exitPersonalArea() {
 		const auth = getAuth();
 		signOut(auth).then(() => {
 		  // Sign-out successful.
@@ -81,32 +115,61 @@ export default {
 	
 	},
 	handleInputAddress(){
+			
 
-	},
-	savePhone(phone){
-		fetch('/api/updateUsers', {
-				
+		},
+		exitPersonalArea() {
+			const auth = getAuth();
+			signOut(auth).then(() => {
+				// Sign-out successful.
+				this.store.uid = '';
+				this.store.loggedIn = false;
+				this.store.getCart();
+				this.$router.push('/ru/home');
+			}).catch((error) => {
+				// An error happened.
+			});
+		},
+		savePhone(phone) {
+			fetch('/api/updateUsers', {
+
 				method: 'POST',
 				headers: {
-				
+
 					'Content-Type': 'application/json'
-				
+
 				},
-				body: JSON.stringify({ 1: 'phone', 2: this.store.number, 3: this.store.uid})
-			
+				body: JSON.stringify({ 1: 'phone', 2: this.store.number, 3: this.store.uid })
+
 			})
 	},
-	resetPassword(){
-		const auth = getAuth();
-		sendPasswordResetEmail(auth, this.store.email)
-  			.then(() => {
-  			})
-			.catch((error) => {
-				const errorCode = error.code;
-				const errorMessage = error.message;
-			});
+		resetPassword(){
+			const auth = getAuth();
+			sendPasswordResetEmail(auth, this.store.email)
+	  			.then(() => {
+	  			})
+				.catch((error) => {
+					const errorCode = error.code;
+					const errorMessage = error.message;
+				});
+		},
+	},
+	
+	mounted() {
+	
+		if (this.store.addresss == 'dhl') {
+			document.getElementById("dhl").checked = true;
+		} else if (this.store.addresss == 'dpd') {
+		
+			document.getElementById("dpd").checked = true;
+		
+		} else {
+		
+			document.getElementById("cdek").checked = true;
+		
+		}
+	
 	}
-}
 
 }
 

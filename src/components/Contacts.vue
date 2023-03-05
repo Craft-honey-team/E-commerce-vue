@@ -20,19 +20,19 @@
 				<p class="text-3xl max-[700px]:text-2xl font-roboto font-semibold ">{{ store.langProp.socialnetworks }}</p>
 				<div class="flex items-center">
 					<a href="https://t.me/+996779454233" target="_blank">
-						<img class="inline" src="@/assets/Telegram.svg" alt="">
+						<img class="inline max-[380px]: w-[20px] h-[20px]" src="@/assets/Telegram.svg" alt="">
 					</a>
 					<p class="text-2xl max-[700px]:text-xl font-roboto">+996779454233</p>
 				</div>
 				<div class="flex items-center">
 					<a href="https://wa.me/79146089174" target="_blank">
-						<img class="inline" src="@/assets/WhatsApp.svg" alt="">
+						<img class="inline max-[380px]: w-[20px] h-[20px]" src="@/assets/WhatsApp.svg" alt="">
 					</a>
 					<p class="text-2xl max-[700px]:text-xl">+79146089174</p>
 				</div>
 				<div class="flex items-center mb-[20px]">
 					<a href="https://www.instagram.com/crafthoney.kg" target="_blank">
-						<img class="inline" src="@/assets/Instagram.svg" alt="">
+						<img class="inline max-[380px]: w-[20px] h-[20px]" src="@/assets/Instagram.svg" alt="">
 					</a>
 					<p class="text-2xl max-[700px]:text-xl font-roboto">crafthoney.kg</p>
 				</div>

@@ -12,7 +12,7 @@
 
 			<div v-if="!$route.path.includes('Home')" class="text-xl [&>a]:mr-[30px] max-[1300px]:hidden">
 				<router-link class=" hover:text-amber-700 hover:underline underline-offset-4"
-					:to="`products`">{{ store?.langProp?.catalogue }}</router-link>
+					:to="`/${store.lang}/Products`">{{ store?.langProp?.catalogue }}</router-link>
 				<router-link class=" hover:text-amber-700 hover:underline underline-offset-4"
 					:to="`/${store.lang}/About`">{{ store.langProp.about }}</router-link>
 				<router-link class=" hover:text-amber-700 hover:underline underline-offset-4" :to="`/${store.lang}/Blog`">{{

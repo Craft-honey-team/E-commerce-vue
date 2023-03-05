@@ -19,6 +19,7 @@ export const useStore = defineStore('store', {
 		langProp: {},
 		number: '',
 		address: '',
+		addresss: '',
 		
 
 	}),
