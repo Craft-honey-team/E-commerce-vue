@@ -41,6 +41,9 @@ module.exports = {
         '.drag-none': {
           'user-drag': 'nonez',
         },
+        '.scrollClass::-webkit-scrollbar': {
+          'display': 'none',
+        }
       })
     })
   

@@ -5,7 +5,7 @@
         </div>
     </div>
 
-    <div class="mb-[40px] flex flex-wrap justify-around">
+    <div class="mb-[40px] flex flex-wrap justify-around gap-[10px]">
         <div class = "w-[320px] mb-[40px]" v-for="(item, index) in store.data">
 
             <div class="bg-white rounded-[12px]">

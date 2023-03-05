@@ -5,8 +5,8 @@
 
 			<div>
 				<router-link class="flex max-w-fit" :to="`/${store.lang}/Home`">
-					<img class="self-center w-[60px] inline" src="../assets/drawing.svg" />
-					<img class="ml-[10px] self-center w-[120px] inline" src="../assets/CraftHoney.svg" />
+					<img class="self-center w-[40px] inline" src="../assets/drawing.svg" />
+					<img class="ml-[10px] self-center w-[120px] inline" src="../assets/CraftHoney1.svg" />
 				</router-link>
 			</div>
 
