@@ -101,10 +101,11 @@
 			</div>
 
 		</div>
-		<div class="right-[0px] top-0 overflow-hidden transition-all duration-500 ease-in-out z-50 absolute h-screen bg-[#DAE2E2]"
-			:class="burgerMenu ? 'w-[330px]' : 'w-[0px]'">
+		<div class="overflow-scroll scrollClass fixed top-0 transition-all duration-500 ease-in-out z-50 h-screen bg-[#DAE2E2]"
+			:class="burgerMenu ? 'right-[0px]' : 'right-[-400px]'">
 			<Burger @changeBurger="changeBurger" />
 		</div>
+		<!--burgerMenu ? 'w-[0px]' : 'w-[200px]' right-0 overflow-hidden-->
 
 
 	</header>

@@ -20,13 +20,13 @@
 					<strong>X</strong>
 				</button>
 			</div>
-			<router-link :to="`/${lang}/Products`" class="flex items-center w-full h-[46px] font-inter font-[200] text-[22px] border-b-[1px]  border-black text-[#999999] hover:text-amber-700 hover:underline underline-offset-4">
+			<router-link :to="`/${store.lang}/Products`" class="flex items-center w-full h-[46px] font-inter font-[200] text-[22px] border-b-[1px]  border-black text-[#999999] hover:text-amber-700 hover:underline underline-offset-4">
 				{{ store.langProp.catalogue }}
 			</router-link>
-			<router-link :to="`/${lang}/About`" class="flex items-center w-full h-[46px] font-inter font-[200] text-[22px] border-b-[1px]  border-black text-[#999999] hover:text-amber-700 hover:underline underline-offset-4">
+			<router-link :to="`/${store.lang}/About`" class="flex items-center w-full h-[46px] font-inter font-[200] text-[22px] border-b-[1px]  border-black text-[#999999] hover:text-amber-700 hover:underline underline-offset-4">
 				{{ store.langProp.aboutus }}	
 			</router-link>
-			<router-link :to="`/${lang}/Blog`" class="flex items-center w-full h-[46px] font-inter font-[200] text-[22px] border-b-[1px]  border-black text-[#999999] hover:text-amber-700 hover:underline underline-offset-4">
+			<router-link :to="`/${store.lang}/Blog`" class="flex items-center w-full h-[46px] font-inter font-[200] text-[22px] border-b-[1px]  border-black text-[#999999] hover:text-amber-700 hover:underline underline-offset-4">
 				{{ store.langProp.blog }}
 			</router-link>
 			<button @click="store.modal = true, $emit('changeBurger'), store.comp = 'Contacts', store.bg = 'bg-white'" class="w-full h-[46px] text-left font-inter font-[200] text-[22px] border-b-[1px]  border-black text-[#999999] hover:text-amber-700 hover:underline underline-offset-4">

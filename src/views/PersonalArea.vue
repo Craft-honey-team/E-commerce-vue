@@ -125,7 +125,7 @@ export default {
 				this.store.uid = '';
 				this.store.loggedIn = false;
 				this.store.getCart();
-				this.$router.push('/ru/home');
+				this.$router.push(`/${this.store.lang}/Home`);
 			}).catch((error) => {
 				// An error happened.
 			});

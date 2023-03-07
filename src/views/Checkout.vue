@@ -133,7 +133,17 @@ export default {
 	
 	purchaseUser() {
 	
-	//	fetch('/api/addOrder')
+		fetch('/api/addOrder', {
+		
+			method: 'POST',
+			header: {
+			
+				'Content-Type': 'application/json'
+			
+			},
+			body: JSON.stringify({ 1: this.store.email })
+		
+		})
 	
 	},
 
