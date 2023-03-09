@@ -104,8 +104,6 @@ export default {
   },
   methods: {
 	
-	let 
-	
 	purchaseUser() {
 	
 		fetch('/api/addOrder', {
