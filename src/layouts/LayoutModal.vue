@@ -24,6 +24,7 @@ import Contacts from '@/components/Contacts.vue'
 import Feedback from '@/components/Feedback.vue'
 import Login from '@/components/Login.vue'
 import Register from '@/components/Register.vue'
+import FogotPassword from '@/components/FogotPassword.vue'
 import { useStore } from '@/stores/test'
 
 export default {
@@ -43,7 +44,8 @@ export default {
 		Contacts,
 		Feedback,
 		Login,
-		Register
+		Register,
+		FogotPassword
 	
 	},
 

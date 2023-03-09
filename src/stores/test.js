@@ -93,9 +93,8 @@ export const useStore = defineStore('store', {
             }
 		
 		},
-		async getCart() {
-		
-			console.log("are you fucking kidding me")
+		async getCart() {		
+			
 			this.cart = {};
 		
 			try {
