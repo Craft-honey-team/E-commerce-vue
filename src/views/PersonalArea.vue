@@ -13,7 +13,7 @@
 					<button @click="$router.push(`../Personal/${$route.params.id}`)"
 						class="bg-[#EAAD02] h-[30px] rounded-[10px] px-2 text-white">{{ store.langProp.myorders }}</button>
 				</div>
-				<div class = "grid grid-flow-col">
+				<div class = "grid grid-cols-2">
 				<div class="grid grid-cols-2 text-[20px]">
 					<div class="text-slate-500 grid grid-rows-4">
 						<p class=" ">{{ store.langProp.yourname }}:</p>
@@ -56,13 +56,9 @@
 				</div>
 				<div class="ml-[50px] gap-[10px] justify-self-start">
 					<div class = "grid grid-rows-3">
-						<h2>Выберите способ доставки:</h2>
-						<span class="text-[14px] text-red-600 break-all">Внимание: бесплатная доставка
-							осуществляется при заказе на
-							сумму свыше 112500сом!</span>
-						<span class="text-[14px] text-red-600 break-all">При заказе на сумму ниже 112500сом
-							доставка осуществляется
-							за счет ПОКУПАТЕЛЯ по тарифам транспортной компании!</span>
+						<h2>{{ store.langProp.deliveryType }}:</h2>
+						<span class="text-[14px] text-red-600 break-all">{{ store.langProp.delAttention }}</span>
+						<span class="text-[14px] text-red-600 break-all">{{ store.langProp.delDetails }}</span>
 					</div>
 					<div class="grid grid-flow-col gap-[10px]">
 						<input v-model="store.delivery" value = "dhl" id = "dhl" @click = "deliveryOption" class = "self-center h-[20px]" name = "address" type = "radio"/>

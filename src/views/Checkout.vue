@@ -119,6 +119,28 @@ export default {
 		})
 		
 		this.store.cart = {};
+		
+		if (this.store.uid != '') {
+	
+				fetch('/api/emptyCart', {
+				
+					method: 'POST',
+					headers: {
+					
+						'Content-Type': 'application/json'
+					
+					},
+					body: JSON.stringify({ 1: this.store.uid })
+				
+				})
+					.then((res) => console.log('ok'))
+					.catch((err) => console.log(err));
+	
+			} else {
+				
+				localStorage.setItem('cart', {});
+							
+			}
 	
 	},
 

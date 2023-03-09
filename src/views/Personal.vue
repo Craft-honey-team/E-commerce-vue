@@ -14,37 +14,32 @@
 				</span>
 
 			</div>
-			<div class="grid grid-flow-row gap-5">
+			<div class="grid grid-flow-row gap-5" >
 				
 			   
 
 				<div class="bg-[#ecd38e] rounded-lg text-[25px] flex items-center p-4">
 					<p>{{ store.langProp.myorders }}</p>
 				</div>
-				<div class="bg-[#beedb5] p-4">
-					<p class="text-[20px]">Заказ№1</p>
+				<div class="bg-[#beedb5] p-4" v-for = "(item, index) in store.orders">
+					<p class="text-[20px]">{{ store.langProp.orders }} №{{index}}</p>
 					<div class="flex justify-around mt-4">
 						<div class="">
-							<p class="text-slate-700">Адрес доставки</p>
-							<p>Город Бишкек,
-								Ленинский район, Комсомольский переулок 19.
+							<p class="text-slate-700">{{ store.langProp.delivery }}</p>
+							<p>{{item.address}}
 							</p>
 						</div>
 						<div>
-							<p class="text-slate-700">Дата, время</p>
-							<p>{{  }}</p>
+							<p class="text-slate-700">{{ store.langProp.paymentMethod }}</p>
+							<p>{{item.payment}}</p>
 						</div>
 						<div>
-							<p class="text-slate-700">Способ оплаты</p>
-							<p>Эл.кошелек</p>
+							<p class="text-slate-700">{{ store.langProp.deliveryType }}</p>
+							<p>{{ item.delivery }}</p>
 						</div>
 						<div>
-							<p class="text-slate-700">Статус</p>
-							<p>Оплачен</p>
-						</div>
-						<div>
-							<p class="text-slate-700">Итого к оплате</p>
-							<p>1000 сом</p>
+							<p class="text-slate-700">{{ store.langProp.total }}</p>
+							<p>{{ item.sum }} kgs</p>
 						</div>
 					</div>
 

@@ -21,7 +21,8 @@ export const useStore = defineStore('store', {
 		address: '',
 		delivery: '',
 		blog: {},
-		payment: ''
+		payment: '',
+		orders: {}
 
 	}),
 	getters: {
@@ -97,15 +98,35 @@ export const useStore = defineStore('store', {
 				if (data.address) this.address = data.address;
 				if (data.phone) this.number = data.phone;
 				if (data.delivery) this.delivery = data.delivery;
+				
 			
 			    } catch(error) {
 				console.log(error);
 			    }
+			    
+			
 		
 		},
-		async getCart() {
 		
-			console.log("are you fucking kidding me")
+		async getOrders() {
+		
+			try {
+			
+				let res = await fetch(`/api/getOrders?user=${this.uid}`);
+				this.orders = await res.json();
+				console.log(this.orders);
+				
+			
+			} catch(error) {
+			
+				console.log(error);
+			
+			}
+		
+		},
+	
+		async getCart() {		
+			
 			this.cart = {};
 		
 			try {

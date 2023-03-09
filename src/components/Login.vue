@@ -2,9 +2,9 @@
     <div class="h-[500px] grid grid-cols-2 max-[450px]:grid-cols-1 [&_*]:font-roboto [&_input]:pl-[8px]">
 
         <div class="grid auto-rows-min gap-[20px]">
+
             <div class="text-[30px] flex">
-                <span class="bg-gray-200 rounded-[10px] px-2 text-black">{{ store.langProp.login
-                }}</span>
+                <span class="bg-gray-200 rounded-[10px] px-2 text-black">{{ store.langProp.login }}</span>
                 <span class="mx-2">|</span>
                 <button @click="store.comp = 'Register'"
                     class="bg-[#EAAD02] rounded-[10px] px-2 text-white hover:text-amber-700">{{
@@ -30,9 +30,11 @@
                 </button>
 
             </div>
-            <router-link to="/"
-                class=" text-blue-500 px-[10px] flex justify-end  hover:text-amber-700 hover:underline underline-offset-4 ">{{
-                    store.langProp.forgotpassword }}</router-link>
+
+            <span @click="store.comp = 'FogotPassword'"
+                class=" text-blue-500 px-[10px] flex justify-end  hover:text-amber-700 hover:underline hover:cursor-pointer underline-offset-4 ">{{
+                    store.langProp.forgotpassword }}</span>
+
             <button @click="login" :disabled="email.length <= 2 || password.length <= 1"
                 class="bg-[#EAAD02] border-2 border-none rounded-[3px] text-white h-[45px] disabled:opacity-50 ">{{
                     store.langProp.login }}
@@ -49,7 +51,7 @@
 
 <script>
 import { useStore } from '@/stores/test'
-import { getAuth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider,sendPasswordResetEmail } from "firebase/auth";
 
 export default {
     props: {
@@ -119,6 +121,17 @@ export default {
         eyechange() {
             this.showPassword = !this.showPassword
         },
+        resetPassword(){
+			const auth = getAuth();
+            console.log(this.store.email)
+			sendPasswordResetEmail(auth, this.store.email)
+	  			.then(() => {
+	  			})
+				.catch((error) => {
+					const errorCode = error.code;
+					const errorMessage = error.message;
+				});
+		},
 
     }
 

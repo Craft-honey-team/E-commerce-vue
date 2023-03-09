@@ -102,7 +102,7 @@ export default {
 						'Content-Type': 'application/json'
 					
 					},
-					body: JSON.stringify({ 1: parseInt(index), 2: this.store.uid, 3: type, 4: data[index].quantity })
+					body: JSON.stringify({ 1: parseInt(index), 2: this.store.uid, 4: data[index].quantity })
 				
 				})
 					.then((res) => console.log('ok'))
