@@ -110,17 +110,19 @@ export const useStore = defineStore('store', {
 		
 		async getOrders() {
 		
-			try {
-			
-				let res = await fetch(`/api/getOrders?user=${this.uid}`);
-				this.orders = await res.json();
-				console.log(this.orders);
+			if (this.uid != '') {
+				try {
 				
-			
-			} catch(error) {
-			
-				console.log(error);
-			
+					let res = await fetch(`/api/getOrders?user=${this.uid}`);
+					this.orders = await res.json();
+					console.log(this.orders);
+					
+				
+				} catch(error) {
+				
+					console.log(error);
+				
+				}
 			}
 		
 		},

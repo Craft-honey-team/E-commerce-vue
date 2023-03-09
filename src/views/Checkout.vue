@@ -138,7 +138,7 @@ export default {
 	
 			} else {
 				
-				localStorage.setItem('cart', {});
+				localStorage.setItem('cart', JSON.stringify(this.store.cart));
 							
 			}
 			
