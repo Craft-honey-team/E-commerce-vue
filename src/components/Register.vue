@@ -112,6 +112,7 @@ export default {
 		  	body: JSON.stringify({ 1: user.uid })
 		  })
 		  this.store.getCart();
+		  this.store.getOrders();
 		  this.store.name = user.displayName;
 		  this.$router.push(`/${this.store.lang}/PersonalArea/${user.uid}`);
           
