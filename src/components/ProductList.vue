@@ -1,7 +1,7 @@
 <template>
 
     <div class="mb-[40px] flex flex-wrap justify-around gap-[10px]">
-        <div class = "w-[320px] mb-[40px]" v-for="(item, index) in data">
+        <div class = "w-[420px] mb-[40px]" v-for="(item, index) in data">
 
             <div class="bg-white rounded-[12px]">
                 <div class="text-[25px]">
@@ -21,22 +21,22 @@
                             <p class="text-[20px] leading-none self-center">{{ store.langProp.quantity }}:</p>
                             <div class="grid grid-flow-col self-center justify-self-end gap-[2px] px-1">
                             
-                                <button class="w-[30px] h-[30px] border-solid border-2 border-[#1C1B1F]  rounded-full  hover:bg-[#EAAD02]"
+                                <button class="flex justify-center items-center w-[30px] h-[30px] border-solid border-2 border-[#1C1B1F]  rounded-full  hover:bg-[#EAAD02]"
                                     v-on:click="decrementProductCount(index)">
-                                    <p>-</p>
+                                    -
                                 </button>
                                 
                                 <p class="text-[20px]">{{ item.quantity }} {{ store.langProp.quantityShort }}</p>
 
-                                <button class=" w-[30px] h-[30px] border-solid border-2 border-[#1C1B1F]  rounded-full hover:bg-[#EAAD02]"
+                                <button class="flex justify-center items-center w-[30px] h-[30px] border-solid border-2 border-[#1C1B1F]  rounded-full hover:bg-[#EAAD02]"
                                     v-on:click="incrementProductCount(index)">
-                                    <p>+</p>
+                                    +
                                 </button>
                                 
                             </div>
                         </div>
                     </div>
-                    <div @click = "addToCart(index)" class="flex justify-center align-center bg-[#EAAD02] h-[35px] rounded-[6px] px-2 text-center text-white  hover:text-amber-700 hover:underline hover:cursor-pointer underline-offset-4">
+                    <div @click = "addToCart(index)" class="flex justify-center bg-[#EAAD02] h-[35px] rounded-[6px] px-2 text-center text-white  hover:text-amber-700 hover:underline hover:cursor-pointer underline-offset-4">
                         <button>{{ store.langProp.buy }}</button>
                     </div>
                 </div>

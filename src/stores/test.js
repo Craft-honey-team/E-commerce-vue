@@ -19,8 +19,9 @@ export const useStore = defineStore('store', {
 		langProp: {},
 		number: '',
 		address: '',
-		addresss: '',
-		
+		delivery: '',
+		blog: {},
+		payment: ''
 
 	}),
 	getters: {
@@ -84,13 +85,22 @@ export const useStore = defineStore('store', {
 		async getData() {
 		
 			try {
-                let res = await fetch('/api/productsList');
-                this.data = await res.json();
-                res = await fetch('/api/productsListOpt');
-                this.dataOpt = await res.json();
-            } catch(error) {
-                console.log(error);
-            }
+				let res = await fetch('/api/productsList');
+				this.data = await res.json();
+				res = await fetch('/api/productsListOpt');
+				this.dataOpt = await res.json();
+				res = await fetch('/api/blog');
+				this.blog = await res.json();
+				res = await fetch(`/api/userInfo?user=${this.uid}`);
+				let data = await res.json();
+				console.log(data);
+				if (data.address) this.address = data.address;
+				if (data.phone) this.number = data.phone;
+				if (data.delivery) this.delivery = data.delivery;
+			
+			    } catch(error) {
+				console.log(error);
+			    }
 		
 		},
 		async getCart() {
@@ -145,4 +155,14 @@ export const useStore = defineStore('store', {
 		
 		}	
 	},
+	persist: {
+  
+  	storage: localStorage,
+  	paths: [
+  	
+  		'delivery'
+  	
+  	],
+  
+  },
 })

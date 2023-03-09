@@ -2,12 +2,12 @@
     <div class="h-[500px] grid grid-cols-2 max-[450px]:grid-cols-1 [&_*]:font-roboto [&_input]:pl-[8px]">
 
         <div class="grid auto-rows-min gap-[20px]">
-            <div class="text-[30px] flex justify-center ">
-                <span class="bg-gray-200 rounded-[10px] px-2 text-black font-roboto">{{ store.langProp.login
+            <div class="text-[30px] flex">
+                <span class="bg-gray-200 rounded-[10px] px-2 text-black">{{ store.langProp.login
                 }}</span>
                 <span class="mx-2">|</span>
                 <button @click="store.comp = 'Register'"
-                    class="bg-[#EAAD02] rounded-[10px] px-2 text-white font-roboto hover:text-amber-700">{{
+                    class="bg-[#EAAD02] rounded-[10px] px-2 text-white hover:text-amber-700">{{
                         store.langProp.registration }}</button>
             </div>
 
@@ -17,11 +17,11 @@
             </button>
             <!--w-[343px]-->
             <input v-model="email"
-                class="bg-[url('@/assets/mail(1).svg')] bg-no-repeat bg-[left_16px_top_12px] indent-[40px] px-[8px] border-2 rounded-[3px] h-[45px] border-gray-400 font-roboto "
+                class="bg-[url('@/assets/mail(1).svg')] bg-no-repeat bg-[left_16px_top_12px] indent-[40px] w-full px-[8px] border-2 rounded-[3px] h-[45px] border-gray-400"
                 type="email" :placeholder="store.langProp.enteremail" />
             <div class="relative">
                 <input v-model="password"
-                    class="bg-[url('@/assets/lock.svg')] bg-no-repeat bg-[left_16px_top_9px] indent-[40px] w-full px-[8px] flex items-center font-roboto border-2 rounded-[3px] h-[45px] border-gray-400"
+                    class="bg-[url('@/assets/lock.svg')] bg-no-repeat bg-[left_16px_top_9px] indent-[40px] w-full px-[8px] border-2 rounded-[3px] h-[45px] border-gray-400"
                     required v-bind:type="showPassword ? 'text' : 'password'"
                     :placeholder="store.langProp.enterpassword" />
                 <button @click="eyechange" class="buttonPass absolute right-[30px] top-0 bottom-0">
@@ -32,7 +32,7 @@
             </div>
             <router-link to="/"
                 class=" text-blue-500 px-[10px] flex justify-end  hover:text-amber-700 hover:underline underline-offset-4 ">{{
-                    store.langProp.forgotyourpassword }}</router-link>
+                    store.langProp.forgotpassword }}</router-link>
             <button @click="login" :disabled="email.length <= 2 || password.length <= 1"
                 class="bg-[#EAAD02] border-2 border-none rounded-[3px] text-white h-[45px] disabled:opacity-50 ">{{
                     store.langProp.login }}

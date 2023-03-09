@@ -30,7 +30,7 @@
 					<div class="relative">
 						<img class="w-[22px]" src="@/assets/shopping_cart.svg" alt="">
 						<div v-if="Object.keys(store.cart).length"
-							class="absolute h-[18px] w-[18px] top-[-9px] left-[12px] rounded-full bg-red-600 flex justify-center align-center text-white ">
+							class="absolute h-[18px] w-[18px] top-[-9px] left-[12px] rounded-full bg-red-600 flex justify-center items-center text-white ">
 							<span class="text-[12px]">{{ Object.keys(store.cart).length }}</span>
 						</div>
 					</div>
@@ -64,7 +64,7 @@
 					<div class="relative">
 						<img class="w-[22px]" src="@/assets/shopping_cart.svg" alt="">
 						<div v-if="Object.keys(store.cart).length"
-							class="absolute h-[18px] w-[18px] top-[-9px] left-[12px] rounded-full bg-red-600 flex justify-center align-center text-white ">
+							class="absolute h-[18px] w-[18px] top-[-9px] left-[12px] rounded-full bg-red-600 flex justify-center items-center text-white ">
 							<span class="text-[12px]">{{ Object.keys(store.cart).length }}</span>
 						</div>
 					</div>
@@ -101,8 +101,8 @@
 			</div>
 
 		</div>
-		<div class="overflow-scroll scrollClass fixed top-0 transition-all duration-500 ease-in-out z-50 h-screen bg-[#DAE2E2]"
-			:class="burgerMenu ? 'right-[0px]' : 'right-[-400px]'">
+		<div class="overflow-scroll scrollClass fixed right-0 top-0 transition-all duration-500 ease-in-out z-50 h-screen bg-[#DAE2E2]"
+			:class="burgerMenu ? 'w-[300px]' : 'w-[0px]'">
 			<Burger @changeBurger="changeBurger" />
 		</div>
 		<!--burgerMenu ? 'w-[0px]' : 'w-[200px]' right-0 overflow-hidden-->

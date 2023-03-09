@@ -8,27 +8,19 @@
   
         </div>
 
-    <div class="grid grid-flow-row gap-[100px] mb-[40px]">
-        <div class="flex justify-between max-[950px]:flex-col-reverse">
-            <div class="w-[40%] max-[950px]:w-[100%] max-[950px]:py-[100px]">
-                <h2 class="text-[30px]">{{ store.langProp.blogp1 }}</h2>
-                <p class="text-[20px]">{{ store.langProp.blogp2 }}</p>
+
+    <div class="grid grid-flow-row gap-[100px] mb-[40px] mx-[40px]">
+
+        <div class="grid grid-cols-2 max-[950px]:flex-col-reverse" v-for="item in store.blog">
+            <div class="max-[950px]:w-[100%] max-[950px]:py-[100px]">
+                <h2 class="text-[30px]">{{ item.title[store.lang] }}</h2>
+                <p class="text-[20px]">{{ item.content[store.lang] }}</p>
             </div>
-            <div class="max-[1000px]:w-[400px] max-[950px]:w-[100%]">
-                <img class="max-[950px]:w-[100%] max-[570px]:h-[300px]" src="/src/assets/Rectangle2.png">
+            <div class="justify-self-end max-[1000px]:w-[400px] max-[950px]:w-[100%]">
+                <img class="max-[950px]:w-[100%] max-[570px]:h-[300px]" :src="item.image">
             </div>
         </div>
 
-
-        <div class="flex justify-between max-[950px]:flex-col-reverse">
-            <div class="w-[40%] max-[950px]:w-[100%] max-[950px]:py-[100px]">
-                <h2 class="text-[30px]">{{ store.langProp.blogp3 }}</h2>
-                <p class="text-[20px]">{{ store.langProp.blogp4 }} </p>
-            </div>
-            <div class="max-[1000px]:w-[400px] max-[950px]:w-[100%]">
-                <img class="max-[950px]:w-[100%] max-[570px]:h-[300px]" src="/src/assets/Rectangle3.png">
-            </div>
-        </div>
     </div>
 </Layout>
 </template>
@@ -38,8 +30,18 @@ import { useStore } from '@/stores/test'
 export default {
   data () {
     return {
-    store: useStore()
+	store: useStore(),
+	image: 're'
     }
   },
+    methods: {
+
+        submit() {
+
+            console.log(document.querySelector("#image").value);
+
+        },
+
+    }
 }
 </script>

@@ -3,7 +3,7 @@
 
 	<div class=" ">
 		<div class="flex flex-col justify-center [&>*]:px-[10px]">
-			<div class = "flex justify-between mt-[8px]">
+			<div class = "flex content-center justify-between mt-[8px]">
 				<select @change="$router.push(`/${store.lang}/${$route.path.slice(4, $route.path.length)}`)"
 						class="text-center h-[32px] w-[70px] bg-[#DAE2E2] border-[2px] border-black rounded-xl hover:cursor-pointer hover:text-amber-700 hover:bg-amber-200 underline-offset-4"
 						name="store.lang" id="" v-model="store.lang">

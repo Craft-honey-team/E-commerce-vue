@@ -44,63 +44,35 @@
       </div>
 
 
-
-
-
-
-
-
-
-
-
-      <!-- <div class="justify-self-center " v-for="(item, index) in store.cart">
-
-            <div class="bg-white rounded-[12px] p-2">
-                <div class="text-[25px]">
-                    <h1 class="mb-[10px]">{{ item.name }}</h1>
-
-                </div>
-                <img class="rounded-[5px] mb-[10px]" src="@/assets/Group19.png">
-
-                <div class="grid grid-flow-row gap-4">
-
-                    <div class="grid grid-cols-2 gap-[50px] text-[20px]">
-                        <span>Объем: {{ item.volume }}л</span>
-                        <span class = "justify-self-end">Цена: {{ item.price }}kgs</span>
-                    </div>
-                    <div class="">
-                        <div class="grid grid-cols-2 gap-[20px]">
-                            <p class="text-[20px] leading-none self-center">Количество товаров:</p>
-                            <div class="grid grid-flow-col self-center justify-self-end gap-[2px] px-1">
-                                
-								<button class="w-[30px] h-[30px] border-solid border-2 border-[#1C1B1F]  rounded-full  hover:bg-[#EAAD02]"
-                                    v-on:click="decrementProductCount(index)">
-                                    <p>-</p>
-                                </button>
-                                <p class="text-[20px]">{{ item.quantity }} шт</p>
-
-                                <button class=" w-[30px] h-[30px] border-solid border-2 border-[#1C1B1F]  rounded-full hover:bg-[#EAAD02]"
-                                    v-on:click="incrementProductCount(index)">
-                                    <p>+</p>
-                                </button>
-                             
-                            </div>
-                        </div>
-                    </div>
-                    <div @click = "removeCart(index)" class="flex justify-center align-center bg-[#EAAD02] h-[35px] rounded-[6px] px-2 text-center text-white  hover:text-amber-700 hover:underline hover:cursor-pointer underline-offset-4">
-                        <button>Убрать</button>
-                    </div>
-                </div>
-            </div>
-
-        </div> -->
-
       <div class="text-center mt-[60px] mb-[60px]">
         <p class="text-[40px]">{{ store.langProp.total }}: {{ store.sum() }} {{ store.langProp.currency }}</p>
-        <button @click="purchaseUser"
+        <form @submit.prevent = "purchaseUser">
+        <div class = "flex flex-col items-center [&_*]:my-[10px]">
+		    <input required class = "border-black border-2" v-if="!store.uid" type="email" placeholder = "Email" v-model = "store.email" />
+		    <input required class = "border-black border-2" :placeholder = "store.langProp.address" v-model = "store.address" />
+		    <div class="grid grid-flow-col gap-[10px]">
+		    	<p>{{ store.langProp.paymentMethod }}:</p>
+				<input id = "elsom" required v-model = "store.payment" value = "Элсом" class = "self-center h-[20px]" name = "payment" type = "radio"/>
+				<label for = "elsom">Элсом</label>
+				<input id = "mbank" required v-model = "store.payment" value = "Мбанк" class = "self-center h-[20px]" name = "payment" type = "radio"/>
+				<label for = "mbank">Мбанк</label>
+			</div>
+			<div class="grid grid-flow-col gap-[10px]">
+		    	<p>{{ store.langProp.deliveryType }}:</p>
+				<input id = "elsom" required v-model = "store.delivery" value = "dhl" class = "self-center h-[20px]" name = "delivery" type = "radio"/>
+				<label for = "elsom">DHL</label>
+				<input id = "mbank" required v-model = "store.delivery" value = "dpd" class = "self-center h-[20px]" name = "delivery" type = "radio"/>
+				<label for = "mbank">DPD</label>
+				<input id = "mbank" required v-model = "store.delivery" value = "cdek" class = "self-center h-[20px]" name = "delivery" type = "radio"/>
+				<label for = "mbank">CDEK</label>
+			</div>
+		</div>
+        <button type = "submit" :disabled="store.email.length <= 2" 
           class="w-[200px] text-center bg-[#EAAD02] px-4 py-2 rounded-[12px] text-white  hover:text-amber-700 hover:underline hover:cursor-pointer underline-offset-4">
           {{ store.langProp.buy }}
         </button>
+        </form>
+        <p class = "text-red-500 text-xl" v-if = "clicked && store.email.length <= 2">Введите email!</p>
 
         
       </div>
@@ -120,7 +92,8 @@ export default {
 
       store: useStore(),
       controller: new AbortController(),
-      timer: setTimeout(console.log('will it'), 2000)
+      timer: setTimeout(console.log('will it'), 2000),
+      clicked: false
 
     }
 
@@ -131,19 +104,23 @@ export default {
   },
   methods: {
 	
+	let 
+	
 	purchaseUser() {
 	
 		fetch('/api/addOrder', {
 		
 			method: 'POST',
-			header: {
+			headers: {
 			
 				'Content-Type': 'application/json'
 			
 			},
-			body: JSON.stringify({ 1: this.store.email })
+			body: JSON.stringify({ "email": this.store.email, "sum": this.store.sum(), "address": this.store.address, "delivery": this.store.delivery, "payment": this.store.payment, "uid": this.store.uid, "cart": this.store.cart })
 		
 		})
+		
+		this.store.cart = {};
 	
 	},
 

@@ -13,7 +13,8 @@
 					<button @click="$router.push(`../Personal/${$route.params.id}`)"
 						class="bg-[#EAAD02] h-[30px] rounded-[10px] px-2 text-white">{{ store.langProp.myorders }}</button>
 				</div>
-				<div class="grid grid-flow-col auto-cols-max gap-[30px] text-[20px]">
+				<div class = "grid grid-flow-col">
+				<div class="grid grid-cols-2 text-[20px]">
 					<div class="text-slate-500 grid grid-rows-4">
 						<p class=" ">{{ store.langProp.yourname }}:</p>
 						<p class=" ">Email:</p>
@@ -24,7 +25,7 @@
 						<p class=" ">{{ store.name }}</p>
 						<p class=" ">{{ store.email }}</p>
 						<div v-show="setPhone">
-							<input @input="handleInput" v-model="store.number " :placeholder="store.langProp.placeholderPhone" class="border-solid border-2 border-grey-600 rounded-[10px] px-[5px] w-[190px] text-[14px] mr-[20px]">
+							<input @input="handleInput" v-model="store.number" :placeholder="store.langProp.placeholderPhone" class="border-solid border-2 border-grey-600 rounded-[10px] px-[5px] w-[190px] text-[14px] mr-[20px]">
 							<button @click="setPhone = false, savePhone(phone)" class="text-blue-700 underline decoration-1 text-[18px] hover:text-amber-700 hover:underline underline-offset-4">{{ store.langProp.addBut }}</button>
 						</div>
 						<div v-show="!setPhone">
@@ -32,8 +33,8 @@
 							<button @click="setPhone = true" class="text-blue-700 underline decoration-1 text-[18px] hover:text-amber-700 hover:underline underline-offset-4">{{ store.langProp.changePhone }}</button>
 						</div>
 						<div v-show="setAddress">
-							<input @input="handleInputAddress" v-model="store.address " :placeholder="store.langProp.placeholderAddress" class="border-solid border-2 border-grey-600 rounded-[10px] px-[5px] w-[190px] text-[14px] mr-[20px]">
-							<button @click="setAddress = false" class="text-blue-700 underline decoration-1 text-[18px] hover:text-amber-700 hover:underline underline-offset-4">{{ store.langProp.addBut }}</button>
+							<input v-model="store.address" :placeholder="store.langProp.placeholderAddress" class="border-solid border-2 border-grey-600 rounded-[10px] px-[5px] w-[190px] text-[14px] mr-[20px]">
+							<button @click="setAddress = false, handleInputAddress()" class="text-blue-700 underline decoration-1 text-[18px] hover:text-amber-700 hover:underline underline-offset-4">{{ store.langProp.addBut }}</button>
 						</div>
 						<div v-show="!setAddress">
 							<span v-if="store.address.length" class="mr-[20px]">{{ store.address }}</span>
@@ -52,30 +53,33 @@
 						</div>
 
 					</div>
-					<div class="ml-[50px] gap-[10px] leading-4">
-						<div>
-							<h2>Выберите способ доставки:</h2>
-							<span class=" text-[14px] text-red-600 break-all w-[200px]">Внимание: бесплатная доставка
-								осуществляется при заказе на
-								сумму свыше 112500сом!</span><br />
-							<span class="text-[14px] text-red-600 break-all w-[90%]">При заказе на сумму ниже 112500сом
-								доставка осуществляется
-								за счет ПОКУПАТЕЛЯ по тарифам транспортной компании!</span>
-						</div>
-						<div class="grid grid-flow-col gap-[10px]">
-							<input id = "dhl" @click = "store.addresss = 'dhl'" class = "self-center h-[20px]" name = "address" type = "radio"/>
-							<img class="w-[100px] h-[80px] hover:cursor-pointer"
-								src="@/assets/dhl-express.svg" alt="">
-							<input id = "dpd" @click = "store.addresss = 'dpd'" class = "self-center h-[20px]" name = "address" type = "radio"/>
-							<img class="w-[100px] h-[80px] hover:cursor-pointer"
-								src="@/assets/dpd-logo-2015-.svg" alt="">
-							<input id = "cdek" @click = "store.addresss = 'cdek'" class = "self-center h-[20px]" name = "address" type = "radio"/>
-							<img class="w-[100px] h-[80px] hover:cursor-pointer"
-								src="@/assets/cdek-1.svg" alt="">
-						</div>
-
-					</div>
 				</div>
+				<div class="ml-[50px] gap-[10px] justify-self-start">
+					<div class = "grid grid-rows-3">
+						<h2>Выберите способ доставки:</h2>
+						<span class="text-[14px] text-red-600 break-all">Внимание: бесплатная доставка
+							осуществляется при заказе на
+							сумму свыше 112500сом!</span>
+						<span class="text-[14px] text-red-600 break-all">При заказе на сумму ниже 112500сом
+							доставка осуществляется
+							за счет ПОКУПАТЕЛЯ по тарифам транспортной компании!</span>
+					</div>
+					<div class="grid grid-flow-col gap-[10px]">
+						<input v-model="store.delivery" value = "dhl" id = "dhl" @click = "deliveryOption" class = "self-center h-[20px]" name = "address" type = "radio"/>
+						<img class="w-[100px] h-[80px] hover:cursor-pointer"
+							src="@/assets/dhl-express.svg" alt="">
+						<input v-model="store.delivery" value = "dpd" id = "dpd" @click = "deliveryOption" class = "self-center h-[20px]" name = "address" type = "radio"/>
+						<img class="w-[100px] h-[80px] hover:cursor-pointer"
+							src="@/assets/dpd-logo-2015-.svg" alt="">
+						<input v-model="store.delivery" value = "cdek" id = "cdek" @click = "deliveryOption" class = "self-center h-[20px]" name = "address" type = "radio"/>
+						<img class="w-[100px] h-[80px] hover:cursor-pointer"
+							src="@/assets/cdek-1.svg" alt="">
+					</div>
+
+				</div>
+				
+				</div>
+				
 				<button @click="resetPassword" class="text-blue-700 underline decoration-1 text-[18px] hover:text-amber-700 hover:underline underline-offset-4 w-max" to="">{{ store.langProp.changePassword }}</button>
 				<button @click="exitPersonalArea" class="bg-[#EAAD02] h-[30px] w-[200px] rounded-[10px] px-2 text-center text-white  hover:text-amber-700 hover:underline underline-offset-4">{{ store.langProp.leave }}</button>
 			</div>        
@@ -109,13 +113,42 @@ export default {
 		  // An error happened.
 		});
 	},
+	deliveryOption() {
+	
+		setTimeout(() => {
+		fetch('/api/updateUsers', {
+
+				method: 'POST',
+				headers: {
+
+					'Content-Type': 'application/json'
+
+				},
+				body: JSON.stringify({ 1: 'delivery', 2: this.store.delivery, 3: this.store.uid })
+
+			})	
+			
+		}, 500);
+	
+	},
 	handleInput(){
 	this.store.number = this.store.number.replace(/[^0-9+]/g, '');
 	this.store.number = this.store.number.substr(0 , 16);
 	
 	},
 	handleInputAddress(){
-			
+		
+		fetch('/api/updateUsers', {
+
+				method: 'POST',
+				headers: {
+
+					'Content-Type': 'application/json'
+
+				},
+				body: JSON.stringify({ 1: 'adress', 2: this.store.address, 3: this.store.uid })
+
+			})	
 
 		},
 		exitPersonalArea() {
@@ -153,24 +186,7 @@ export default {
 					const errorMessage = error.message;
 				});
 		},
-	},
-	
-	mounted() {
-	
-		if (this.store.addresss == 'dhl') {
-			document.getElementById("dhl").checked = true;
-		} else if (this.store.addresss == 'dpd') {
-		
-			document.getElementById("dpd").checked = true;
-		
-		} else {
-		
-			document.getElementById("cdek").checked = true;
-		
-		}
-	
 	}
-
 }
 
 </script>
