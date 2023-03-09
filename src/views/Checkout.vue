@@ -141,6 +141,8 @@ export default {
 				localStorage.setItem('cart', {});
 							
 			}
+			
+			this.store.getOrders();
 	
 	},
 
