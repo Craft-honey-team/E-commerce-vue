@@ -67,12 +67,11 @@
 				<label for = "mbank">CDEK</label>
 			</div>
 		</div>
-        <button type = "submit" :disabled="store.email.length <= 2" 
-          class="w-[200px] text-center bg-[#EAAD02] px-4 py-2 rounded-[12px] text-white  hover:text-amber-700 hover:underline hover:cursor-pointer underline-offset-4">
+        <button type = "submit" :disabled="Object.keys(store.cart).length == 0" 
+          class="w-[200px] text-center bg-[#EAAD02] px-4 py-2 rounded-[12px] text-white disabled:opacity-50 disabled:hover:text-white disabled:hover:underline-offset-0 hover:text-amber-700 hover:underline hover:cursor-pointer underline-offset-4">
           {{ store.langProp.buy }}
         </button>
         </form>
-        <p class = "text-red-500 text-xl" v-if = "clicked && store.email.length <= 2">Введите email!</p>
 
         
       </div>
@@ -93,7 +92,6 @@ export default {
       store: useStore(),
       controller: new AbortController(),
       timer: setTimeout(console.log('will it'), 2000),
-      clicked: false
 
     }
 
@@ -145,7 +143,7 @@ export default {
 				}
 				
 				this.store.getOrders();
-		}
+		} 
 	
 	},
 
