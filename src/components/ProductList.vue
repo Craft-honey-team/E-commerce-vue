@@ -1,7 +1,7 @@
 <template>
 
     <div class="mb-[40px] flex flex-wrap justify-around gap-[10px]">
-        <div class = "w-[420px] mb-[40px]" v-for="(item, index) in data">
+        <div class = "w-[320px] mb-[40px]" v-for="(item, index) in data">
 
             <div class="bg-white rounded-[12px]">
                 <div class="text-[25px]">

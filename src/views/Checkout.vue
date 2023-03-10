@@ -102,11 +102,11 @@ export default {
   },
   methods: {
 	
-	purchaseUser() {
+	async purchaseUser() {
 	
 		if (Object.keys(this.store.cart).length) {
 	
-			fetch('/api/addOrder', {
+			await fetch('/api/addOrder', {
 			
 				method: 'POST',
 				headers: {
