@@ -43,7 +43,13 @@ module.exports = {
         },
         '.scrollClass::-webkit-scrollbar': {
           'display': 'none',
-        }
+        },
+		'.crutch': {
+		
+			'height': '100vh',
+			'min-height': '750px'
+
+		}
       })
     })
   

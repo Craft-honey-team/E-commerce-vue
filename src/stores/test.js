@@ -86,6 +86,7 @@ export const useStore = defineStore('store', {
 		async getData() {
 		
 			try {
+			
 				let res = await fetch('/api/productsList');
 				this.data = await res.json();
 				res = await fetch('/api/productsListOpt');
@@ -98,13 +99,14 @@ export const useStore = defineStore('store', {
 				if (data.address) this.address = data.address;
 				if (data.phone) this.number = data.phone;
 				if (data.delivery) this.delivery = data.delivery;
-				
 			
-			    } catch(error) {
+			} catch(error) {
+			
 				console.log(error);
-			    }
-			    
+				
+			}
 			
+			this.getCart();
 		
 		},
 		
@@ -147,7 +149,11 @@ export const useStore = defineStore('store', {
 				
 				let data = await res.json();
 				
+				console.log(data);
+				
 				data = JSON.parse(data.orders)
+				
+				console.log(data);
 				
 				for(let i in data) {
 				

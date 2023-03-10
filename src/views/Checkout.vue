@@ -104,47 +104,46 @@ export default {
 	
 	async purchaseUser() {
 	
-		if (Object.keys(this.store.cart).length) {
+		let data = { "email": this.store.email, "sum": this.store.sum(), "address": this.store.address, "delivery": this.store.delivery, "payment": this.store.payment, "uid": this.store.uid, "cart": this.store.cart };
 	
-			await fetch('/api/addOrder', {
-			
-				method: 'POST',
-				headers: {
-				
-					'Content-Type': 'application/json'
-				
-				},
-				body: JSON.stringify({ "email": this.store.email, "sum": this.store.sum(), "address": this.store.address, "delivery": this.store.delivery, "payment": this.store.payment, "uid": this.store.uid, "cart": this.store.cart })
-			
-			})
-			
-			this.store.cart = {};
-			
-			if (this.store.uid != '') {
+		fetch('/api/addOrder', {
 		
-					fetch('/api/emptyCart', {
-					
-						method: 'POST',
-						headers: {
-						
-							'Content-Type': 'application/json'
-						
-						},
-						body: JSON.stringify({ 1: this.store.uid })
-					
-					})
-						.then((res) => console.log('ok'))
-						.catch((err) => console.log(err));
+			method: 'POST',
+			headers: {
+			
+				'Content-Type': 'application/json'
+			
+			},
+			body: JSON.stringify(data)
 		
-				} else {
-					
-					localStorage.setItem('cart', JSON.stringify(this.store.cart));
-								
-				}
-				
-				this.store.getOrders();
-		} 
+		});
+		
+		this.store.cart = {};
+		
+		if (this.store.uid != '') {
 	
+				fetch('/api/emptyCart', {
+				
+					method: 'POST',
+					headers: {
+					
+						'Content-Type': 'application/json'
+					
+					},
+					body: JSON.stringify({ 1: this.store.uid })
+				
+				})
+					.then((res) => console.log('ok'))
+					.catch((err) => console.log(err));
+	
+			} else {
+				
+				localStorage.setItem('cart', JSON.stringify(this.store.cart));
+							
+			}
+			
+		this.store.getOrders();
+			
 	},
 
     removeCart(index) {
