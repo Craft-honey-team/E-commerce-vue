@@ -11,7 +11,7 @@
 							store.langProp.settings }}</span>
 					<span class="justify-self-center mx-2 max-[700px]:hidden">|</span>
 					<button @click="$router.push(`../Personal/${$route.params.id}`)"
-						class="bg-[#EAAD02] h-[30px] rounded-[10px] px-2 text-white">{{ store.langProp.myorders }}</button>
+						class="bg-[#EAAD02] h-[30px] rounded-[10px] px-2 text-white hover:bg-amber-400">{{ store.langProp.myorders }}</button>
 				</div>
 				<div class = "grid grid-cols-2">
 				<div class="grid grid-cols-2 text-[20px]">
@@ -77,7 +77,7 @@
 				</div>
 				
 				<button @click="resetPassword" class="text-blue-700 underline decoration-1 text-[18px] hover:text-amber-700 hover:underline underline-offset-4 w-max" to="">{{ store.langProp.changePassword }}</button>
-				<button @click="exitPersonalArea" class="bg-[#EAAD02] h-[30px] w-[200px] rounded-[10px] px-2 text-center text-white  hover:text-amber-700 hover:underline underline-offset-4">{{ store.langProp.leave }}</button>
+				<button @click="exitPersonalArea" class="bg-[#EAAD02] h-[30px] w-[200px] rounded-[10px] px-2 text-center text-white hover:bg-amber-400">{{ store.langProp.leave }}</button>
 			</div>        
 		</div>
 	</Layout>

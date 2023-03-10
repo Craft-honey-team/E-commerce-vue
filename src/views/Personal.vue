@@ -6,7 +6,7 @@
 			</div>
 			<div class="grid grid-flow-col auto-cols-max mb-[20px] text-[20px]">
 				<button @click="$router.push(`../PersonalArea/${$route.params.id}`)"
-					class="bg-[#EAAD02] h-[30px] rounded-[10px] px-2 text-white">{{ store.langProp.settings
+					class="bg-[#EAAD02] h-[30px] rounded-[10px] px-2 text-white hover:bg-amber-400">{{ store.langProp.settings
 					}}</button>
 				<span class="justify-self-center mx-2 max-[700px]:hidden">|</span>
 				<span
@@ -22,7 +22,7 @@
 					<p>{{ store.langProp.myorders }}</p>
 				</div>
 				<div class="bg-[#beedb5] p-4" v-for = "(item, index) in store.orders">
-					<p class="text-[20px]">{{ store.langProp.orders }} №{{index}}</p>
+					<p class="text-[20px]">{{ store.langProp.orders }} №{{index+1}}</p>
 					<div class="flex justify-around mt-4">
 						<div class="">
 							<p class="text-slate-700">{{ store.langProp.delivery }}</p>
@@ -45,7 +45,7 @@
 
 				</div>
 			</div>
-			<button @click="exitPersonalArea" class="bg-[#EAAD02] h-[30px] w-[200px] rounded-[10px] my-4 px-2 text-center text-white  hover:text-amber-700 hover:underline underline-offset-4">{{ store.langProp.leave }}</button>
+			<button @click="exitPersonalArea" class="bg-[#EAAD02] h-[30px] w-[200px] rounded-[10px] my-4 px-2 text-center text-white hover:bg-amber-400">{{ store.langProp.leave }}</button>
 		</div>
     </Layout>
 </template>

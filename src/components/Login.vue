@@ -7,7 +7,7 @@
                 <span class="bg-gray-200 rounded-[10px] px-2 text-black">{{ store.langProp.login }}</span>
                 <span class="mx-2">|</span>
                 <button @click="store.comp = 'Register'"
-                    class="bg-[#EAAD02] rounded-[10px] px-2 text-white hover:text-amber-700">{{
+                    class="bg-[#EAAD02] rounded-[10px] px-2 text-white hover:bg-amber-400">{{
                         store.langProp.registration }}</button>
             </div>
 
@@ -36,7 +36,7 @@
                     store.langProp.forgotpassword }}</span>
 
             <button @click="login" :disabled="email.length <= 2 || password.length <= 1"
-                class="bg-[#EAAD02] border-2 border-none rounded-[3px] text-white h-[45px] disabled:opacity-50 ">{{
+                class="bg-[#EAAD02] border-2 border-none rounded-[3px] text-white h-[45px] hover:bg-amber-400 disabled:opacity-50">{{
                     store.langProp.login }}
             </button>
             <p class="text-center">{{ store.langProp.donthaveaccount }}<button

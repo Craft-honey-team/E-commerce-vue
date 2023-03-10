@@ -2,7 +2,7 @@
 	
       <div class="grid grid-flow-row gap-y-[20px] mb-[60px] [&_input]:h-[60px]">
 		<div class="grid grid-cols-[max-content_auto_max-content] text-[40px] max-[700px]:grid-cols-1">
-			<button @click = "store.comp = 'Contacts'" class = "bg-[#EAAD02] rounded-[10px] px-2 text-white max-[550px]:text-2xl">{{ store.langProp.contacts }}</button>
+			<button @click = "store.comp = 'Contacts'" class = "bg-[#EAAD02] rounded-[10px] px-2 text-white hover:bg-amber-400 max-[550px]:text-2xl">{{ store.langProp.contacts }}</button>
 			<span class = "justify-self-center max-[700px]:hidden">|</span>
 			<span class = "bg-gray-200 font-bold font-roboto rounded-[10px] px-2 text-black text-center max-[550px]:text-2xl">{{ store.langProp.feedback }}</span>  
 		</div>
@@ -28,7 +28,7 @@
          <div class="grid grid-cols-2 gap-[20px] [&>*]:h-[50px]  ">
             <button @click="sendMail" 
             :disabled="name.length <= 2 || mail.length <= 5 || phone.length <= 7  || message.length <= 10"
-               class="bg-[#EAAD02] text-white rounded-[5px] disabled:opacity-50">{{	store.langProp.send }}</button>
+               class="bg-[#EAAD02] text-white rounded-[5px] hover:bg-amber-400 disabled:opacity-50">{{	store.langProp.send }}</button>
             <button @click="clearInput"
                class="bg-[#02020233] rounded-[5px]">{{	store.langProp.reset }}</button>
          </div>

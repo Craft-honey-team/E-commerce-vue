@@ -3,7 +3,7 @@
 
     <div class="grid auto-rows-min gap-[20px]">
       <div class="text-[30px] h-[45px] flex justify-center ">
-        <button @click="store.comp = 'Login'" class="bg-[#EAAD02] rounded-[10px] px-2 text-white  hover:text-amber-700">{{
+        <button @click="store.comp = 'Login'" class="bg-[#EAAD02] rounded-[10px] px-2 text-white hover:bg-amber-400">{{
           store.langProp.login }}</button>
         <span class="mx-2">|</span>
         <span class="bg-gray-300 rounded-[10px] px-2 text-black">{{ store.langProp.registration }}</span>
@@ -55,7 +55,7 @@
 
       <button @click="register"
         :disabled="name.length <= 2 || password.length <= 5 || email.length <= 5 || password !== password2"
-        class=" bg-[#EAAD02] border-2 border-none rounded-[3px] text-white h-[45px] disabled:opacity-50 ">{{
+        class=" bg-[#EAAD02] border-2 border-none rounded-[3px] text-white h-[45px] hover:bg-amber-400 disabled:opacity-50 ">{{
           store.langProp.registration }}
       </button>
       <p class="text-center">{{ store.langProp.doyouhaveaccount }}<button

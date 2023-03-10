@@ -21,7 +21,7 @@
                             <p class="text-[20px] leading-none self-center">{{ store.langProp.quantity }}:</p>
                             <div class="grid grid-flow-col self-center justify-self-end gap-[2px] px-1">
                             
-                                <button class="flex justify-center items-center w-[30px] h-[30px] border-solid border-2 border-[#1C1B1F]  rounded-full  hover:bg-[#EAAD02]"
+                                <button class="flex justify-center items-center w-[30px] h-[30px] border-solid border-2 border-[#1C1B1F] rounded-full hover:bg-[#EAAD02]"
                                     v-on:click="decrementProductCount(index)">
                                     -
                                 </button>
@@ -36,7 +36,7 @@
                             </div>
                         </div>
                     </div>
-                    <div @click = "addToCart(index)" class="flex justify-center bg-[#EAAD02] h-[35px] rounded-[6px] px-2 text-center text-white  hover:text-amber-700 hover:underline hover:cursor-pointer underline-offset-4">
+                    <div @click = "addToCart(index)" class="flex justify-center bg-[#EAAD02] h-[35px] rounded-[6px] px-2 text-center text-white hover:cursor-pointer hover:bg-amber-400">
                         <button>{{ store.langProp.buy }}</button>
                     </div>
                 </div>

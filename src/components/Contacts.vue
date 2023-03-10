@@ -4,7 +4,7 @@
 		<div class="grid grid-cols-[max-content_auto_max-content] text-[40px] max-[700px]:grid-cols-1 max-[700px]:text-[30px]">
 			<span class = "bg-gray-200 font-bold font-roboto rounded-[10px] px-2 text-black text-center">{{	store.langProp.contacts }}</span>  
 			<span class = "justify-self-center max-[700px]:hidden">|</span>
-			<button @click = "store.comp = 'Feedback'" class = "bg-[#EAAD02] rounded-[10px] px-2 text-white">{{	store.langProp.feedback }}</button>
+			<button @click = "store.comp = 'Feedback'" class = "bg-[#EAAD02] rounded-[10px] px-2 text-white hover:bg-amber-400">{{	store.langProp.feedback }}</button>
 		</div>
 		<div class = "grid grid-cols-2 max-[700px]:grid-cols-1">
 			<div>

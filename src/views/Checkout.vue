@@ -36,7 +36,7 @@
         <div class = "justify-self-center">
           <p class="text-[30px] text-center">{{ store.sumItem(index) }} {{ store.langProp.currency }}</p>
           <div @click="removeCart(index)"          
-            class="flex justify-center  bg-[#EAAD02] h-[35px] w-[160px] rounded-[6px] px-2 text-center text-white  hover:text-amber-700 hover:underline hover:cursor-pointer underline-offset-4">
+            class="flex justify-center  bg-[#EAAD02] h-[35px] w-[160px] rounded-[6px] px-2 text-center text-white hover:bg-amber-400 hover:cursor-pointer">
             <button >{{ store.langProp.remove }}</button>
           </div>
         </div>
@@ -68,7 +68,7 @@
 			</div>
 		</div>
         <button type = "submit" :disabled="Object.keys(store.cart).length == 0" 
-          class="w-[200px] text-center bg-[#EAAD02] px-4 py-2 rounded-[12px] text-white disabled:opacity-50 disabled:hover:text-white disabled:hover:underline-offset-0 hover:text-amber-700 hover:underline hover:cursor-pointer underline-offset-4">
+          class="w-[200px] text-center bg-[#EAAD02] px-4 py-2 rounded-[12px] text-white disabled:opacity-50 disabled:hover:text-white disabled:hover:underline-offset-0 hover:bg-amber-400 hover:cursor-pointer">
           {{ store.langProp.buy }}
         </button>
         </form>

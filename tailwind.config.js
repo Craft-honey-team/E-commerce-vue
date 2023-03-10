@@ -44,10 +44,16 @@ module.exports = {
         '.scrollClass::-webkit-scrollbar': {
           'display': 'none',
         },
-		'.crutch': {
+		'.buttonStyle': {
 		
-			'height': '100vh',
-			'min-height': '750px'
+			'background-color': '#ffcc00',
+			
+
+		},
+		'.buttonStyle:hover': {
+		
+			'background-color': 'rgb(253 230 138)',
+			
 
 		}
       })

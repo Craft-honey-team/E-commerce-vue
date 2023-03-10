@@ -2,7 +2,7 @@
 
 <LayoutModal/>
 
-<div class = "crutch overflow-x-hidden px-[40px] grid grid-rows-[min-content_auto] max-w-screen max-[800px]:px-[20px] max-[400px]:px-[4px]">
+<div class = "min-h-screen overflow-x-hidden px-[40px] grid grid-rows-[min-content_auto] max-w-screen max-[800px]:px-[20px] max-[400px]:px-[4px]">
 <Header />
 <slot class = "" />
 </div>
