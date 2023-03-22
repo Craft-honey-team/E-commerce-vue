@@ -27,6 +27,14 @@
 		<router-link to="Blog" class="relative z-10  flex items-center justify-center bg-yellow-500 bg-opacity-[0.8] w-40 h-12 rounded-md  hover:text-amber-700 hover:underline underline-offset-4">{{ store.langProp.blog }}</router-link>          	
           	<button @click = "store.modal = true, store.comp = 'Contacts', store.bg = 'bg-white'" class="relative z-10 bg-yellow-500 bg-opacity-[0.8] w-40 h-12 rounded-md  hover:text-amber-700 hover:underline underline-offset-4">{{ store.langProp.contacts }}</button>
           </div>
+
+		  <div class="justify-center flex max-[800px]:pt-[10px]">
+      	  <div class="grid grid-cols-2 gap-[20vw] max-[800px]:grid-cols-1 max-[800px]:gap-[10px]">
+		<router-link to="Admin" class="relative z-10  flex items-center justify-center bg-yellow-500 bg-opacity-[0.8] w-40 h-12 rounded-md  hover:text-amber-700 hover:underline underline-offset-4">Admin</router-link>          	
+          	
+          </div>
+		</div>
+
       </div>
     </div>
   </div>

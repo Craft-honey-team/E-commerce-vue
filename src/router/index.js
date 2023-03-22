@@ -38,7 +38,12 @@ const routes = [
       path: 'Checkout',
       alias: 'Checkout',
       component: () => import('@/views/Checkout.vue')
-    }
+    },
+	{
+		path: 'Admin',
+		alias: 'Admin',		
+		component: () => import('@/views/AdminWindow.vue')
+	  }
 ];
 
 const router = createRouter({

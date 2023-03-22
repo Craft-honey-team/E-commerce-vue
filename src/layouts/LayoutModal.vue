@@ -25,6 +25,7 @@ import Feedback from '@/components/Feedback.vue'
 import Login from '@/components/Login.vue'
 import Register from '@/components/Register.vue'
 import FogotPassword from '@/components/FogotPassword.vue'
+import SetPrice from '@/components/SetPrice.vue'
 import { useStore } from '@/stores/test'
 
 export default {
@@ -45,7 +46,9 @@ export default {
 		Feedback,
 		Login,
 		Register,
-		FogotPassword
+		FogotPassword,
+		SetPrice,
+
 	
 	},
 
