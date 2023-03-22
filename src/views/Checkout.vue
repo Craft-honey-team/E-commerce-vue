@@ -26,7 +26,7 @@
             </button>
             <p class="justify-self-center text-[20px] mx-[4px]">{{ item.quantity }} {{ store.langProp.quantityShort }}</p>
 
-            <button class="justify-self-end w-[30px] h-[30px] pb-[2px] border-solid border-2 border-[#1C1B1F]  rounded-full hover:bg-[#EAAD02]"
+            <button class="justify-self-end w-[30px] h-[30px] pb-[2px] border-solid border-2 border-[#1C1B1F] rounded-full hover:bg-[#EAAD02]"
               v-on:click="incrementProductCount(index)">
               <p>+</p>
             </button>
