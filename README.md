@@ -1,7 +1,6 @@
 # Craft honey
 
 Front-end for an e-commerce website. 
-Deploy at craft-honey.onrender.com.
 
 ## Project Setup
 
