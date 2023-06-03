@@ -9,7 +9,7 @@
 
   <div class = "relative grid overflow-hidden -mx-[100px] [&>img]:max-w-none [&>img]:select-none">
   <div class = "absolute w-full h-full bg-gray-900 bg-opacity-[.3]"></div>
-  <img :style = "{'transform': `translate(${xPos/10}px, ${yPos/10}px)` }" class = "w-[2200px] absolute left-[-10%] top-[-10%] -z-10" src="../assets/paralax1.png" />
+  <img :style = "{'transform': `translate(${xPos/10}px, ${yPos/10}px)` }" class = "w-[2400px] absolute left-[-10%] top-[-10%] -z-10" src="../assets/paralax1.png" />
   <img :style = "{'transform': `translate(${xPos/13}px, ${yPos/13}px)` }" class = "w-[2200px] h-[70%] absolute left-[-10%] top-0 -z-10" src="../assets/paralax2.png" />
   <img :style = "{'transform': `translate(${xPos/24}px, ${yPos/24}px)` }" class = "w-[440px] absolute justify-self-center mr-[1120px] bottom-[60px] z-[-9]" src="../assets/paralax3a.png" />
   <img :style = "{'transform': `translate(${xPos/24}px, ${yPos/24}px)` }" class = "w-[500px] absolute justify-self-center ml-[220px] bottom-[40px] z-[-9]" src="../assets/paralax3b.png" />
