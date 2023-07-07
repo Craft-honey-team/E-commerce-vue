@@ -19,3 +19,5 @@ npm run dev
 ```sh
 npm run build
 ```
+
+Deploy at https://craft-honey-1pd1.onrender.com
